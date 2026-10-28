@@ -112,10 +112,18 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-10-27", "19:30", "BKN", "BOS", -11.5, 220.5, 440, -592, "NBCS-BOS/YES"],
-  ["2026-10-27", "20:00", "SAC", "SAS", -17.5, 230.5, 1150, -2500, ""],
-  ["2026-10-27", "20:00", "DET", "NYK", -4.5, 218.5, 130, -155, ""],
-  ["2026-10-27", "23:00", "POR", "LAL", -3.5, 235.5, 118, -138, ""],
+  ["2026-10-28", "19:00", "MIA", "ATL", -3.5, 240.5, 126, -148, ""],
+  ["2026-10-28", "19:00", "CHA", "DET", -6.5, 215.5, 188, -225, ""],
+  ["2026-10-28", "19:00", "PHI", "IND", 4.5, 237.5, -184, 154, "ESPN"],
+  ["2026-10-28", "19:00", "WAS", "CLE", -9.5, 239.5, 300, -375, ""],
+  ["2026-10-28", "19:30", "ORL", "TOR", -5.5, 223.5, 156, -186, ""],
+  ["2026-10-28", "20:00", "HOU", "MIL", 8.5, 227.5, -300, 245, ""],
+  ["2026-10-28", "20:00", "NYK", "CHI", 7.5, 234.5, -250, 205, ""],
+  ["2026-10-28", "20:00", "GSW", "MIN", -3.5, 228.5, 124, -146, ""],
+  ["2026-10-28", "20:00", "DEN", "NOP", 4.5, 240.5, -184, 154, ""],
+  ["2026-10-28", "21:00", "SAS", "UTA", 11.5, 234.5, -592, 430, ""],
+  ["2026-10-28", "21:30", "OKC", "DAL", 6.5, 229.5, -225, 188, "ESPN"],
+  ["2026-10-28", "22:30", "LAL", "LAC", 5.5, 228.5, -184, 154, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -131,9 +139,9 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Opening lines as of Oct 25. Games without a posted line are left off.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Tue Oct 27", dataDate:"2026-10-26",
+  nba: { key:"nba", label:"NBA", weekLabel:"Wed Oct 28", dataDate:"2026-10-26",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from Bleacher Nation, Dimers and WagerTalk, Oct 27. Finished games drop off once they end.",
+    footer:"Lines from FanDuel Research, Oct 28. Finished games drop off once they end.",
   },
 };
 
