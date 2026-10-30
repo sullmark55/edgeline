@@ -112,9 +112,16 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-10-29", "20:00", "CLE", "ATL", -1.5, 237.5, 102, -122, ""],
-  ["2026-10-29", "20:00", "SAC", "NOP", -6, 237.5, 190, -230, ""],
-  ["2026-10-29", "22:00", "MEM", "POR", -7.5, 234.5, 230, -282, ""],
+  ["2026-10-30", "19:00", "CHA", "WAS", 2.5, 229.5, -140, 120, ""],
+  ["2026-10-30", "19:30", "DET", "BKN", 6.5, 221.5, -257, 245, ""],
+  ["2026-10-30", "19:30", "CHI", "BOS", -15.5, 235.5, 575, -1850, ""],
+  ["2026-10-30", "19:30", "NYK", "PHI", -2.5, 231.5, 105, -125, "Prime Video"],
+  ["2026-10-30", "19:30", "ORL", "TOR", -5.5, 225.5, 170, -205, ""],
+  ["2026-10-30", "20:00", "LAC", "MIN", -7.5, 222.5, 245, -245, ""],
+  ["2026-10-30", "20:00", "IND", "MIA", -7.5, 236.5, 225, -278, ""],
+  ["2026-10-30", "20:00", "HOU", "DAL", 5.5, 225.5, -205, 208, ""],
+  ["2026-10-30", "22:00", "LAL", "GSW", 2.5, 233.5, -140, 120, "Prime Video"],
+  ["2026-10-30", "22:00", "DEN", "PHX", 4.5, 231.5, -175, 150, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -130,9 +137,9 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines from DraftKings (via ESPN) and CBS Sports, Oct 29. Totals left unrated where no current total was posted.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Thu Oct 29", dataDate:"2026-10-26",
+  nba: { key:"nba", label:"NBA", weekLabel:"Fri Oct 30", dataDate:"2026-10-26",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from WagerTalk/TheSpread/iHeart consensus, Oct 29. Finished games drop off once they end.",
+    footer:"Lines from Dimers, TheRx, TheSpread, Pick Dawgz & DraftKings via SI, Oct 30. Finished games drop off once they end.",
   },
 };
 

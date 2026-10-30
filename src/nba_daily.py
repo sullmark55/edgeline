@@ -27,6 +27,10 @@ open('model2.js','w').write(m)
 a=open('app_script.js').read()
 fm=re.search(r'const FINALS=(\{.*?\});',a)
 F=json.loads(fm.group(1))
+# rematch: an older final for a matchup on today's slate would hide the game and block its picks; drop it
+for g in U['games']:
+    k=g[2]+'|'+g[3]
+    if k not in U.get('finals',{}) and F.pop('nba:'+k,None): print('cleared old final for rematch',k)
 for k,v in U.get('finals',{}).items(): F['nba:'+k]=v
 a=a[:fm.start(1)]+json.dumps(F,separators=(',',':'))+a[fm.end(1):]
 pm=re.search(r'const PICK_LOG = (\[.*?\]);\n',a,re.S)
