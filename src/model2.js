@@ -5,20 +5,20 @@ const CFB_ROWS = /*CFBROWS*/; // [team, conf, offPPA, defPPA, offSR, defSR, offP
 // Game rows: [dateYYYY-MM-DD, timeET "HH:MM", away, home, homeSpread, total, mlAway, mlHome, tv, extra]
 // homeSpread: home team's line (negative = home favored).
 const NFL_GAMES = [
-  ["2026-10-29","20:15","CAR","GB",-3.5,47.5,165,-200,"Prime"],
-  ["2026-11-01","13:00","IND","JAX",-7.5,46.5,325,-410,"CBS"],
-  ["2026-11-01","13:00","TEN","CIN",-10.5,46.5,450,-600,"CBS"],
-  ["2026-11-01","13:00","CLE","PIT",-3.5,38.5,165,-200,"CBS"],
-  ["2026-11-01","13:00","BAL","BUF",-3.5,53.5,158,-188,"CBS"],
-  ["2026-11-01","13:00","LV","NYJ",-1.5,44.5,-107,-113,"CBS"],
-  ["2026-11-01","13:00","MIN","DET",-3.5,46.5,141,-166,"FOX"],
-  ["2026-11-01","13:00","ATL","TB",-1.5,46.5,114,-134,"FOX"],
-  ["2026-11-01","13:00","ARI","DAL",-6.5,53.5,240,-300,"FOX"],
-  ["2026-11-01","16:05","LAC","LA",-6.5,43.5,250,-310,"CBS"],
-  ["2026-11-01","16:25","NE","MIA",7.5,44.5,-380,300,"FOX"],
-  ["2026-11-01","16:25","KC","DEN",1.5,41.5,-125,105,"FOX"],
-  ["2026-11-01","20:20","PHI","WAS",-3.5,40.5,163,-180,"NBC"],
-  ["2026-11-02","20:15","CHI","SEA",-3.5,46.5,152,-182,"ABC/ESPN"],
+  ["2026-10-29", "20:15", "CAR", "GB", -3.5, 47.5, 165, -200, "Prime"],
+  ["2026-11-01", "13:00", "IND", "JAX", -10, 46.5, 380, -500, "CBS"],
+  ["2026-11-01", "13:00", "TEN", "CIN", -12.5, 46.5, 490, -675, "CBS"],
+  ["2026-11-01", "13:00", "CLE", "PIT", -3.5, 39.5, 160, -192, "CBS"],
+  ["2026-11-01", "13:00", "BAL", "BUF", -3, 54.5, 145, -175, "CBS"],
+  ["2026-11-01", "13:00", "LV", "NYJ", -1.5, 45.5, 102, -122, "CBS"],
+  ["2026-11-01", "13:00", "MIN", "DET", -3, 46.5, 142, -170, "FOX"],
+  ["2026-11-01", "13:00", "ATL", "TB", -2.5, 44.5, 120, -142, "FOX"],
+  ["2026-11-01", "13:00", "ARI", "DAL", -7, 54.5, 250, -310, "FOX"],
+  ["2026-11-01", "16:05", "LAC", "LA", -6.5, 45.5, 220, -270, "CBS"],
+  ["2026-11-01", "16:25", "NE", "MIA", 7, 43.5, -325, 260, "FOX"],
+  ["2026-11-01", "16:25", "KC", "DEN", 1.5, 40.5, -118, -102, "FOX"],
+  ["2026-11-01", "20:20", "PHI", "WAS", -6, 40.5, 205, -250, "NBC"],
+  ["2026-11-02", "20:15", "CHI", "SEA", -3, 46.5, 142, -170, "ABC/ESPN"],
 ];
 const NFL_VENUES={GB:"Lambeau Field",JAX:"EverBank Stadium",CIN:"Paycor Stadium",PIT:"Acrisure Stadium",BUF:"Highmark Stadium",NYJ:"MetLife Stadium",DET:"Ford Field",TB:"Raymond James Stadium",DAL:"AT&T Stadium",LA:"SoFi Stadium",MIA:"Hard Rock Stadium",DEN:"Empower Field at Mile High",WAS:"Northwest Stadium",SEA:"Lumen Field"};
 
@@ -131,7 +131,7 @@ const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Pan
 const LEAGUES = {
   nfl: { key:"nfl", label:"NFL", weekLabel:"Week 8", dataDate:"2026-10-27",
     cfg:{basePts:22.0, plays:62, regress:0.55, sdMargin:13.5, sdTotal:13.0, srScale:2.4, passScale:0.65, wModel:0.40, hfa:1.5, keys:[3,7]},
-    footer:"Lines from bet365 via Fox Sports, Oct 26. Bye: HOU, NYG, NO, SF.",
+    footer:"Lines: VegasInsider consensus, Oct 29. Bye: HOU, NYG, NO, SF.",
   },
   cfb: { key:"cfb", label:"CFB", weekLabel:"Week 9", dataDate:"2026-10-27",
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
