@@ -112,13 +112,10 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-10-31", "15:00", "POR", "UTA", 6.0, 232.0, -240, 200, ""],
-  ["2026-10-31", "18:00", "PHI", "CHA", 1.5, 215.5, -120, 100, ""],
-  ["2026-10-31", "19:00", "ATL", "NOP", 4.5, 239.5, -170, 142, ""],
-  ["2026-10-31", "20:00", "SAC", "MEM", -10.5, 232.5, 380, -500, ""],
-  ["2026-10-31", "20:00", "CLE", "MIL", 9.5, 237.5, -335, 270, ""],
-  ["2026-10-31", "20:00", "MIN", "SAS", -12.5, 226.5, 431, -549, ""],
-  ["2026-10-31", "20:30", "OKC", "HOU", -3.5, 218.5, 136, -162, ""],
+  ["2026-11-01", "15:30", "BOS", "ORL", 6.5, 222.5, -250, 205, ""],
+  ["2026-11-01", "17:00", "BKN", "IND", -3.5, 229.5, 144, -172, ""],
+  ["2026-11-01", "20:30", "LAC", "GSW", -1.5, 219.5, 108, -130, ""],
+  ["2026-11-01", "21:00", "TOR", "LAL", -4.5, 228.5, 152, -180, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -134,9 +131,9 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines from DraftKings (via ESPN) and CBS Sports, Oct 29. Totals left unrated where no current total was posted.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Sat Oct 31", dataDate:"2026-10-30",
+  nba: { key:"nba", label:"NBA", weekLabel:"Sun Nov 1", dataDate:"2026-10-30",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from FanDuel via Covers, Pick Dawgz, TheSpread & iHeart/BetMGM, Oct 31. Finished games drop off once they end.",
+    footer:"Lines from FanDuel, Nov 1. Finished games drop off once they end.",
   },
 };
 
