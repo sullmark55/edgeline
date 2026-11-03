@@ -108,7 +108,7 @@ function header(){
     <li><b>Blend with Vegas.</b> Margins are ${Math.round(c.wModel*100)}% model / ${Math.round((1-c.wModel)*100)}% market. Totals are ${Math.round(c.wTotal*100)}% model / ${Math.round((1-c.wTotal)*100)}% market, because pace from so few games is noisy.</li>
     <li><b>Probabilities.</b> Cover and win chances use a normal curve around the projection (SD ${c.sdMargin} for margin, ${c.sdTotal} for totals).</li>
     <li><b>Edge Score (0–10).</b> Same scale as football: how far the model's probability clears the break-even for the price. NBA has no key numbers, so there's no 3/7 bump.</li>`;
-    $("#methodNote").textContent="Stats from dunksandthrees.com/stats/team. Ratings refreshed Oct 31 (games through Oct 30). Lines from FanDuel Research and other public odds pages on each game day; each tile notes its source when it isn't FanDuel or CBS. Picks lock at the lines shown. Ratings don't know about last-minute injuries or rest days, so check the injury report before betting. This is a statistical model for entertainment and research, not financial advice.";
+    $("#methodNote").textContent="Stats from dunksandthrees.com/stats/team. Ratings refreshed Nov 3 (games through Nov 2). Lines from FanDuel Research and other public odds pages on each game day; each tile notes its source when it isn't FanDuel or CBS. Picks lock at the lines shown. Ratings don't know about last-minute injuries or rest days, so check the injury report before betting. This is a statistical model for entertainment and research, not financial advice.";
     return;
   }
   $("#methodList").innerHTML=`
