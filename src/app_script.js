@@ -290,7 +290,7 @@ function openRecord(grp){
     ? [...weeks.filter(w=>wkT[w].pend).sort(),...weeks.filter(w=>!wkT[w].pend).sort().reverse()]
     : [...weeks.filter(w=>wkT[w].pend).reverse().sort(nflFirst),...weeks.filter(w=>!wkT[w].pend).reverse().sort(nflFirst)];
   const wkLabel=w=>grp==="nba"?new Date(w+"T12:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"}):w;
-  const rows=ordered.map(w=>{
+  const dayRow=w=>{
     const items=by(x=>gk(x)===w).sort((a,b)=>b.score-a.score), t=wkT[w];
     const sum=[t.graded||t.P?`${t.W}-${t.L}${t.P?"-"+t.P:""} <span class="num ${t.units>0?'pos':t.units<0?'neg':''}">${t.units===0?"0.00u":fmtU(t.units)}</span>`:"",t.pend?`${t.pend} pending`:""].filter(Boolean).join(" · ");
     return `<details class="wk"${t.pend?" open":""}><summary><span class="wkhead">${esc(wkLabel(w))}</span><span class="wksum">${sum}</span><span class="wkchev" aria-hidden="true"></span></summary><div class="plog">${items.map(x=>{
@@ -299,7 +299,23 @@ function openRecord(grp){
       const fin=r?` · Final ${esc(x.away)} ${x.fa}, ${esc(x.home)} ${x.fh}`:"";
       const u=r?` <span class="num ${unitsFor(x,r)>=0?'pos':'neg'}">${fmtU(unitsFor(x,r))}</span>`:"";
       return `<div class="row">${chip}<div style="min-width:0"><div class="pk">${esc(x.pick)}${u}</div><div class="sub">${MK[x.m]==="ML"?"Moneyline":MK[x.m]} · ${esc(x.away)} @ ${esc(x.home)}${fin}</div></div><span class="scorebig c-${tier(x.score)}" style="font-size:18px">${x.score.toFixed(1)}</span></div>`;}).join("")}</div></details>`;
-  }).join("");
+  };
+  // NBA: once a month is over and fully graded, its days fold under one month row
+  const sumOf=t=>[t.graded||t.P?`${t.W}-${t.L}${t.P?"-"+t.P:""} <span class="num ${t.units>0?'pos':t.units<0?'neg':''}">${t.units===0?"0.00u":fmtU(t.units)}</span>`:"",t.pend?`${t.pend} pending`:""].filter(Boolean).join(" · ");
+  let rows;
+  if(grp==="nba"){
+    const now=new Date(), curMo=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}`;
+    const moOf=w=>w.slice(0,7);
+    const done=w=>moOf(w)<curMo && !wkT[w].pend;
+    const months=[...new Set(ordered.filter(done).map(moOf))].sort().reverse();
+    const moDone=m=>ordered.filter(w=>moOf(w)===m).every(done);
+    const loose=ordered.filter(w=>!(done(w)&&moDone(moOf(w))));
+    rows=loose.map(dayRow).join("")+months.filter(moDone).map(m=>{
+      const days=ordered.filter(w=>moOf(w)===m), t=tally(by(x=>moOf(gk(x))===m));
+      const lbl=new Date(m+"-15T12:00").toLocaleDateString(undefined,{month:"long",year:"numeric"});
+      return `<details class="wk mo"><summary><span class="wkhead">${esc(lbl)}</span><span class="wksum">${sumOf(t)}</span><span class="wkchev" aria-hidden="true"></span></summary><div class="moin">${days.map(dayRow).join("")}</div></details>`;
+    }).join("");
+  } else rows=ordered.map(dayRow).join("");
   $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">${grp==="nba"?"NBA record":"Football record"}</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
   <div class="rgsw" role="group" aria-label="Which record"><button type="button" data-rg="fb" aria-pressed="${grp==="fb"}">Football</button><button type="button" data-rg="nba" aria-pressed="${grp==="nba"}">NBA</button></div>
   <p class="note" style="margin:8px 0 0">${grp==="nba"?"NBA picks are tracked separately from football. ":""}Every pick rated 6.0 or higher, locked before ${grp==="nba"?"tip-off":"kickoff"}. Spreads and totals graded at −110; moneylines at the posted price. 1 unit risked per pick.</p>
