@@ -131,6 +131,36 @@ const NBA_GAMES = [
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
+// CBB: KenPom ratings (pasted from kenpom.com, Nov 3). [team, conf, W-L, AdjO, AdjD, AdjT, AdjEM]
+const CBB_ROWS = /*CBBROWS*/;
+// tip times ET. [date, time, away, home, homeSpread, total, mlAway, mlHome, tv, extra]; null moneyline = not posted
+const CBB_GAMES = [
+  ["2026-11-03", "18:00", "Wofford", "Tennessee", -25.5, 155.5, 2500, -9000, ""],
+  ["2026-11-03", "19:00", "Purdue Fort Wayne", "Duquesne", -9.5, 153.5, 380, -500, ""],
+  ["2026-11-03", "19:00", "Stetson", "South Carolina", -20.5, 149.5, 1800, -5000, ""],
+  ["2026-11-03", "19:00", "Manhattan", "Kentucky", -33.5, 158.5, null, null, ""],
+  ["2026-11-03", "19:00", "Coppin State", "Virginia Tech", -31.5, 150.5, null, null, ""],
+  ["2026-11-03", "19:00", "Hampton", "Georgia Tech", -13.5, 149.5, 800, -1350, ""],
+  ["2026-11-03", "19:00", "Holy Cross", "Rhode Island", -20.5, 147.5, 1700, -4500, ""],
+  ["2026-11-03", "19:00", "Wagner", "Boston College", -20.5, 143.5, 1700, -4500, ""],
+  ["2026-11-03", "19:30", "Drexel", "Virginia", -31.5, 142.5, null, null, ""],
+  ["2026-11-03", "19:30", "Sam Houston", "Alabama", -27.5, 172.5, 2200, -8000, ""],
+  ["2026-11-03", "20:00", "Arkansas Pine Bluff", "Arkansas", -41.5, 166.5, null, null, ""],
+  ["2026-11-03", "20:00", "LSU New Orleans", "LSU", -27.5, 159.5, 3000, -10000, ""],
+  ["2026-11-03", "20:00", "Cleveland State", "Missouri", -26.5, 160.5, 2200, -8000, ""],
+  ["2026-11-03", "20:00", "Alabama State", "Texas A&M", -32.5, 163.5, null, null, ""],
+  ["2026-11-03", "20:00", "Lipscomb", "Iowa", -23.5, 149.5, 2200, -8000, ""],
+  ["2026-11-03", "20:00", "South Dakota State", "Kansas State", -11.5, 159.5, 490, -675, ""],
+  ["2026-11-03", "22:00", "Northern Arizona", "UNLV", -20.5, 153.5, 1800, -5000, ""],
+  ["2026-11-03", "22:00", "North Florida", "Cal Baptist", -10.5, 155.5, 470, -650, ""],
+  ["2026-11-03", "22:00", "Cal State Fullerton", "San Diego State", -13.5, 154.5, 800, -1350, ""],
+  ["2026-11-04", "19:30", "CSUN", "Wichita State", -14.5, 161.5, 700, -1100, ""],
+  ["2026-11-04", "20:00", "Northern Kentucky", "South Dakota", 2.5, 159.5, -125, 105, ""],
+  ["2026-11-04", "22:00", "Milwaukee", "Santa Clara", -18.5, 159.5, 1200, -2400, ""],
+  ["2026-11-04", "22:00", "North Dakota State", "Saint Mary's", -12.5, 149.5, 525, -750, ""],
+  ["2026-11-06", "20:00", "UConn", "Michigan", 5.5, 146.5, -230, 190, "TNT", {"venue":"TD Garden, Boston","hfa":0,"note":"Hall of Fame Series — neutral site"}],
+];
+
 const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",GB:"Packers",HOU:"Texans",IND:"Colts",JAX:"Jaguars",KC:"Chiefs",LA:"Rams",LAC:"Chargers",LV:"Raiders",MIA:"Dolphins",MIN:"Vikings",NE:"Patriots",NO:"Saints",NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",TB:"Buccaneers",TEN:"Titans",WAS:"Commanders"};
 
 // ===================== MODEL =====================
@@ -146,6 +176,10 @@ const LEAGUES = {
   nba: { key:"nba", label:"NBA", weekLabel:"Wed Nov 4", dataDate:"2026-10-30",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from iHeart/Covers consensus, Nov 3. Finished games drop off once they end.",
+  },
+  cbb: { key:"cbb", label:"CBB", weekLabel:"Nov 3–6", dataDate:"2026-11-03",
+    cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.30, hfa:3.2, keys:[]},
+    footer:"Lines from DraftKings via ESPN, Nov 3. Games without a posted line are left off. Finished games drop off once they end.",
   },
 };
 
@@ -164,6 +198,21 @@ function parseNBA(rows){
     t[ab]={team:ab, short:ab, name, aORTG:o, aDRTG:d, pace:p, gp, ortg, drtg, net:ortg+drtg,
       paceAdj:lgP+(p-lgP)*gp/(gp+6), // tiny samples: lean on league-average pace until games pile up
       offRating:ortg/100, defRating:-drtg/100}; });
+  const T=Object.values(t);
+  [...T].sort((a,b)=>b.net-a.net).forEach((x,i)=>x.powerRank=i+1);
+  [...T].sort((a,b)=>b.ortg-a.ortg).forEach((x,i)=>x.offRank=i+1);
+  [...T].sort((a,b)=>b.drtg-a.drtg).forEach((x,i)=>x.defRank=i+1);
+  [...T].sort((a,b)=>b.pace-a.pace).forEach((x,i)=>x.paceRank=i+1);
+  t.__lg={lgO,lgD,lgP};
+  return t;
+}
+function parseCBB(rows){
+  const t={}, avg=k=>rows.reduce((s,r)=>s+r[k],0)/rows.length;
+  const lgO=avg(3), lgD=avg(4), lgP=avg(5);
+  rows.forEach(r=>{ const [team,conf,wl,o,d,p]=r; const gp=wl.split("-").reduce((s,x)=>s+(+x||0),0);
+    const ortg=o-lgO, drtg=lgD-d;
+    t[team]={team, short:team, name:team, conf, rec:wl, aORTG:o, aDRTG:d, pace:p, gp, ortg, drtg, net:ortg+drtg,
+      paceAdj:p, offRating:ortg/100, defRating:-drtg/100}; });
   const T=Object.values(t);
   [...T].sort((a,b)=>b.net-a.net).forEach((x,i)=>x.powerRank=i+1);
   [...T].sort((a,b)=>b.ortg-a.ortg).forEach((x,i)=>x.offRank=i+1);
@@ -203,7 +252,7 @@ function edgeScore(p,be,mult,bonus){const s=(p-be)*100*mult+(bonus||0);return Ma
 function tier(s){return s>=8?"Strong":s>=6?"Solid":s>=4?"Lean":s>0?"Thin":"Pass";}
 function crossesKey(a,b){const lo=Math.min(Math.abs(a),Math.abs(b)),hi=Math.max(Math.abs(a),Math.abs(b));let k=0;if(lo<3&&hi>3)k+=0.6;if(lo<7&&hi>7)k+=0.4;return k;}
 function fmtLine(x){return x===0?"PK":(x>0?"+":"")+x;}
-function fmtML(x){return (x>0?"+":"")+x;}
+function fmtML(x){return x==null?"—":(x>0?"+":"")+x;}
 
 function toGame(row,i,league){
   const [date,time,away,home,spread,total,mlAway,mlHome,tv,extra]=row; const x=extra||{};
@@ -226,7 +275,8 @@ function project(g,teams,cfg){
 
   // spread
   const sEdge=margin-mktMargin, sideHome=sEdge>=0;
-  const pHomeCover=1-Phi((mktMargin-margin)/cfg.sdMargin);
+  const sdM=cfg.sdMargin+(cfg.sdGrow||0)*Math.abs(g.spread); // CBB: bigger spreads, wider outcomes
+  const pHomeCover=1-Phi((mktMargin-margin)/sdM);
   const pCover=sideHome?pHomeCover:1-pHomeCover;
   const sScore=edgeScore(pCover,0.5238,1.4,(cfg.keys&&cfg.keys.length?crossesKey(margin,mktMargin):0));
   const spreadPick=sideHome?`${g.home} ${fmtLine(g.spread)}`:`${g.away} ${fmtLine(-g.spread)}`;
@@ -234,26 +284,28 @@ function project(g,teams,cfg){
   const tEdge=total-g.total, pOver=1-Phi((g.total-total)/cfg.sdTotal), isOver=tEdge>=0, pT=isOver?pOver:1-pOver;
   const tScore=g.noTotal?0:edgeScore(pT,0.5238,1.4,0);
   // moneyline
-  const pHomeWin=Phi(margin/cfg.sdMargin);
-  const ih=mlToProb(g.mlHome), ia=mlToProb(g.mlAway), vig=ih+ia, nvHome=ih/vig, nvAway=ia/vig;
-  const evH=evOf(pHomeWin,g.mlHome), evA=evOf(1-pHomeWin,g.mlAway);
+  const pHomeWin=Phi(margin/sdM);
+  const hasML=g.mlHome!=null&&g.mlAway!=null;
+  const ih=hasML?mlToProb(g.mlHome):pHomeWin, ia=hasML?mlToProb(g.mlAway):1-pHomeWin, vig=ih+ia, nvHome=ih/vig, nvAway=ia/vig;
+  const evH=hasML?evOf(pHomeWin,g.mlHome):0, evA=hasML?evOf(1-pHomeWin,g.mlAway):0;
   const mlHome=evH>=evA, mlEV=Math.max(evH,evA), mlPrice=mlHome?g.mlHome:g.mlAway;
   const longshot=mlPrice>250?(mlPrice-250)/150:0;
-  const mScore=edgeScore(mlHome?pHomeWin:1-pHomeWin,mlToProb(mlPrice),1.1,-longshot);
+  const mScore=!hasML?0:edgeScore(mlHome?pHomeWin:1-pHomeWin,mlToProb(mlPrice),1.1,-longshot);
 
   return {away,home,margin,total,rawAway,rawHome,rawMargin,rawTotal,
     spread:{pick:spreadPick,edgePts:Math.abs(sEdge),prob:pCover,ev:evOf(pCover,-110),score:sScore,tier:tier(sScore),modelLine:-margin},
     totals:{pick:`${isOver?"Over":"Under"} ${g.total}`,edgePts:Math.abs(tEdge),prob:pT,ev:evOf(pT,-110),score:tScore,tier:tier(tScore),pOver},
-    ml:{pick:mlHome?`${g.home} ${fmtML(g.mlHome)}`:`${g.away} ${fmtML(g.mlAway)}`,prob:mlHome?pHomeWin:1-pHomeWin,implied:mlHome?nvHome:nvAway,
+    ml:{pick:!hasML?"No moneyline posted":mlHome?`${g.home} ${fmtML(g.mlHome)}`:`${g.away} ${fmtML(g.mlAway)}`,prob:mlHome?pHomeWin:1-pHomeWin,implied:mlHome?nvHome:nvAway,
         probEdge:mlHome?pHomeWin-nvHome:(1-pHomeWin)-nvAway,ev:mlEV,score:mScore,tier:tier(mScore),pHomeWin,nvHome,nvAway}};
 }
 
 function buildLeague(key){
   const L=LEAGUES[key];
-  const teams=key==="nfl"?parseNFL(NFL_CSV):key==="nba"?parseNBA(NBA_ROWS):parseCFB(CFB_ROWS);
+  const hoops=key==="nba"||key==="cbb";
+  const teams=key==="nfl"?parseNFL(NFL_CSV):key==="nba"?parseNBA(NBA_ROWS):key==="cbb"?parseCBB(CBB_ROWS):parseCFB(CFB_ROWS);
   const LG=teams.__lg; delete teams.__lg;
-  if(key!=="nba") buildRatings(teams,L.cfg);
-  const src=key==="nfl"?NFL_GAMES:key==="nba"?NBA_GAMES:CFB_GAMES;
+  if(!hoops) buildRatings(teams,L.cfg);
+  const src=key==="nfl"?NFL_GAMES:key==="nba"?NBA_GAMES:key==="cbb"?CBB_GAMES:CFB_GAMES;
   const missing=[];
   const games=src.map((r,i)=>toGame(r,i,key)).filter(g=>{const ok=teams[g.away]&&teams[g.home]; if(!ok)missing.push(g.away+" @ "+g.home); return ok;});
   if(L.cfg.calibrateTotals){ // match the model's average scoring level to the market's for this slate
@@ -261,8 +313,8 @@ function buildLeague(key){
     const dev=mean(games.map(g=>(teams[g.away].offRating+teams[g.home].defRating+teams[g.home].offRating+teams[g.away].defRating)*ptsPer));
     L.cfg.basePts=(mean(games.map(g=>g.total))-dev)/2;
   }
-  if(key==="nba"){ // possessions from both teams' pace; base points at league-average efficiency, then calibrated to the slate's market totals
-    games.forEach(g=>{const A=teams[g.away],H=teams[g.home]; g.poss=(A.paceAdj+H.paceAdj)/2; g.basePts=LG.lgO/100*g.poss;});
+  if(hoops){ // possessions from both teams' pace; base points at league-average efficiency, then calibrated to the slate's market totals
+    games.forEach(g=>{const A=teams[g.away],H=teams[g.home]; g.poss=key==="cbb"?A.pace*H.pace/LG.lgP:(A.paceAdj+H.paceAdj)/2; g.basePts=LG.lgO/100*g.poss;});
     const raw=g=>{const A=teams[g.away],H=teams[g.home];return 2*g.basePts+(A.offRating+H.defRating+H.offRating+A.defRating)*g.poss*L.cfg.regress;};
     if(games.length){const shift=mean(games.map(g=>g.total))-mean(games.map(raw)); games.forEach(g=>g.basePts+=shift/2); L.cfg.calShift=shift;}
     L.cfg.lg=LG;
