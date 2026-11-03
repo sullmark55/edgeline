@@ -158,7 +158,7 @@ const CBB_GAMES = [
   ["2026-11-04", "20:00", "Northern Kentucky", "South Dakota", 2.5, 159.5, -125, 105, ""],
   ["2026-11-04", "22:00", "Milwaukee", "Santa Clara", -18.5, 159.5, 1200, -2400, ""],
   ["2026-11-04", "22:00", "North Dakota State", "Saint Mary's", -12.5, 149.5, 525, -750, ""],
-  ["2026-11-06", "20:00", "UConn", "Michigan", 5.5, 146.5, -230, 190, "TNT", {"venue":"TD Garden, Boston","hfa":0,"note":"Hall of Fame Series — neutral site"}],
+  ["2026-11-06", "20:00", "UConn", "Michigan", 5.5, 146.5, -230, 190, "TNT", {"venue": "TD Garden, Boston", "hfa": 0, "note": "Hall of Fame Series — neutral site"}],
 ];
 
 const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",GB:"Packers",HOU:"Texans",IND:"Colts",JAX:"Jaguars",KC:"Chiefs",LA:"Rams",LAC:"Chargers",LV:"Raiders",MIA:"Dolphins",MIN:"Vikings",NE:"Patriots",NO:"Saints",NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",TB:"Buccaneers",TEN:"Titans",WAS:"Commanders"};
