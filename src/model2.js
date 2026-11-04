@@ -145,6 +145,7 @@ const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Ce
 const CBB_ROWS = /*CBBROWS*/;
 // tip times ET. [date, time, away, home, homeSpread, total, mlAway, mlHome, tv, extra]; null moneyline = not posted
 const CBB_GAMES = [
+  ["2026-11-04", "19:00", "Fairleigh Dickinson", "Butler", -25.5, 155.5, 2500, -8000, ""],
   ["2026-11-04", "19:30", "CSUN", "Wichita State", -14.5, 161.5, 700, -1100, ""],
   ["2026-11-04", "20:00", "Northern Kentucky", "South Dakota", 2.5, 159.5, -125, 105, ""],
   ["2026-11-04", "22:00", "Milwaukee", "Santa Clara", -18.5, 159.5, 1200, -2400, ""],
@@ -170,7 +171,7 @@ const LEAGUES = {
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Nov 4–6", dataDate:"2026-11-03",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.30, hfa:3.2, keys:[]},
-    footer:"Lines from DraftKings via ESPN, Nov 4. Games without a posted line are left off. Finished games drop off once they end.",
+    footer:"Lines from DraftKings via ESPN, Nov 4 (FDU–Butler from Dimers). Games without a posted line are left off. Finished games drop off once they end.",
   },
 };
 
