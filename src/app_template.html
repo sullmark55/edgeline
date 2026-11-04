@@ -104,6 +104,15 @@ details.wk>summary:focus-visible{outline:2px solid var(--accent);outline-offset:
 .league button{border:0;background:transparent;color:var(--muted);font:700 20px var(--display);text-transform:uppercase;letter-spacing:.05em;padding:8px 14px 10px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
 .league button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
 .league button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+/* league tab colors: NFL brown, NBA orange, CFB gold, CBB blue */
+:root{--t-nfl:#7a4a24;--t-nba:#d9620f;--t-cfb:#b8860b;--t-cbb:#1f5fc4}
+:root[data-theme="dark"]{--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5}}
+.league button[data-lg="nfl"]{--tc:var(--t-nfl)}.league button[data-lg="nba"]{--tc:var(--t-nba)}
+.league button[data-lg="cfb"]{--tc:var(--t-cfb)}.league button[data-lg="cbb"]{--tc:var(--t-cbb)}
+.league button{color:var(--tc);opacity:.75}
+.league button:hover{opacity:.9}
+.league button[aria-selected="true"]{color:var(--tc);opacity:1;border-bottom-color:var(--tc)}
 .search{flex:1 1 180px;min-width:0}
 .search input{width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 14px var(--body);padding:8px 12px;border-radius:999px}
 .search input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
