@@ -1,10 +1,12 @@
 """Convert a copy-paste of the kenpom.com ratings table into cbb_data.json:  python3 kenpom_import.py pasted.txt
 Rows: [team, conf, W-L, AdjO, AdjD, AdjT, NetRtg]. Team names: "St." -> "State", Connecticut -> UConn, Miami FL -> Miami."""
 import json,re,sys
-ALIAS={"Connecticut":"UConn","Miami FL":"Miami","Sam Houston St.":"Sam Houston","Miami OH":"Miami (OH)"}
+ALIAS={"Connecticut":"UConn","Miami FL":"Miami","Sam Houston St.":"Sam Houston","Miami OH":"Miami (OH)","Mississippi":"Ole Miss",
+       "N.C. State":"NC State","Appalachian St.":"App State","Louisiana Monroe":"UL Monroe","Hawaii":"Hawai'i",
+       "San Jose St.":"San José State","FIU":"Florida International"}
 def norm(n):
     n=re.sub(r'\s+\d+$','',n.strip())  # drop tournament seeds if present
-    return ALIAS.get(n) or re.sub(r'(?<=\S) St\.(?=\s|$)',' State',n)
+    return ALIAS.get(n) or re.sub(r' St\.$',' State',re.sub(r'^Cal St\. ','Cal State ',n))  # "Wichita St." -> "Wichita State"; keeps "Mount St. Mary's"
 rows=[]
 for l in open(sys.argv[1]).read().splitlines():
     c=l.split('\t')
