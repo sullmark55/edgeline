@@ -124,10 +124,20 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-11-04", "19:00", "PHI", "DET", -1.5, 218.5, 106, -126, "ESPN"],
-  ["2026-11-04", "20:00", "CLE", "OKC", -2.5, 228.5, 120, -142, ""],
-  ["2026-11-04", "20:30", "MIN", "HOU", -9.5, 224.5, 290, -360, ""],
-  ["2026-11-04", "21:30", "DAL", "SAS", -12.5, 229.5, 480, -662, "ESPN"],
+  ["2026-11-04", "19:00", "PHI", "DET", -2.5, 217.5, 106, -125, "ESPN"],
+  ["2026-11-04", "19:00", "ATL", "WAS", 2.5, 231.5, -136, 115, ""],
+  ["2026-11-04", "19:30", "MIL", "BOS", -11.5, 223.5, 391, -514, ""],
+  ["2026-11-04", "19:30", "CHA", "BKN", 3.5, 213.5, -162, 136, ""],
+  ["2026-11-04", "19:30", "CHI", "NYK", -12.5, 233.5, 443, -597, ""],
+  ["2026-11-04", "20:00", "IND", "MEM", -6.5, 230.5, 212, -258, ""],
+  ["2026-11-04", "20:00", "UTA", "NOP", -5.5, 235.5, 172, -207, ""],
+  ["2026-11-04", "20:00", "CLE", "OKC", -2.5, 228.5, 125, -148, ""],
+  ["2026-11-04", "20:30", "MIN", "HOU", -8.5, 219.5, 261, -324, ""],
+  ["2026-11-04", "21:00", "TOR", "DEN", -4.5, 231.5, 160, -192, ""],
+  ["2026-11-04", "21:00", "POR", "PHX", 3.5, 227.5, -155, 130, ""],
+  ["2026-11-04", "21:30", "DAL", "SAS", -11.5, 227.5, 411, -545, "ESPN"],
+  ["2026-11-04", "22:00", "LAL", "SAC", 11.5, 235.5, -540, 407, ""],
+  ["2026-11-04", "22:30", "MIA", "LAC", 4.5, 234.5, -201, 168, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -135,25 +145,6 @@ const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Ce
 const CBB_ROWS = /*CBBROWS*/;
 // tip times ET. [date, time, away, home, homeSpread, total, mlAway, mlHome, tv, extra]; null moneyline = not posted
 const CBB_GAMES = [
-  ["2026-11-03", "18:00", "Wofford", "Tennessee", -25.5, 155.5, 2500, -9000, ""],
-  ["2026-11-03", "19:00", "Purdue Fort Wayne", "Duquesne", -9.5, 153.5, 380, -500, ""],
-  ["2026-11-03", "19:00", "Stetson", "South Carolina", -20.5, 149.5, 1800, -5000, ""],
-  ["2026-11-03", "19:00", "Manhattan", "Kentucky", -33.5, 158.5, null, null, ""],
-  ["2026-11-03", "19:00", "Coppin State", "Virginia Tech", -31.5, 150.5, null, null, ""],
-  ["2026-11-03", "19:00", "Hampton", "Georgia Tech", -13.5, 149.5, 800, -1350, ""],
-  ["2026-11-03", "19:00", "Holy Cross", "Rhode Island", -20.5, 147.5, 1700, -4500, ""],
-  ["2026-11-03", "19:00", "Wagner", "Boston College", -20.5, 143.5, 1700, -4500, ""],
-  ["2026-11-03", "19:30", "Drexel", "Virginia", -31.5, 142.5, null, null, ""],
-  ["2026-11-03", "19:30", "Sam Houston", "Alabama", -27.5, 172.5, 2200, -8000, ""],
-  ["2026-11-03", "20:00", "Arkansas Pine Bluff", "Arkansas", -41.5, 166.5, null, null, ""],
-  ["2026-11-03", "20:00", "LSU New Orleans", "LSU", -27.5, 159.5, 3000, -10000, ""],
-  ["2026-11-03", "20:00", "Cleveland State", "Missouri", -26.5, 160.5, 2200, -8000, ""],
-  ["2026-11-03", "20:00", "Alabama State", "Texas A&M", -32.5, 163.5, null, null, ""],
-  ["2026-11-03", "20:00", "Lipscomb", "Iowa", -23.5, 149.5, 2200, -8000, ""],
-  ["2026-11-03", "20:00", "South Dakota State", "Kansas State", -11.5, 159.5, 490, -675, ""],
-  ["2026-11-03", "22:00", "Northern Arizona", "UNLV", -20.5, 153.5, 1800, -5000, ""],
-  ["2026-11-03", "22:00", "North Florida", "Cal Baptist", -10.5, 155.5, 470, -650, ""],
-  ["2026-11-03", "22:00", "Cal State Fullerton", "San Diego State", -13.5, 154.5, 800, -1350, ""],
   ["2026-11-04", "19:30", "CSUN", "Wichita State", -14.5, 161.5, 700, -1100, ""],
   ["2026-11-04", "20:00", "Northern Kentucky", "South Dakota", 2.5, 159.5, -125, 105, ""],
   ["2026-11-04", "22:00", "Milwaukee", "Santa Clara", -18.5, 159.5, 1200, -2400, ""],
@@ -175,11 +166,11 @@ const LEAGUES = {
   },
   nba: { key:"nba", label:"NBA", weekLabel:"Wed Nov 4", dataDate:"2026-11-02",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from iHeart/Covers consensus, Nov 3. Finished games drop off once they end.",
+    footer:"Lines from DraftKings via ESPN, Nov 4. Finished games drop off once they end.",
   },
-  cbb: { key:"cbb", label:"CBB", weekLabel:"Nov 3–6", dataDate:"2026-11-03",
+  cbb: { key:"cbb", label:"CBB", weekLabel:"Nov 4–6", dataDate:"2026-11-03",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.30, hfa:3.2, keys:[]},
-    footer:"Lines from DraftKings via ESPN, Nov 3. Games without a posted line are left off. Finished games drop off once they end.",
+    footer:"Lines from DraftKings via ESPN, Nov 4. Games without a posted line are left off. Finished games drop off once they end.",
   },
 };
 
