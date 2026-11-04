@@ -145,11 +145,11 @@ const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Ce
 const CBB_ROWS = /*CBBROWS*/;
 // tip times ET. [date, time, away, home, homeSpread, total, mlAway, mlHome, tv, extra]; null moneyline = not posted
 const CBB_GAMES = [
-  ["2026-11-04", "19:00", "Fairleigh Dickinson", "Butler", -25.5, 155.5, 2500, -8000, ""],
-  ["2026-11-04", "19:30", "CSUN", "Wichita State", -14.5, 161.5, 700, -1100, ""],
+  ["2026-11-04", "19:00", "Fairleigh Dickinson", "Butler", -25.5, 155.5, 2500, -8000, "ESPN+"],
+  ["2026-11-04", "19:30", "CSUN", "Wichita State", -14.5, 161.5, 700, -1100, "ESPN+"],
   ["2026-11-04", "20:00", "Northern Kentucky", "South Dakota", 2.5, 159.5, -125, 105, ""],
-  ["2026-11-04", "22:00", "Milwaukee", "Santa Clara", -18.5, 159.5, 1200, -2400, ""],
-  ["2026-11-04", "22:00", "North Dakota State", "Saint Mary's", -12.5, 149.5, 525, -750, ""],
+  ["2026-11-04", "22:00", "Milwaukee", "Santa Clara", -18.5, 159.5, 1200, -2400, "ESPN+"],
+  ["2026-11-04", "22:00", "North Dakota State", "Saint Mary's", -12.5, 149.5, 525, -750, "ESPN+"],
   ["2026-11-06", "20:00", "UConn", "Michigan", 5.5, 146.5, -230, 190, "TNT", {"venue": "TD Garden, Boston", "hfa": 0, "note": "Hall of Fame Series — neutral site"}],
 ];
 
