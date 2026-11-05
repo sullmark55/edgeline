@@ -349,6 +349,41 @@ function openRecord(grp){
   document.querySelectorAll("[data-rg]").forEach(b=>b.onclick=()=>{openRecord(b.dataset.rg); const t=document.querySelector(`[data-rg="${b.dataset.rg}"]`); t&&t.focus();});
 }
 $("#recBtn").onclick=()=>openRecord();
+// Top plays: best edges across every league for games that haven't started, one day at a time
+const LG_NAME={nfl:"NFL",cfb:"CFB",nba:"NBA",cbb:"CBB"};
+const localKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+function openTop(day){
+  const items=[];
+  for(const lg of ["nfl","cfb","nba","cbb"]) for(const r of DATA[lg].rows){
+    const {g,p}=r; if(started(g)||finalOf(g)) continue;
+    for(const k of ["spread","totals","ml"]){ const b=p[k]; if(b.score>0) items.push({lg,g,k,b,day:localKey(g.kickoff)}); }
+  }
+  const days=[...new Set(items.map(x=>x.day))].sort().slice(0,5);
+  day=days.includes(day)?day:days[0];
+  const list=items.filter(x=>x.day===day).sort((a,b)=>b.b.score-a.b.score||a.g.kickoff-b.g.kickoff);
+  const locked=x=>PICK_LOG.some(q=>q.lg===x.lg&&q.away===x.g.away&&q.home===x.g.home&&q.m===x.k&&q.pick===x.b.pick);
+  const top=list.filter(x=>x.b.score>=6), lean=list.filter(x=>x.b.score<6).slice(0,Math.max(0,12-top.length));
+  const today=localKey(new Date()), tmr=localKey(new Date(Date.now()+864e5));
+  const dayLbl=d=>d===today?"Today":d===tmr?"Tmrw":new Date(d+"T12:00").toLocaleDateString(undefined,{weekday:"short"});
+  const dayLong=d=>d===today?"today":"on "+new Date(d+"T12:00").toLocaleDateString(undefined,{weekday:"long",month:"short",day:"numeric"});
+  const row=x=>`<button class="toprow" type="button" data-gid="${x.g.id}" data-glg="${x.lg}">
+      <span class="lgtag" data-lg="${x.lg}">${LG_NAME[x.lg]}</span>
+      <span style="min-width:0"><span class="pk">${esc(x.b.pick)}</span>${locked(x)?'<span class="lockt">Locked</span>':""}
+        <span class="sub" style="display:block">${x.k==="ml"?"Moneyline":MK[x.k]} · ${esc(abbr(x.lg,x.g.away))} @ ${esc(abbr(x.lg,x.g.home))} · ${fmtTime(x.g.kickoff)} · ${pct(x.b.prob)} to hit</span></span>
+      <span class="scorebig c-${x.b.tier}" style="font-size:22px">${x.b.score.toFixed(1)}</span></button>`;
+  const counts=["nfl","cfb","nba","cbb"].map(lg=>[lg,new Set(list.filter(x=>x.lg===lg).map(x=>x.g.id)).size]).filter(c=>c[1]);
+  $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">Top plays</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
+  ${days.length>1?`<div class="rgsw days" role="group" aria-label="Which day">${days.map(d=>`<button type="button" data-tday="${d}" aria-pressed="${d===day}">${esc(dayLbl(d))}</button>`).join("")}</div>`:""}
+  <p class="note" style="margin:8px 0 0">${days.length?`The best edges in every sport for games that haven't started ${esc(dayLong(day))}${counts.length?" ("+counts.map(c=>c[1]+" "+LG_NAME[c[0]]).join(", ")+")":""}. Plays rated 6+ are the ones the record tracks. Tap a play for the full breakdown.`:"No upcoming games on the board right now."}</p>
+  ${top.length?`<div class="topcut">Rated 6+ · ${top.length}</div><div class="toplist">${top.map(row).join("")}</div>`:(days.length?`<p class="note" style="margin-top:12px">Nothing rated 6+ ${day===today?"today":"that day"}. Best leans below.</p>`:"")}
+  ${lean.length?`<div class="topcut">${top.length?"Next best":"Best leans"}</div><div class="toplist">${lean.map(row).join("")}</div>`:""}`;
+  $("#scrim").hidden=false; document.body.style.overflow="hidden";
+  $("#closeBtn").focus(); $("#closeBtn").onclick=closeSheet;
+  document.querySelectorAll("[data-tday]").forEach(b=>b.onclick=()=>{openTop(b.dataset.tday); const t=document.querySelector(`[data-tday="${b.dataset.tday}"]`); t&&t.focus();});
+  document.querySelectorAll(".toprow").forEach(b=>b.onclick=()=>{ if(state.lg!==b.dataset.glg){ document.getElementById("lg-"+b.dataset.glg).click(); } openSheet(b.dataset.gid); });
+}
+$("#topBtn").onclick=()=>openTop();
+
 function closeSheet(){$("#scrim").hidden=true;document.body.style.overflow="";}
 $("#scrim").addEventListener("click",e=>{if(e.target.id==="scrim")closeSheet()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#scrim").hidden)closeSheet()});
