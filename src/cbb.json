@@ -1,0 +1,23 @@
+{"label":"Nov 5–6",
+"footer":"Lines from DraftKings via ESPN, Nov 5. Games without a posted line are left off. Finished games drop off once they end.",
+"games":[
+["2026-11-05","18:00","Chattanooga","Penn State",-15.5,159.5,1000,-1800,"BTN"],
+["2026-11-05","18:00","Wake Forest","Vanderbilt",-17.5,154.5,1300,-2800,"ESPN2"],
+["2026-11-05","19:00","Georgia State","Charlotte",-11.5,151.5,525,-750,"ESPN+"],
+["2026-11-05","19:00","Hofstra","Princeton",-1.5,140.5,110,-130,"ESPN+"],
+["2026-11-05","19:00","Green Bay","Cincinnati",-24.5,150.5,3000,-10000,"ESPN+"],
+["2026-11-05","19:00","Mercer","Virginia Tech",-21.5,152.5,1700,-4500,"ACCNX"],
+["2026-11-05","19:00","Buffalo","Pittsburgh",-18.5,151.5,1300,-2800,"ACCNX"],
+["2026-11-05","20:00","Jacksonville State","South Alabama",-3.5,142.5,124,-148,"ESPN+"],
+["2026-11-05","20:00","Toledo","Michigan State",-26.5,152.5,3000,-10000,"Peacock"],
+["2026-11-05","20:00","Northern Illinois","Tulsa",-15.5,152.5,800,-1350,"ESPN+"],
+["2026-11-05","20:00","VMI","SMU",-24.5,159.5,2200,-8000,"ACCNX"],
+["2026-11-05","20:00","West Georgia","Loyola Chicago",-16.5,144.5,1100,-2100,"ESPN+"],
+["2026-11-05","20:00","Coastal Carolina","Duke",-40.5,148.5,null,null,"ACC Network"],
+["2026-11-05","20:30","Penn","Illinois",-29.5,165.5,null,null,"FS1"],
+["2026-11-05","20:30","South Florida","DePaul",-6.5,150.5,230,-285,"truTV"],
+["2026-11-05","21:00","Towson","Utah",-10.5,141.5,400,-535,"ESPN+"],
+["2026-11-05","22:30","Cal Poly","Arizona",-30.5,172.5,4000,-50000,"truTV"],
+["2026-11-06","20:00","UConn","Michigan",5.5,146.5,-230,190,"TNT",{"venue":"TD Garden, Boston","hfa":0,"note":"Hall of Fame Series — neutral site"}]
+],
+"finals":{"Maryland Eastern Shore|High Point":[49,63],"Longwood|Saint Joseph's":[73,82],"Fairleigh Dickinson|Butler":[65,99],"CSUN|Wichita State":[67,79],"Northern Kentucky|South Dakota":[102,94],"Southeastern Louisiana|Auburn":[59,92],"Radford|California":[70,84],"Queens|Loyola Marymount":[96,95],"Milwaukee|Santa Clara":[72,95],"North Dakota State|Saint Mary's":[64,105]}}
