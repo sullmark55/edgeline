@@ -83,8 +83,10 @@ details.wk{border-bottom:1px solid var(--line)}
 .lockt{display:inline-block;margin-left:6px;font:700 10px var(--body);letter-spacing:.04em;text-transform:uppercase;color:var(--turf);border:1px solid var(--turf);border-radius:4px;padding:1px 4px;vertical-align:2px}
 .topcut{font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:12px 4px 4px}
 @media (max-width:520px){.hdrbtns .themebtn #themeLbl{display:none}.hdrbtns .themebtn{padding:0 11px}}
-@media (max-width:400px){.hdrbtns{gap:6px}.hdrbtns .recbtn{padding:0 9px;gap:5px;font-size:12.5px}}
-@media (max-width:359px){.hdrbtns .recbtn span{display:none}}
+@media (max-width:430px){header.top{gap:0 8px}.lockup .mark{width:44px;height:44px}
+  .brand h1{font-size:26px}.hdrbtns{gap:4px}.hdrbtns .recbtn{height:36px;padding:0 8px;gap:4px;font-size:12.5px}.hdrbtns .recbtn svg{width:14px;height:14px}
+  .hdrbtns .themebtn{height:36px;width:36px;padding:0;justify-content:center}}
+@media (max-width:384px){#recBtn span{display:none}#recBtn{padding:0 10px}}
 .rgsw.days{display:flex;max-width:100%;overflow-x:auto;scrollbar-width:none}
 .rgsw.days::-webkit-scrollbar{display:none}
 .rgsw.days button{white-space:nowrap;padding:7px 12px;flex:0 0 auto}
@@ -297,7 +299,7 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
       </div>
     </div>
     <div class="hdrbtns">
-      <button class="recbtn" id="topBtn" type="button" aria-label="Top plays across all sports"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 2.5l2.3 4.8 5.2.7-3.8 3.6.9 5.2L10 14.3 5.4 16.8l.9-5.2L2.5 8l5.2-.7z" fill="currentColor"></path></svg><span>Top plays</span></button>
+      <button class="recbtn" id="topBtn" type="button" aria-label="Top plays across all sports"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 2.5l2.3 4.8 5.2.7-3.8 3.6.9 5.2L10 14.3 5.4 16.8l.9-5.2L2.5 8l5.2-.7z" fill="currentColor"></path></svg><span>Today</span></button>
       <button class="recbtn" id="recBtn" type="button" aria-label="Model record and results"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3 16 V11 M8 16 V6 M13 16 V9 M18 16 V3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path></svg><span>Record</span></button>
       <button class="themebtn" id="themeBtn" type="button" aria-label="Switch to dark mode"><span class="ico" aria-hidden="true"></span><span id="themeLbl">Dark</span></button>
     </div>
