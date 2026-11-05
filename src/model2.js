@@ -5,21 +5,21 @@ const CFB_ROWS = /*CFBROWS*/; // [team, conf, offPPA, defPPA, offSR, defSR, offP
 // Game rows: [dateYYYY-MM-DD, timeET "HH:MM", away, home, homeSpread, total, mlAway, mlHome, tv, extra]
 // homeSpread: home team's line (negative = home favored).
 const NFL_GAMES = [
-  ["2026-11-05", "20:15", "JAX", "BAL", 8.5, 42.5, -470, 360, "Prime"],
-  ["2026-11-08", "09:30", "CIN", "ATL", 3, 52.5, -162, 136, "NFLN", {"venue": "Santiago Bernabéu, Madrid", "hfa": 0.5, "note": "Madrid — treated as near-neutral"}],
-  ["2026-11-08", "13:00", "CLE", "NO", -2.5, 43.5, 120, -142, "CBS"],
-  ["2026-11-08", "13:00", "DAL", "IND", 6, 51.5, -270, 220, "FOX"],
-  ["2026-11-08", "13:00", "DEN", "CAR", 3, 43.5, -148, 124, "CBS"],
-  ["2026-11-08", "13:00", "DET", "MIA", 7, 50.5, -360, 285, "FOX"],
-  ["2026-11-08", "13:00", "LA", "WAS", 5.5, 47.5, -238, 195, "FOX"],
-  ["2026-11-08", "13:00", "NYG", "PHI", 3.5, 40.5, -175, 145, "FOX"],
-  ["2026-11-08", "13:00", "NYJ", "KC", -9.5, 46.5, 370, -485, "CBS"],
-  ["2026-11-08", "16:05", "HOU", "LAC", 4.5, 40.5, -198, 164, "CBS"],
-  ["2026-11-08", "16:25", "LV", "SF", -10, 51.5, 410, -550, "CBS"],
-  ["2026-11-08", "16:25", "GB", "NE", -3, 46.5, 130, -155, "FOX"],
-  ["2026-11-08", "16:25", "ARI", "SEA", -11.5, 44.5, 490, -675, "FOX"],
-  ["2026-11-08", "20:20", "TB", "CHI", -6, 46.5, 210, -258, "NBC"],
-  ["2026-11-09", "20:15", "BUF", "MIN", 3.5, 46.5, -185, 154, "ESPN"],
+  ["2026-11-05", "20:15", "JAX", "BAL", 10, 39.5, -520, 390, "Prime"],
+  ["2026-11-08", "09:30", "CIN", "ATL", 3, 52.5, -155, 130, "NFLN", {"venue": "Santiago Bernabéu, Madrid", "hfa": 0.5, "note": "Madrid — treated as near-neutral"}],
+  ["2026-11-08", "13:00", "CLE", "NO", -3, 42.5, 136, -162, "CBS"],
+  ["2026-11-08", "13:00", "DAL", "IND", 5.5, 51.5, -245, 200, "FOX"],
+  ["2026-11-08", "13:00", "DEN", "CAR", 2.5, 44.5, -155, 130, "CBS"],
+  ["2026-11-08", "13:00", "DET", "MIA", 7, 50.5, -355, 280, "FOX"],
+  ["2026-11-08", "13:00", "LA", "WAS", 5.5, 47.5, -225, 185, "FOX"],
+  ["2026-11-08", "13:00", "NYG", "PHI", 3.5, 38.5, -166, 140, "FOX"],
+  ["2026-11-08", "13:00", "NYJ", "KC", -10, 47.5, 440, -600, "CBS"],
+  ["2026-11-08", "16:05", "HOU", "LAC", 4.5, 40.5, -225, 185, "CBS"],
+  ["2026-11-08", "16:25", "LV", "SF", -10, 52.5, 400, -535, "CBS"],
+  ["2026-11-08", "16:25", "GB", "NE", -3.5, 45.5, 145, -175, "FOX"],
+  ["2026-11-08", "16:25", "ARI", "SEA", -8.5, 39.5, 350, -455, "FOX"],
+  ["2026-11-08", "20:20", "TB", "CHI", -6, 47.5, 245, -305, "NBC"],
+  ["2026-11-09", "20:15", "BUF", "MIN", 3.5, 45.5, -180, 150, "ESPN"]
 ];
 const NFL_VENUES={"BAL": "M&T Bank Stadium", "NO": "Caesars Superdome", "IND": "Lucas Oil Stadium", "CAR": "Bank of America Stadium", "MIA": "Hard Rock Stadium", "WAS": "Northwest Stadium", "PHI": "Lincoln Financial Field", "KC": "GEHA Field at Arrowhead Stadium", "LAC": "SoFi Stadium", "SF": "Levi's Stadium", "NE": "Gillette Stadium", "SEA": "Lumen Field", "CHI": "Soldier Field", "MIN": "U.S. Bank Stadium"};
 
@@ -159,7 +159,7 @@ const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Pan
 const LEAGUES = {
   nfl: { key:"nfl", label:"NFL", weekLabel:"Week 9", dataDate:"2026-11-03",
     cfg:{basePts:22.0, plays:62, regress:0.55, sdMargin:13.5, sdTotal:13.0, srScale:2.4, passScale:0.65, wModel:0.40, hfa:1.5, keys:[3,7]},
-    footer:"Lines: VegasInsider consensus, Nov 3. Bye: PIT, TEN. Sunday 1 PM / 4 PM networks are estimated.",
+    footer:"Lines: VegasInsider consensus, Nov 5. Bye: PIT, TEN. Sunday 1 PM / 4 PM networks are estimated. Lamar Jackson is reported out for Thursday; team ratings do not account for injuries.",
   },
   cfb: { key:"cfb", label:"CFB", weekLabel:"Week 10", dataDate:"2026-11-03",
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
