@@ -124,11 +124,13 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-11-07", "17:00", "DEN", "IND", 7.5, 228.5, -310, 255, "NBA TV", {"venue": "Arena CDMX, Mexico City", "hfa": 0, "note": "NBA Mexico City Game \u2014 neutral site"}],
-  ["2026-11-07", "20:00", "WAS", "OKC", -11.5, 219.5, 349, -449, ""],
-  ["2026-11-07", "20:00", "NYK", "CLE", 4.5, 223.0, -210, 175, "NBA TV"],
-  ["2026-11-07", "20:30", "ORL", "GSW", -6.5, 221.5, 212, -258, ""],
-  ["2026-11-07", "21:00", "HOU", "PHX", 7.5, 221.5, -308, 249, ""],
+  ["2026-11-08", "15:30", "PHI", "CHI", 9.5, 238.0, -420, 315, ""],
+  ["2026-11-08", "18:00", "LAL", "DET", -4.5, 220.5, 162, -194, ""],
+  ["2026-11-08", "19:00", "UTA", "MIN", -11.5, 224.5, 440, -592, ""],
+  ["2026-11-08", "19:30", "BKN", "DAL", -9.5, 220.5, 320, -408, ""],
+  ["2026-11-08", "20:00", "BOS", "MIL", 12.5, 223.5, -699, 500, ""],
+  ["2026-11-08", "21:00", "NOP", "LAC", 1.5, 228.5, -119, 100, ""],
+  ["2026-11-08", "21:00", "MIA", "SAC", 8.5, 238.5, -337, 271, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -166,9 +168,9 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines refreshed Nov 4: DraftKings via ESPN for Wed–Sat early games, CBS Sports for the rest. Rutgers–Wisconsin has no current line (Nov 1 opener shown). Games without a posted line are left off.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Sat Nov 7", dataDate:"2026-11-04",
+  nba: { key:"nba", label:"NBA", weekLabel:"Sun Nov 8", dataDate:"2026-11-04",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from TheSpread, Pickdawgz and Pickswise, Nov 7. Finished games drop off once they end.",
+    footer:"Lines from FanDuel Research, TheSpread and Pickdawgz, Nov 8. Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Sun Nov 8", dataDate:"2026-11-05",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.30, hfa:3.2, keys:[]},
