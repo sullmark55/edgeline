@@ -128,9 +128,9 @@ const NBA_GAMES = [
   ["2026-11-08", "18:00", "LAL", "DET", -4.5, 220.5, 162, -194, ""],
   ["2026-11-08", "19:00", "UTA", "MIN", -11.5, 224.5, 440, -592, ""],
   ["2026-11-08", "19:30", "BKN", "DAL", -9.5, 220.5, 320, -408, ""],
-  ["2026-11-08", "20:00", "BOS", "MIL", 12.5, 223.5, -699, 500, ""],
-  ["2026-11-08", "21:00", "NOP", "LAC", 1.5, 228.5, -119, 100, ""],
-  ["2026-11-08", "21:00", "MIA", "SAC", 8.5, 238.5, -337, 271, ""],
+  ["2026-11-08", "20:00", "BOS", "MIL", 13.5, 221.5, -750, 530, ""],
+  ["2026-11-08", "21:00", "NOP", "LAC", 1.5, 226.5, -119, 100, ""],
+  ["2026-11-08", "21:00", "MIA", "SAC", 10.5, 238.5, -446, 346, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -170,7 +170,7 @@ const LEAGUES = {
   },
   nba: { key:"nba", label:"NBA", weekLabel:"Sun Nov 8", dataDate:"2026-11-07",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from FanDuel Research, TheSpread and Pickdawgz, Nov 8. Finished games drop off once they end.",
+    footer:"Lines from FanDuel Research, TheSpread and Pickdawgz, Nov 8; late games updated from DraftKings (via SI) and Covers at 6:45 PM CT. Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Sun Nov 8", dataDate:"2026-11-08",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.30, hfa:3.2, keys:[]},
