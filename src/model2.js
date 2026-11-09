@@ -188,7 +188,7 @@ const LEAGUES = {
     footer:"Lines from FanDuel Research, Pickdawgz, TheRX and SportBusy, Nov 9 morning. Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 9", dataDate:"2026-11-08",
-    cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.30, hfa:3.2, keys:[]},
+    cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.33, hfa:3.2, keys:[]},
     footer:"Lines from DraftKings via ESPN, Nov 9 morning. Games without a posted line are left off. Finished games drop off once they end.",
   },
 };
