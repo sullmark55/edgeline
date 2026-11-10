@@ -129,14 +129,11 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-11-09", "19:00", "WAS", "DET", -6.5, 221.5, 225, -275, ""],
-  ["2026-11-09", "19:00", "CLE", "CHA", 9.5, 215.5, -356, 284, ""],
-  ["2026-11-09", "19:00", "LAL", "ATL", -1.5, 237.0, null, null, ""],
-  ["2026-11-09", "19:30", "MEM", "TOR", -3.5, 229.5, 128, -152, ""],
-  ["2026-11-09", "20:00", "IND", "DAL", -4.5, 233.5, 155, -180, ""],
-  ["2026-11-09", "20:30", "DEN", "HOU", -9.0, 217.5, null, null, ""],
-  ["2026-11-09", "21:00", "SAS", "PHX", 8.5, 227.5, -310, 250, ""],
-  ["2026-11-09", "22:00", "NOP", "GSW", -9.5, 232.5, null, null, ""],
+  ["2026-11-10", "19:30", "MIL", "NYK", -15.5, 220.5, 650, -990, ""],
+  ["2026-11-10", "20:00", "BOS", "PHI", 1.5, 216.5, -117, -101, ""],
+  ["2026-11-10", "21:00", "MIA", "UTA", 10.5, 228.5, -497, 380, ""],
+  ["2026-11-10", "22:00", "ORL", "SAC", 5.5, 222.5, -218, 181, ""],
+  ["2026-11-10", "23:00", "OKC", "POR", 1.5, 226.5, -122, 103, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -188,9 +185,9 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines Nov 10 morning: DraftKings via ESPN where posted, CBS Sports consensus for the rest (Louisiana–UL Monroe spread and most late-Saturday games). Team EPA per play through Week 10; success rate and pass EPA through Week 9. Finished games drop off once they end.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Mon Nov 9", dataDate:"2026-11-07", linesAt:"2026-11-09T13:55Z",
+  nba: { key:"nba", label:"NBA", weekLabel:"Tue Nov 10", dataDate:"2026-11-07", linesAt:"2026-11-10T13:53Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from FanDuel Research, Pickdawgz, TheRX and SportBusy, Nov 9 morning. Finished games drop off once they end.",
+    footer:"Lines from DraftKings via ESPN, Nov 10 morning. Clippers–Suns had no line posted yet. Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 9", dataDate:"2026-11-08", linesAt:"2026-11-09T14:38Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.33, hfa:3.2, keys:[]},
