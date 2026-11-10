@@ -19,8 +19,14 @@ def arr(rows): return '[\n'+',\n'.join('  '+json.dumps(r) for r in rows)+',\n]'
 if U.get('rows'):
     assert len(U['rows'])==30, 'need all 30 teams'
     m=re.sub(r'const NBA_ROWS = \[.*?\n\];',lambda _:'const NBA_ROWS = '+arr(U['rows'])+';',m,count=1,flags=re.S)
+_old_games=re.search(r'const NBA_GAMES = \[.*?\n\];',m,flags=re.S).group(0)
 m=re.sub(r'const NBA_GAMES = \[.*?\n\];',lambda _:'const NBA_GAMES = '+arr(U['games'])+';',m,count=1,flags=re.S)
 m=re.sub(r'(nba: \{ key:"nba", label:"NBA", weekLabel:")[^"]*(", dataDate:")[^"]*"',lambda x:x.group(1)+U['label']+x.group(2)+U['dataDate']+'"',m,count=1)
+# stamp when the games/lines actually changed (shown in the header as "Lines updated ...");
+# a results-only rerun with the same games keeps the old stamp
+if U.get('games') and re.search(r'const NBA_GAMES = \[.*?\n\];',m,flags=re.S).group(0)!=_old_games:
+    _now=datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ')
+    m=re.sub(r'(nba: \{ key:"nba",[^\n]*?linesAt:")[^"]*"',lambda x:x.group(1)+_now+'"',m,count=1)
 if U.get('footer'):
     m=re.sub(r'(cfg:\{basePts:115.*?\n\s*footer:")[^"]*"',lambda x:x.group(1)+U['footer'].replace('"',"'")+'"',m,count=1,flags=re.S)
 open('model2.js','w').write(m)

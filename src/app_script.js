@@ -82,10 +82,25 @@ function matches(r){
   const t=cur().teams; return [r.g.away,r.g.home,t[r.g.away].name,t[r.g.home].name].some(s=>String(s).toLowerCase().includes(q));
 }
 
+// "Lines updated ... · Team data through ..." with a warning when either is out of date.
+function freshness(L){
+  const hoops=HOOPS(L.key), now=Date.now(), day=864e5;
+  const dFmt=d=>d.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+  const tFmt=d=>d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"});
+  const mid=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime();
+  const rel=d=>{const n=Math.round((mid(new Date(now))-mid(d))/day);return n===0?"today":n===1?"yesterday":dFmt(d)};
+  const parts=[];
+  if(L.linesAt){const d=new Date(L.linesAt), age=(now-d)/36e5, stale=age>(hoops?26:72);
+    parts.push(`<span class="${stale?"stale":""}">${stale?"Lines last updated":"Lines updated"} ${rel(d)}${stale?",":""} ${tFmt(d)}</span>`);}
+  const dd=new Date(L.dataDate+"T12:00"), dAge=(now-dd)/day, dStale=dAge>(L.key==="nba"?4.5:L.key==="cbb"?7.5:8.5);
+  parts.push(`<span class="${dStale?"stale":""}">Team data through ${dFmt(dd)}${dStale?" (out of date)":""}</span>`);
+  return parts.join(" · ");
+}
 function header(){
   const d=cur(), L=d.L; let plays=0, strong=0;
   d.rows.forEach(r=>["spread","totals","ml"].forEach(k=>{if(r.p[k].score>=4)plays++; if(r.p[k].score>=8)strong++;}));
-  $("#sub").textContent=`${L.label} ${L.weekLabel} · Model vs. Vegas · team data as of ${new Date(L.dataDate+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"})}`;
+  $("#sub").textContent=`${L.label} ${L.weekLabel} · Model vs. Vegas`;
+  $("#upd").innerHTML=freshness(L);
   $("#meta").innerHTML=`<div><b class="num">${d.rows.length}</b>games</div><div><b class="num">${plays}</b>plays 4+</div><div><b class="num">${strong}</b>strong</div>`;
   $("#foot").textContent=`${L.footer} ${HOOPS(state.lg)?"Tip":"Kickoff"} times are shown in your time zone. Projections update when new team data and lines are loaded.`;
   const c=L.cfg, isNFL=state.lg==="nfl";

@@ -175,19 +175,19 @@ const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Pan
 
 // ===================== MODEL =====================
 const LEAGUES = {
-  nfl: { key:"nfl", label:"NFL", weekLabel:"Week 9", dataDate:"2026-11-03",
+  nfl: { key:"nfl", label:"NFL", weekLabel:"Week 9", dataDate:"2026-11-03", linesAt:"2026-11-05T18:08Z",
     cfg:{basePts:22.0, plays:62, regress:0.55, sdMargin:13.5, sdTotal:13.0, srScale:2.4, passScale:0.65, wModel:0.40, hfa:1.5, keys:[3,7]},
     footer:"Lines: VegasInsider consensus, Nov 5. Bye: PIT, TEN. Sunday 1 PM / 4 PM networks are estimated. Lamar Jackson is reported out for Thursday; team ratings do not account for injuries.",
   },
-  cfb: { key:"cfb", label:"CFB", weekLabel:"Week 10", dataDate:"2026-11-03",
+  cfb: { key:"cfb", label:"CFB", weekLabel:"Week 10", dataDate:"2026-11-03", linesAt:"2026-11-04T20:38Z",
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines refreshed Nov 4: DraftKings via ESPN for Wed–Sat early games, CBS Sports for the rest. Rutgers–Wisconsin has no current line (Nov 1 opener shown). Games without a posted line are left off.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Mon Nov 9", dataDate:"2026-11-07",
+  nba: { key:"nba", label:"NBA", weekLabel:"Mon Nov 9", dataDate:"2026-11-07", linesAt:"2026-11-09T13:55Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from FanDuel Research, Pickdawgz, TheRX and SportBusy, Nov 9 morning. Finished games drop off once they end.",
   },
-  cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 9", dataDate:"2026-11-08",
+  cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 9", dataDate:"2026-11-08", linesAt:"2026-11-09T14:38Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.33, hfa:3.2, keys:[]},
     footer:"Lines from DraftKings via ESPN, Nov 9 morning. Games without a posted line are left off. Finished games drop off once they end.",
   },

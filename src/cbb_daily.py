@@ -25,8 +25,14 @@ if bad:
     sys.exit('fix team names (or drop non-Division I games) and rerun')
 m=open('model2.js').read()
 arr='[\n'+',\n'.join('  '+json.dumps(r,ensure_ascii=False) for r in U['games'])+',\n]'
+_old_games=re.search(r'const CBB_GAMES = \[.*?\n\];',m,flags=re.S).group(0)
 m,n=re.subn(r'const CBB_GAMES = \[.*?\n\];',lambda _:'const CBB_GAMES = '+arr+';',m,count=1,flags=re.S); assert n==1
 m=re.sub(r'(cbb: \{ key:"cbb", label:"CBB", weekLabel:")[^"]*"',lambda x:x.group(1)+U['label']+'"',m,count=1)
+# stamp when the games/lines actually changed (shown in the header as "Lines updated ...");
+# a results-only rerun with the same games keeps the old stamp
+if U.get('games') and re.search(r'const CBB_GAMES = \[.*?\n\];',m,flags=re.S).group(0)!=_old_games:
+    _now=datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ')
+    m=re.sub(r'(cbb: \{ key:"cbb",[^\n]*?linesAt:")[^"]*"',lambda x:x.group(1)+_now+'"',m,count=1)
 if U.get('footer'):
     m=re.sub(r'(cfg:\{basePts:70.*?\n\s*footer:")[^"]*"',lambda x:x.group(1)+U['footer'].replace('"',"'")+'"',m,count=1,flags=re.S)
 open('model2.js','w').write(m)
