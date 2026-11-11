@@ -212,7 +212,7 @@ const LEAGUES = {
     footer:"Lines from DraftKings via ESPN, Pickdawgz, FanDuel Research and iHeart/Fox Sports 990, Nov 11. Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Wed Nov 11", dataDate:"2026-11-11", linesAt:"2026-11-11T13:44Z",
-    cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.33, hfa:3.2, keys:[]},
+    cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, bigStart:20, bigK:0.027, wTotal:0.33, hfa:3.2, keys:[]},
     footer:"Lines from DraftKings via ESPN, Nov 11. Games without a posted line are left off. Finished games drop off once they end.",
   },
 };
@@ -303,7 +303,9 @@ function project(g,teams,cfg){
   const rawHome=base+(H.offRating+A.defRating)*ptsPer+hfa/2+(g.adjHome||0);
   const rawMargin=rawHome-rawAway, rawTotal=rawHome+rawAway;
   const mktMargin=-g.spread;
-  const margin=cfg.wModel*rawMargin+(1-cfg.wModel)*mktMargin;
+  // CBB: trust the ratings less on huge spreads (early-season blowouts outrun them)
+  const big=Math.max(0,Math.abs(g.spread)-(cfg.bigStart??99)), wM=cfg.wModel/(1+(cfg.bigK||0)*big);
+  const margin=wM*rawMargin+(1-wM)*mktMargin;
   const wT=cfg.wTotal??cfg.wModel; const total=wT*rawTotal+(1-wT)*g.total;
   const away=total/2-margin/2, home=total/2+margin/2;
 
