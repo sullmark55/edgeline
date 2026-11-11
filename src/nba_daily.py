@@ -30,13 +30,22 @@ if U.get('games') and re.search(r'const NBA_GAMES = \[.*?\n\];',m,flags=re.S).gr
 if U.get('footer'):
     m=re.sub(r'(cfg:\{basePts:115.*?\n\s*footer:")[^"]*"',lambda x:x.group(1)+U['footer'].replace('"',"'")+'"',m,count=1,flags=re.S)
 open('model2.js','w').write(m)
+def _et_now():
+    u=datetime.datetime.now(datetime.timezone.utc); y=u.year
+    def sun(mo,n):
+        d=datetime.date(y,mo,1); d+=datetime.timedelta((6-d.weekday())%7); return d+datetime.timedelta(7*(n-1))
+    return (u-datetime.timedelta(hours=4 if sun(3,2)<=u.date()<sun(11,1) else 5)).replace(tzinfo=None)
+def _not_started(g):
+    try: return datetime.datetime.fromisoformat(g[0]+'T'+g[1])>_et_now()
+    except Exception: return False
 a=open('app_script.js').read()
 fm=re.search(r'const FINALS=(\{.*?\});',a)
 F=json.loads(fm.group(1))
 # rematch: an older final for a matchup on today's slate would hide the game and block its picks; drop it
 for g in U['games']:
     k=g[2]+'|'+g[3]
-    if k not in U.get('finals',{}) and F.pop('nba:'+k,None): print('cleared old final for rematch',k)
+    # only a game that hasn't tipped yet can be a rematch; never wipe the final of a game already played
+    if k not in U.get('finals',{}) and _not_started(g) and F.pop('nba:'+k,None): print('cleared old final for rematch',k)
 for k,v in U.get('finals',{}).items(): F['nba:'+k]=v
 a=a[:fm.start(1)]+json.dumps(F,separators=(',',':'))+a[fm.end(1):]
 pm=re.search(r'const PICK_LOG = (\[.*?\]);\n',a,re.S)
@@ -45,6 +54,7 @@ for p in L:
     if p['lg']=='nba' and p.get('fa') is None:
         f=F.get('nba:'+p['away']+'|'+p['home'])
         if f: p['fa'],p['fh']=f; graded+=1
+a=a[:pm.start(1)]+json.dumps(L,ensure_ascii=False)+a[pm.end(1):]
 open('app_script.js','w').write(a)
 subprocess.run(['python3','build.py'],check=True)
 subprocess.run(['node','picks_nba.js'],check=True)
