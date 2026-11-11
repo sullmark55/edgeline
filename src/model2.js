@@ -215,7 +215,7 @@ const LEAGUES = {
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN (Clippers–Suns: DraftKings via SI), Nov 10. Finished games drop off once they end.",
   },
-  cbb: { key:"cbb", label:"CBB", weekLabel:"Tue Nov 10", dataDate:"2026-11-08", linesAt:"2026-11-10T19:16Z",
+  cbb: { key:"cbb", label:"CBB", weekLabel:"Tue Nov 10", dataDate:"2026-11-11", linesAt:"2026-11-10T19:16Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, wTotal:0.33, hfa:3.2, keys:[]},
     footer:"Lines from DraftKings via ESPN, Nov 10 at 1:15 PM CT. Champions Classic games at the United Center (neutral). Games without a posted line are left off. Finished games drop off once they end.",
   },
