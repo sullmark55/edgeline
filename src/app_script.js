@@ -432,7 +432,7 @@ function syncThemeBtn(){
   $("#themeLbl").textContent=next==="dark"?"Dark":"Light";
   $("#themeBtn").setAttribute("aria-label",`Switch to ${next} mode`);
 }
-try{const saved=localStorage.getItem("geb-theme"); if(saved==="dark"||saved==="light") rootEl.setAttribute("data-theme",saved);}catch(e){}
+{let saved=null;try{saved=localStorage.getItem("geb-theme")}catch(e){} rootEl.setAttribute("data-theme",saved==="dark"?"dark":"light");}
 $("#themeBtn").onclick=()=>{
   const next=effectiveTheme()==="dark"?"light":"dark";
   rootEl.setAttribute("data-theme",next);

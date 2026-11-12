@@ -288,6 +288,7 @@ details.method p,details.method li{font-size:14px;max-width:68ch}
 .empty{padding:20px;text-align:center;color:var(--muted)}
 footer{margin-top:20px;font-size:12px;color:var(--muted)}
 </style>
+<script id="theme-init">(function(){var t=null;try{t=localStorage.getItem("geb-theme")}catch(e){}document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")})()</script>
 
 <div class="wrap">
   <header class="top">
@@ -512,7 +513,7 @@ function syncThemeBtn(){
   $("#themeLbl").textContent=next==="dark"?"Dark":"Light";
   $("#themeBtn").setAttribute("aria-label",`Switch to ${next} mode`);
 }
-try{const saved=localStorage.getItem("geb-theme"); if(saved==="dark"||saved==="light") rootEl.setAttribute("data-theme",saved);}catch(e){}
+{let saved=null;try{saved=localStorage.getItem("geb-theme")}catch(e){} rootEl.setAttribute("data-theme",saved==="dark"?"dark":"light");}
 $("#themeBtn").onclick=()=>{
   const next=effectiveTheme()==="dark"?"light":"dark";
   rootEl.setAttribute("data-theme",next);
