@@ -309,8 +309,8 @@ function statBox(label,t){
   return `<div class="stat"><div class="k">${label}</div><div class="v num">${rec} <span class="${t.units>0?'pos':t.units<0?'neg':''}" style="font-size:18px">${u}</span></div><div class="s">${bits||"&nbsp;"}</div></div>`;
 }
 function openRecord(grp){
-  grp=grp||(HOOPS(state.lg)?state.lg:"fb"); const hoopsG=grp!=="fb";
-  const LOG=PICK_LOG.filter(x=>hoopsG?x.lg===grp:!HOOPS(x.lg));
+  grp=grp||state.lg||"nfl"; const hoopsG=HOOPS(grp);
+  const LOG=PICK_LOG.filter(x=>x.lg===grp);
   const all=tally(LOG);
   const by=(f)=>LOG.filter(f);
   const gk=x=>hoopsG?x.date:x.w; // NBA groups by game date, football by week
@@ -348,16 +348,16 @@ function openRecord(grp){
       return `<details class="wk mo"><summary><span class="wkhead">${esc(lbl)}</span><span class="wksum">${sumOf(t)}</span><span class="wkchev" aria-hidden="true"></span></summary><div class="moin">${days.map(dayRow).join("")}</div></details>`;
     }).join("");
   } else rows=ordered.map(dayRow).join("");
-  $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">${grp==="nba"?"NBA record":grp==="cbb"?"College basketball record":"Football record"}</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
-  <div class="rgsw" role="group" aria-label="Which record"><button type="button" data-rg="fb" aria-pressed="${grp==="fb"}">Football</button><button type="button" data-rg="nba" aria-pressed="${grp==="nba"}">NBA</button><button type="button" data-rg="cbb" aria-pressed="${grp==="cbb"}">CBB</button></div>
-  <p class="note" style="margin:8px 0 0">${grp==="nba"?"NBA picks are tracked separately from football. ":grp==="cbb"?"College basketball picks are tracked on their own. ":""}Every pick rated 6.0 or higher, locked before ${hoopsG?"tip-off":"kickoff"}. Spreads and totals graded at −110; moneylines at the posted price. 1 unit risked per pick.</p>
+  $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">${({nfl:"NFL record",cfb:"CFB record",nba:"NBA record",cbb:"CBB record"})[grp]}</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
+  <div class="rgsw" role="group" aria-label="Which record"><button type="button" data-rg="nfl" aria-pressed="${grp==="nfl"}">NFL</button><button type="button" data-rg="cfb" aria-pressed="${grp==="cfb"}">CFB</button><button type="button" data-rg="nba" aria-pressed="${grp==="nba"}">NBA</button><button type="button" data-rg="cbb" aria-pressed="${grp==="cbb"}">CBB</button></div>
+  <p class="note" style="margin:8px 0 0">${({nfl:"NFL",cfb:"College football",nba:"NBA",cbb:"College basketball"})[grp]} picks are tracked on their own. Every pick rated 6.0 or higher, locked before ${hoopsG?"tip-off":"kickoff"}. Spreads and totals graded at −110; moneylines at the posted price. 1 unit risked per pick.</p>
   <div class="block"><h4>Overall</h4><div class="recgrid">
     ${statBox("All 6+ picks",all)}
     <div class="stat"><div class="k">Units</div><div class="v num ${all.units>=0?'pos':'neg'}">${all.graded?fmtU(all.units):"—"}</div><div class="s">ROI ${all.roi!=null?(all.roi*100).toFixed(1)+"%":"—"}</div></div>
     <div class="stat"><div class="k">Pending</div><div class="v num">${all.pend}</div><div class="s">of ${LOG.length} picks</div></div>
   </div></div>
   <div class="block"><h4>By bet type</h4><div class="recgrid">${statBox("Spread",tally(by(x=>x.m==="spread")))}${statBox("Total",tally(by(x=>x.m==="totals")))}${statBox("Moneyline",tally(by(x=>x.m==="ml")))}</div></div>
-  <div class="block"><h4>${hoopsG?"By rating":"By rating and league"}</h4><div class="recgrid">${statBox("Strong 8+",tally(by(x=>x.score>=8)))}${statBox("Solid 6–7.9",tally(by(x=>x.score<8)))}${hoopsG?"":statBox("NFL",tally(by(x=>x.lg==="nfl")))+statBox("CFB",tally(by(x=>x.lg==="cfb")))}</div></div>
+  <div class="block"><h4>By rating</h4><div class="recgrid">${statBox("Strong 8+",tally(by(x=>x.score>=8)))}${statBox("Solid 6–7.9",tally(by(x=>x.score<8)))}</div></div>
   <div class="block"><h4>Pick history</h4>${rows||'<p class="note">No picks yet.</p>'}</div>`;
   $("#scrim").hidden=false; document.body.style.overflow="hidden";
   $("#closeBtn").focus(); $("#closeBtn").onclick=closeSheet;

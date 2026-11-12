@@ -105,7 +105,7 @@ print('recorded', sum(len(v) for v in U.values()), 'finals; graded', len(graded)
 subprocess.run(['python3', 'build.py'], check=True, stdout=subprocess.DEVNULL)
 subprocess.run(['node', '--check', 'chk.js'], check=True)
 subprocess.run(['python3', 'make_site.py'], check=True, stdout=subprocess.DEVNULL)
-for grp, lgs in [('Football', ('nfl', 'cfb')), ('NBA', ('nba',)), ('CBB', ('cbb',))]:
+for grp, lgs in [('NFL', ('nfl',)), ('CFB', ('cfb',)), ('NBA', ('nba',)), ('CBB', ('cbb',))]:
     w = l = 0; u = 0.0; pend = 0
     for p in P:
         if p['lg'] not in lgs: continue
