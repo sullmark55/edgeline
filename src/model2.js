@@ -128,10 +128,10 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-11-12", "19:00", "TOR", "PHI", -8.5, 222.5, 276, -344, ""],
-  ["2026-11-12", "19:00", "DET", "WAS", 10.5, 220.5, -467, 360, ""],
+  ["2026-11-12", "19:00", "TOR", "PHI", -7.5, 223.5, 221, -270, ""],
+  ["2026-11-12", "19:00", "DET", "WAS", 10.5, 221.5, -438, 341, ""],
   ["2026-11-12", "20:00", "DAL", "MIN", -5.5, 225.5, 185, -223, ""],
-  ["2026-11-12", "21:00", "CHA", "PHX", -6.5, 214.5, 201, -244, ""],
+  ["2026-11-12", "21:00", "CHA", "PHX", -6.5, 214.5, 190, -229, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -140,29 +140,29 @@ const CBB_ROWS = /*CBBROWS*/;
 // tip times ET. [date, time, away, home, homeSpread, total, mlAway, mlHome, tv, extra]; null moneyline = not posted
 const CBB_GAMES = [
   ["2026-11-12", "15:00", "Kansas City", "George Mason", -15.5, 140.5, 950, -1650, ""],
-  ["2026-11-12", "18:00", "Bradley", "Coppin State", 10.5, 134.5, -485, 370, ""],
-  ["2026-11-12", "18:00", "Morgan State", "UMBC", -6.5, 161.5, 225, -278, ""],
-  ["2026-11-12", "18:30", "Mercyhurst", "Penn State", -20.5, 147.5, 1800, -5000, ""],
-  ["2026-11-12", "18:30", "Tennessee Tech", "Indiana", -25.5, 169.5, 2500, -9000, ""],
-  ["2026-11-12", "19:00", "Western Michigan", "Purdue Fort Wayne", 3.5, 151.5, -155, 130, ""],
-  ["2026-11-12", "19:00", "Central Connecticut", "Sacred Heart", -4.5, 147.5, 185, -225, ""],
+  ["2026-11-12", "18:00", "Bradley", "Coppin State", 12.5, 131.5, -850, 575, ""],
+  ["2026-11-12", "18:00", "Morgan State", "UMBC", -6.5, 161.5, 215, -265, ""],
+  ["2026-11-12", "18:30", "Mercyhurst", "Penn State", -21.5, 148.5, 1800, -5000, ""],
+  ["2026-11-12", "18:30", "Tennessee Tech", "Indiana", -25.5, 167.5, 2000, -6500, ""],
+  ["2026-11-12", "19:00", "Western Michigan", "Purdue Fort Wayne", 2.5, 153.5, -135, 114, ""],
+  ["2026-11-12", "19:00", "Central Connecticut", "Sacred Heart", -6.5, 144.5, 210, -258, ""],
   ["2026-11-12", "19:00", "Monmouth", "Quinnipiac", -1.5, 144.5, -105, -115, ""],
-  ["2026-11-12", "19:00", "Stetson", "Howard", -10.5, 152.5, 425, -575, ""],
-  ["2026-11-12", "19:00", "Mercer", "West Virginia", -27.5, 151.5, 3500, -20000, ""],
-  ["2026-11-12", "19:00", "Loyola MD", "Towson", -13.5, 134.5, 700, -1100, ""],
-  ["2026-11-12", "19:00", "Southern Utah", "High Point", -22.5, 153.5, 1700, -4500, ""],
-  ["2026-11-12", "19:00", "Cal State Bakersfield", "Western Illinois", 9.5, 150.5, -440, 340, ""],
-  ["2026-11-12", "19:00", "Maryland Eastern Shore", "Rhode Island", -24.5, 143.5, 3000, -10000, ""],
-  ["2026-11-12", "19:00", "Canisius", "Brown", -12.5, 138.5, 675, -1050, ""],
+  ["2026-11-12", "19:00", "Stetson", "Howard", -9.5, 149.5, 410, -550, ""],
+  ["2026-11-12", "19:00", "Mercer", "West Virginia", -24.5, 151.5, 2200, -8000, ""],
+  ["2026-11-12", "19:00", "Loyola MD", "Towson", -13.5, 133.5, 700, -1100, ""],
+  ["2026-11-12", "19:00", "Southern Utah", "High Point", -23.5, 157.5, 3000, -10000, ""],
+  ["2026-11-12", "19:00", "Cal State Bakersfield", "Western Illinois", 9.5, 147.5, -440, 340, ""],
+  ["2026-11-12", "19:00", "Maryland Eastern Shore", "Rhode Island", -23.5, 136.5, 2200, -8000, ""],
+  ["2026-11-12", "19:00", "Canisius", "Brown", -12.5, 137.5, 675, -1050, ""],
   ["2026-11-12", "19:00", "Niagara", "Bowling Green", -14.5, 144.5, 950, -1650, ""],
-  ["2026-11-12", "20:00", "West Florida", "Alabama A&M", -7.5, 148.5, 280, -355, ""],
-  ["2026-11-12", "20:00", "Oklahoma State", "Texas A&M", -7.5, 178.5, 275, -345, ""],
-  ["2026-11-12", "20:00", "Richmond", "Southern Illinois", 3.5, 154.5, -162, 136, ""],
-  ["2026-11-12", "20:00", "Loyola Marymount", "South Alabama", 1.5, 141.5, -112, -108, ""],
-  ["2026-11-12", "20:00", "Southern", "Minnesota", -25.5, 140.5, 3000, -10000, ""],
-  ["2026-11-12", "21:00", "Montana State", "BYU", -23.5, 164.5, 2200, -8000, ""],
-  ["2026-11-12", "21:00", "New Mexico State", "UTEP", -4.5, 142.5, 170, -205, ""],
-  ["2026-11-12", "22:00", "UC Riverside", "San José State", -8.5, 152.5, 275, -345, ""],
+  ["2026-11-12", "20:00", "West Florida", "Alabama A&M", -5.5, 146.5, 210, -258, ""],
+  ["2026-11-12", "20:00", "Oklahoma State", "Texas A&M", -8.5, 179.5, 300, -380, ""],
+  ["2026-11-12", "20:00", "Richmond", "Southern Illinois", 2.5, 150.5, -148, 124, ""],
+  ["2026-11-12", "20:00", "Loyola Marymount", "South Alabama", -1.5, 141.5, -108, -112, ""],
+  ["2026-11-12", "20:00", "Southern", "Minnesota", -25.5, 142.5, 3000, -10000, ""],
+  ["2026-11-12", "21:00", "Montana State", "BYU", -21.5, 162.5, 1800, -5000, ""],
+  ["2026-11-12", "21:00", "New Mexico State", "UTEP", -5.5, 144.5, 180, -218, ""],
+  ["2026-11-12", "22:00", "UC Riverside", "San José State", -8.5, 153.5, 310, -395, ""],
 ];
 
 const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",GB:"Packers",HOU:"Texans",IND:"Colts",JAX:"Jaguars",KC:"Chiefs",LA:"Rams",LAC:"Chargers",LV:"Raiders",MIA:"Dolphins",MIN:"Vikings",NE:"Patriots",NO:"Saints",NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",TB:"Buccaneers",TEN:"Titans",WAS:"Commanders"};
@@ -177,13 +177,13 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines: CBS Sports consensus, Nov 10 at 2:45 PM CT (Wake Forest–SMU, Missouri–Georgia and UNLV–New Mexico still from DraftKings via ESPN that morning). Team EPA per play through Week 10; success rate and pass EPA through Week 9. Finished games drop off once they end.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Thu Nov 12", dataDate:"2026-11-10", linesAt:"2026-11-12T16:38Z",
+  nba: { key:"nba", label:"NBA", weekLabel:"Thu Nov 12", dataDate:"2026-11-10", linesAt:"2026-11-12T22:54Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from DraftKings via ESPN, Nov 12. Finished games drop off once they end.",
+    footer:"Lines from DraftKings via ESPN, Nov 12 at 4:55 PM CT. Finished games drop off once they end.",
   },
-  cbb: { key:"cbb", label:"CBB", weekLabel:"Thu Nov 12", dataDate:"2026-11-12", linesAt:"2026-11-12T16:38Z",
+  cbb: { key:"cbb", label:"CBB", weekLabel:"Thu Nov 12", dataDate:"2026-11-12", linesAt:"2026-11-12T22:54Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, bigStart:20, bigK:0.027, wTotal:0.33, hfa:3.2, keys:[]},
-    footer:"Lines from DraftKings via ESPN, Nov 12. Games without a posted line are left off. Finished games drop off once they end.",
+    footer:"Lines from DraftKings via ESPN, Nov 12 at 4:55 PM CT. Games without a posted line are left off. Finished games drop off once they end.",
   },
 };
 
