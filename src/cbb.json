@@ -1,249 +1,653 @@
 {
- "label": "Mon Nov 16",
- "footer": "Lines from DraftKings via ESPN, Nov 16 (rechecked 10:36 AM CT). Games without a posted line are left off. Finished games drop off once they end.",
+ "label": "Tue Nov 17",
+ "footer": "Lines from DraftKings via ESPN (cross-checked with Covers), Nov 17. Games without a posted line are left off. Finished games drop off once they end.",
  "games": [
   [
-   "2026-11-16",
-   "14:00",
-   "Florida A&M",
-   "UTEP",
-   -19.5,
-   142.5,
-   1600,
-   -4000,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "18:00",
-   "Iona",
-   "UMBC",
-   2.5,
-   144.5,
-   -148,
-   124,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "18:00",
-   "Alcorn State",
-   "Maryland",
-   -36.5,
-   154.5,
-   null,
-   null,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "18:30",
-   "Prairie View A&M",
-   "Ohio State",
-   -33.5,
-   155.5,
-   null,
-   null,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:00",
-   "Eastern Kentucky",
-   "Kent State",
-   -10.5,
-   161.5,
-   440,
-   -600,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:00",
-   "Western Kentucky",
-   "Tulsa",
-   -7.5,
-   158.5,
-   245,
-   -305,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:00",
-   "Grambling State",
-   "Kentucky",
-   -29.5,
-   156.5,
-   null,
-   null,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:00",
-   "St. Thomas",
-   "LIU",
-   1.5,
-   146.5,
-   -130,
-   110,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:00",
-   "The Citadel",
-   "Clemson",
-   -23.5,
-   143.5,
-   2000,
-   -6500,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:00",
-   "Richmond",
-   "Virginia Tech",
-   -12.5,
-   154.5,
-   675,
-   -1050,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:00",
-   "Jacksonville",
-   "Georgia",
-   -21.5,
-   153.5,
-   2000,
-   -6500,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "19:30",
-   "Tarleton State",
-   "Drake",
-   -8.5,
-   146.5,
-   360,
-   -470,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "20:00",
-   "Columbia",
-   "Northwestern",
+   "2026-11-17",
+   "12:00",
+   "Hofstra",
+   "Murray State",
    -11.5,
-   140.5,
-   600,
-   -900,
+   148.5,
+   525,
+   -750,
    ""
   ],
   [
-   "2026-11-16",
-   "20:00",
-   "Abilene Christian",
-   "Missouri State",
-   -5.5,
-   140.5,
-   210,
-   -258,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "20:00",
-   "Central Arkansas",
-   "Oklahoma State",
-   -20.5,
-   160.5,
-   1800,
-   -5000,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "20:00",
-   "Western Illinois",
-   "Minnesota",
-   -34.5,
-   138.5,
-   null,
-   null,
-   ""
-  ],
-  [
-   "2026-11-16",
-   "20:00",
-   "Montana",
-   "Kansas State",
+   "2026-11-17",
+   "14:00",
+   "Rutgers",
+   "Houston",
    -16.5,
-   156.5,
+   142.5,
    1100,
    -2100,
    ""
   ],
   [
-   "2026-11-16",
-   "20:30",
-   "Southeastern Louisiana",
-   "Texas A&M",
-   -34.5,
+   "2026-11-17",
+   "16:30",
+   "Notre Dame",
+   "Florida",
+   -15.5,
+   150.5,
+   1000,
+   -1800,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "18:00",
+   "Saint Peter's",
+   "UMass Lowell",
+   -5.5,
+   130.5,
+   210,
+   -258,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "18:00",
+   "Liberty",
+   "Southern Illinois",
+   -1.5,
+   144.5,
+   102,
+   -122,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "18:00",
+   "Marist",
+   "Army",
+   1.5,
+   132.5,
+   -120,
+   100,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "18:30",
+   "Lipscomb",
+   "Purdue",
+   -20.5,
+   147.5,
+   1500,
+   -3600,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Charlotte",
+   "Davidson",
+   -3.5,
+   134.5,
+   140,
+   -166,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Akron",
+   "Bucknell",
+   14.5,
+   146.5,
+   -1000,
+   650,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Green Bay",
+   "West Florida",
+   5.5,
+   146.5,
+   -225,
+   185,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Mississippi State",
+   "UCF",
+   1.5,
+   154.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Rider",
+   "Miami",
+   -41.5,
+   149.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Lehigh",
+   "Mount St. Mary's",
+   -1.5,
+   136.5,
+   100,
+   -120,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "East Tennessee State",
+   "Marshall",
+   -1.5,
+   147.5,
+   110,
+   -130,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Norfolk State",
+   "Georgia Tech",
+   -21.5,
+   152.5,
+   2200,
+   -8000,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "CSUN",
+   "Troy",
+   -2.5,
+   148.5,
+   114,
+   -135,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Wagner",
+   "Saint Joseph's",
+   -16.5,
+   139.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Tennessee State",
+   "South Florida",
+   -11.5,
+   164.5,
+   490,
+   -675,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Fordham",
+   "Manhattan",
+   11.5,
+   143.5,
+   -675,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Central Michigan",
+   "Dayton",
+   -10.5,
+   147.5,
+   440,
+   -600,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Bowling Green",
+   "William & Mary",
+   -2.5,
+   169.5,
+   124,
+   -148,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Monmouth",
+   "Wake Forest",
+   -14.5,
+   143.5,
+   850,
+   -1450,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Illinois",
+   "Duke",
+   -7.5,
+   163.5,
+   295,
+   -375,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Cleveland State",
+   "Xavier",
+   -33.5,
    160.5,
    null,
    null,
    ""
   ],
   [
-   "2026-11-16",
-   "21:30",
-   "East Texas A&M",
-   "Oregon State",
-   -16.5,
-   153.5,
-   1000,
-   -1800,
+   "2026-11-17",
+   "19:00",
+   "Sacred Heart",
+   "Providence",
+   -29.5,
+   154.5,
+   null,
+   null,
    ""
   ],
   [
-   "2026-11-16",
-   "22:00",
-   "Long Beach State",
-   "UCLA",
-   -34.5,
+   "2026-11-17",
+   "19:00",
+   "Western Carolina",
+   "Butler",
+   -11.5,
+   160.5,
+   525,
+   -750,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:30",
+   "Jacksonville State",
+   "Louisiana Tech",
+   -2.5,
+   133.5,
+   110,
+   -130,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:30",
+   "Florida International",
+   "UAB",
+   -4.5,
+   165.5,
+   145,
+   -175,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:30",
+   "Bryant",
+   "Massachusetts",
+   -11.5,
+   139.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:30",
+   "Kennesaw State",
+   "Alabama",
+   -25.5,
+   174.5,
+   2500,
+   -9000,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "UT Arlington",
+   "Southern Miss",
+   -2.5,
    148.5,
+   124,
+   -148,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Lindenwood",
+   "Northern Iowa",
+   -12.5,
+   152.5,
+   600,
+   -900,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "SIUE",
+   "North Dakota",
+   -2.5,
+   146.5,
+   130,
+   -155,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Lamar",
+   "Nebraska Omaha",
+   1.5,
+   156.5,
+   -135,
+   114,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Eastern Illinois",
+   "Vanderbilt",
+   -43.5,
+   146.5,
    null,
    null,
    ""
   ],
   [
-   "2026-11-16",
-   "22:00",
-   "Texas Southern",
-   "UC San Diego",
-   -19.5,
+   "2026-11-17",
+   "20:00",
+   "Bellarmine",
+   "Illinois State",
+   -18.5,
+   145.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Texas A&M Corpus Chris",
+   "Rice",
+   -1.5,
+   141.5,
+   110,
+   -130,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Middle Tennessee",
+   "Georgia Southern",
+   2.5,
+   153.5,
+   -130,
+   110,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Le Moyne",
+   "Evansville",
+   -6.5,
+   146.5,
+   230,
+   -285,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Oral Roberts",
+   "SMU",
+   -26.5,
+   158.5,
+   3000,
+   -10000,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:00",
+   "Maryland Eastern Shore",
+   "DePaul",
+   -33.5,
+   127.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:30",
+   "Nicholls",
+   "Ole Miss",
+   -30.5,
+   143.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:30",
+   "Sam Houston",
+   "Wyoming",
+   -11.5,
+   149.5,
+   575,
+   -850,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "20:30",
+   "Eastern Washington",
+   "Utah",
+   -12.5,
+   145.5,
+   600,
+   -900,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "21:00",
+   "Old Dominion",
+   "Virginia",
+   -26.5,
+   148.5,
+   3500,
+   -20000,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "21:00",
+   "Alabama State",
+   "UC Davis",
+   -10.5,
+   144.5,
+   455,
+   -625,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "21:00",
+   "Michigan State",
+   "Tennessee",
+   2.5,
+   150.5,
+   -155,
+   130,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "21:30",
+   "UNLV",
+   "Kansas",
+   -18.5,
    156.5,
    1200,
    -2400,
    ""
   ],
   [
-   "2026-11-16",
+   "2026-11-17",
    "22:00",
-   "Portland State",
-   "Saint Mary's",
-   -17.5,
-   149.5,
-   1400,
-   -3200,
+   "UC Irvine",
+   "Stanford",
+   -7.5,
+   144.5,
+   275,
+   -345,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "22:00",
+   "Seattle",
+   "Cal Baptist",
+   9.5,
+   135.5,
+   -410,
+   320,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "23:00",
+   "Montana State",
+   "Gonzaga",
+   -23.5,
+   152.5,
+   2500,
+   -9000,
    ""
   ]
  ],
- "finals": {}
+ "finals": {
+  "Florida A&M|UTEP": [
+   46,
+   79
+  ],
+  "Iona|UMBC": [
+   67,
+   75
+  ],
+  "Prairie View A&M|Ohio State": [
+   59,
+   86
+  ],
+  "Eastern Kentucky|Kent State": [
+   65,
+   49
+  ],
+  "Grambling State|Kentucky": [
+   59,
+   88
+  ],
+  "St. Thomas|LIU": [
+   79,
+   70
+  ],
+  "The Citadel|Clemson": [
+   51,
+   87
+  ],
+  "Richmond|Virginia Tech": [
+   68,
+   85
+  ],
+  "Jacksonville|Georgia": [
+   62,
+   107
+  ],
+  "Western Kentucky|Tulsa": [
+   64,
+   67
+  ],
+  "Tarleton State|Drake": [
+   83,
+   79
+  ],
+  "Abilene Christian|Missouri State": [
+   64,
+   73
+  ],
+  "Central Arkansas|Oklahoma State": [
+   66,
+   99
+  ],
+  "Columbia|Northwestern": [
+   75,
+   53
+  ],
+  "Western Illinois|Minnesota": [
+   63,
+   99
+  ],
+  "Montana|Kansas State": [
+   45,
+   86
+  ],
+  "Southeastern Louisiana|Texas A&M": [
+   69,
+   101
+  ],
+  "East Texas A&M|Oregon State": [
+   71,
+   109
+  ],
+  "Long Beach State|UCLA": [
+   66,
+   105
+  ],
+  "Texas Southern|UC San Diego": [
+   92,
+   97
+  ],
+  "Portland State|Saint Mary's": [
+   78,
+   94
+  ]
+ }
 }
