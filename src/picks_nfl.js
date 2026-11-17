@@ -6,6 +6,6 @@ for(const k of ['nfl']){const B=buildLeague(k);console.log(k,'games',B.rows.leng
   if(m==='spread'){side=x.pick.startsWith(g.home+' ')?'home':'away';line=side==='home'?g.spread:-g.spread;price=-110;}
   else if(m==='totals'){side=x.pick.startsWith('Over')?'over':'under';line=g.total;price=-110;}
   else{side=x.pick.startsWith(g.home+' ')?'home':'away';line=null;price=side==='home'?g.mlHome:g.mlAway;}
-  out.push({w:k==='nfl'?'NFL Wk 10':'CFB Wk 9',lg:k,date:g.date,away:g.away,home:g.home,m,side,line,price,pick:x.pick,score:x.score,prob:+x.prob.toFixed(3)});}}}}
+  out.push({w:k==='nfl'?'NFL Wk 11':'CFB Wk 9',lg:k,date:g.date,away:g.away,home:g.home,m,side,line,price,pick:x.pick,score:x.score,prob:+x.prob.toFixed(3)});}}}}
 console.log(out.length);out.forEach(o=>console.log(o.w,o.score,o.pick,'|',o.away,'@',o.home));
 fs.writeFileSync('nflpicks.json',JSON.stringify(out));

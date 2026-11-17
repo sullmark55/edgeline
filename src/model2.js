@@ -5,20 +5,19 @@ const CFB_ROWS = /*CFBROWS*/; // [team, conf, offPPA, defPPA, offSR, defSR, offP
 // Game rows: [dateYYYY-MM-DD, timeET "HH:MM", away, home, homeSpread, total, mlAway, mlHome, tv, extra]
 // homeSpread: home team's line (negative = home favored).
 const NFL_GAMES = [
-  ["2026-11-12", "20:15", "WAS", "NYG", -2.5, 41.5, 110, -130, "Prime"],
-  ["2026-11-15", "09:30", "NE", "DET", -2.5, 50.5, 120, -142, "FOX", {"venue": "Allianz Arena, Munich", "hfa": 0.5, "note": "Munich — treated as near-neutral"}],
-  ["2026-11-15", "13:00", "BUF", "NYJ", 8.5, 50.5, -470, 360, "CBS"],
-  ["2026-11-15", "13:00", "KC", "ATL", 3, 47.5, -180, 150, "CBS"],
-  ["2026-11-15", "13:00", "MIA", "IND", -4.5, 37.5, 185, -225, "CBS"],
-  ["2026-11-15", "13:00", "MIN", "GB", -2.5, 42.5, 124, -148, "FOX"],
-  ["2026-11-15", "13:00", "CAR", "NO", -1.5, 48.5, 100, -120, "FOX"],
-  ["2026-11-15", "13:00", "JAX", "TEN", 10.5, 46.5, -750, 525, "FOX"],
-  ["2026-11-15", "13:00", "HOU", "CLE", 4.5, 40.5, -225, 185, "FOX"],
-  ["2026-11-15", "16:05", "LA", "ARI", 9.5, 38.5, -485, 370, "CBS"],
-  ["2026-11-15", "16:05", "SEA", "LV", 6.5, 40.5, -290, 235, "CBS"],
-  ["2026-11-15", "16:25", "SF", "DAL", 4.5, 55.5, -218, 180, "FOX"],
-  ["2026-11-15", "20:20", "PIT", "CIN", -3.5, 49.5, 154, -185, "NBC"],
-  ["2026-11-16", "20:15", "LAC", "BAL", -4.5, 38.5, 185, -225, "ESPN"],
+  ["2026-11-19", "20:15", "IND", "HOU", -12.5, 44.5, 500, -700, "Prime"],
+  ["2026-11-22", "13:00", "ARI", "KC", -16.5, 41.5, 850, -1450, ""],
+  ["2026-11-22", "13:00", "BAL", "CAR", -2.5, 43.5, 120, -142, ""],
+  ["2026-11-22", "13:00", "MIA", "BUF", -16.5, 45.5, 750, -1200, ""],
+  ["2026-11-22", "13:00", "NO", "CHI", -11.5, 49.5, 490, -675, ""],
+  ["2026-11-22", "13:00", "TB", "DET", -6.5, 45.5, 220, -270, ""],
+  ["2026-11-22", "13:00", "TEN", "DAL", -8.5, 54.5, 330, -425, ""],
+  ["2026-11-22", "13:00", "PIT", "PHI", 4.5, 38.5, -218, 180, ""],
+  ["2026-11-22", "16:05", "NYJ", "LAC", -3.5, 40.5, 150, -180, ""],
+  ["2026-11-22", "16:25", "JAX", "NYG", 6, 46.5, -265, 215, ""],
+  ["2026-11-22", "16:25", "LV", "DEN", -10, 40.5, 410, -550, ""],
+  ["2026-11-22", "20:20", "MIN", "SF", -3, 46.5, 136, -162, "NBC", {"venue": "Estadio Banorte, Mexico City", "hfa": 0.5, "note": "Mexico City — treated as near-neutral"}],
+  ["2026-11-23", "20:15", "CIN", "WAS", 6.5, 52.5, -298, 240, "ESPN"],
 ];
 const NFL_VENUES={"BAL": "M&T Bank Stadium", "NO": "Caesars Superdome", "IND": "Lucas Oil Stadium", "CAR": "Bank of America Stadium", "MIA": "Hard Rock Stadium", "WAS": "Northwest Stadium", "PHI": "Lincoln Financial Field", "KC": "GEHA Field at Arrowhead Stadium", "LAC": "SoFi Stadium", "SF": "Levi's Stadium", "NE": "Gillette Stadium", "SEA": "Lumen Field", "CHI": "Soldier Field", "MIN": "U.S. Bank Stadium"};
 
@@ -199,9 +198,9 @@ const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Pan
 
 // ===================== MODEL =====================
 const LEAGUES = {
-  nfl: { key:"nfl", label:"NFL", weekLabel:"Week 10", dataDate:"2026-11-09", linesAt:"2026-11-15T14:12Z",
+  nfl: { key:"nfl", label:"NFL", weekLabel:"Week 11", dataDate:"2026-11-17", linesAt:"2026-11-17T20:10Z",
     cfg:{basePts:22.0, plays:62, regress:0.55, sdMargin:13.5, sdTotal:13.0, srScale:2.4, passScale:0.65, wModel:0.40, hfa:1.5, keys:[3,7]},
-    footer:"Lines: DraftKings via ESPN, Nov 15 (8:10 AM CT). Bye: CHI, DEN, PHI, TB. Patriots–Lions is in Munich (treated as near-neutral). Team ratings do not account for injuries.",
+    footer:"Lines: DraftKings via ESPN, Nov 17. Bye: ATL, CLE, GB, LA, NE, SEA. Vikings–49ers is in Mexico City (treated as near-neutral). Team ratings do not account for injuries.",
   },
   cfb: { key:"cfb", label:"CFB", weekLabel:"Week 12", dataDate:"2026-11-16", linesAt:"2026-11-17T14:00Z",
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
