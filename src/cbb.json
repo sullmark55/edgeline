@@ -1,6 +1,6 @@
 {
  "label": "Tue Nov 17",
- "footer": "Lines from DraftKings via ESPN (cross-checked with Covers), Nov 17. Games without a posted line are left off. Finished games drop off once they end.",
+ "footer": "Lines from DraftKings via ESPN, Nov 17. Games without a posted line are left off. Finished games drop off once they end.",
  "games": [
   [
    "2026-11-17",
@@ -119,8 +119,8 @@
    "UCF",
    1.5,
    154.5,
-   null,
-   null,
+   -110,
+   -110,
    ""
   ],
   [
@@ -208,7 +208,7 @@
    11.5,
    143.5,
    -675,
-   null,
+   490,
    ""
   ],
   [
@@ -273,8 +273,8 @@
    "Providence",
    -29.5,
    154.5,
-   null,
-   null,
+   4000,
+   -50000,
    ""
   ],
   [
@@ -286,6 +286,28 @@
    160.5,
    525,
    -750,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Villanova",
+   "Pittsburgh",
+   1.5,
+   148.5,
+   -122,
+   102,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:00",
+   "Ball State",
+   "Florida State",
+   -26.5,
+   151.5,
+   2200,
+   -8000,
    ""
   ],
   [
@@ -330,6 +352,17 @@
    174.5,
    2500,
    -9000,
+   ""
+  ],
+  [
+   "2026-11-17",
+   "19:30",
+   "Arkansas",
+   "Indiana",
+   2.5,
+   154.5,
+   -142,
+   120,
    ""
   ],
   [
@@ -404,7 +437,7 @@
    "Texas A&M Corpus Chris",
    "Rice",
    -1.5,
-   141.5,
+   140.5,
    110,
    -130,
    ""
@@ -564,90 +597,5 @@
    ""
   ]
  ],
- "finals": {
-  "Florida A&M|UTEP": [
-   46,
-   79
-  ],
-  "Iona|UMBC": [
-   67,
-   75
-  ],
-  "Prairie View A&M|Ohio State": [
-   59,
-   86
-  ],
-  "Eastern Kentucky|Kent State": [
-   65,
-   49
-  ],
-  "Grambling State|Kentucky": [
-   59,
-   88
-  ],
-  "St. Thomas|LIU": [
-   79,
-   70
-  ],
-  "The Citadel|Clemson": [
-   51,
-   87
-  ],
-  "Richmond|Virginia Tech": [
-   68,
-   85
-  ],
-  "Jacksonville|Georgia": [
-   62,
-   107
-  ],
-  "Western Kentucky|Tulsa": [
-   64,
-   67
-  ],
-  "Tarleton State|Drake": [
-   83,
-   79
-  ],
-  "Abilene Christian|Missouri State": [
-   64,
-   73
-  ],
-  "Central Arkansas|Oklahoma State": [
-   66,
-   99
-  ],
-  "Columbia|Northwestern": [
-   75,
-   53
-  ],
-  "Western Illinois|Minnesota": [
-   63,
-   99
-  ],
-  "Montana|Kansas State": [
-   45,
-   86
-  ],
-  "Southeastern Louisiana|Texas A&M": [
-   69,
-   101
-  ],
-  "East Texas A&M|Oregon State": [
-   71,
-   109
-  ],
-  "Long Beach State|UCLA": [
-   66,
-   105
-  ],
-  "Texas Southern|UC San Diego": [
-   92,
-   97
-  ],
-  "Portland State|Saint Mary's": [
-   78,
-   94
-  ]
- }
+ "finals": {}
 }
