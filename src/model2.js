@@ -126,15 +126,18 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-11-18", "19:00", "MEM", "CLE", -5.5, 236.5, 164, -196, ""],
-  ["2026-11-18", "19:00", "HOU", "IND", 7.5, 224.5, -264, 217, ""],
-  ["2026-11-18", "19:00", "MIL", "MIA", -12.5, 236.5, 539, -770, ""],
-  ["2026-11-18", "19:00", "PHI", "ORL", 1.5, 223.5, -122, 103, ""],
-  ["2026-11-18", "19:30", "CHI", "BKN", -2.5, 237.5, 128, -152, ""],
-  ["2026-11-18", "20:00", "ATL", "OKC", -7.5, 226.5, 221, -270, ""],
-  ["2026-11-18", "20:00", "GSW", "DAL", -6.5, 221.5, 173, -208, ""],
-  ["2026-11-18", "21:30", "BOS", "DEN", 2.5, 219.5, -141, 119, ""],
-  ["2026-11-18", "22:00", "PHX", "SAC", 6.5, 229.5, -224, 186, ""],
+  ["2026-11-18", "19:00", "MEM", "CLE", -4.5, 235.5, 164, -197, ""],
+  ["2026-11-18", "19:00", "HOU", "IND", 7.5, 225.5, -304, 247, ""],
+  ["2026-11-18", "19:00", "MIL", "MIA", -11.5, 236.5, 505, -700, ""],
+  ["2026-11-18", "19:00", "PHI", "ORL", 1.5, 222.5, -117, -101, ""],
+  ["2026-11-18", "19:30", "CHI", "BKN", -2.5, 239.5, 128, -152, ""],
+  ["2026-11-18", "19:30", "WAS", "TOR", -6.5, 226.5, 205, -249, ""],
+  ["2026-11-18", "20:00", "DET", "NOP", 6.5, 227.5, -264, 217, ""],
+  ["2026-11-18", "20:00", "ATL", "OKC", -6.5, 228.5, 221, -270, ""],
+  ["2026-11-18", "20:00", "GSW", "DAL", -4.5, 224.5, 164, -197, ""],
+  ["2026-11-18", "21:30", "BOS", "DEN", 2.5, 220.5, -142, 120, ""],
+  ["2026-11-18", "22:00", "UTA", "LAL", -10.5, 228.5, 341, -437, ""],
+  ["2026-11-18", "22:00", "PHX", "SAC", 6.5, 227.5, -257, 211, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -217,7 +220,7 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines: DraftKings via ESPN, Nov 17 at 8:00 AM CT. Team stats (EPA per play, success rate, pass EPA) through Nov 16. Finished games drop off once they end.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Wed Nov 18", dataDate:"2026-11-15", linesAt:"2026-11-18T13:46Z",
+  nba: { key:"nba", label:"NBA", weekLabel:"Wed Nov 18", dataDate:"2026-11-15", linesAt:"2026-11-18T16:38Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN, Nov 18. Finished games drop off once they end.",
   },
