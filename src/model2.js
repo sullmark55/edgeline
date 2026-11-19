@@ -90,6 +90,16 @@ const CFB_GAMES = [
   ["2026-11-21", "22:30", "Hawai'i", "Nevada", -4, 40.5, 160, -192, ""],
 ];
 
+// NBA injury adjustments, applied to the team's ratings until the return date (pts per 100 possessions).
+// ortg: change to offensive rating (negative = worse); drtg: change to points allowed per 100 (positive = worse)
+const NBA_INJ = [
+  {team:"GSW", player:"Stephen Curry", until:"2026-12-05", ortg:-5.0, drtg:1.0},
+];
+function nbaRowsAdj(rows){
+  const today=new Date().toISOString().slice(0,10);
+  return rows.map(r=>{const adj=NBA_INJ.filter(x=>x.team===r[0]&&today<x.until);
+    if(!adj.length) return r; const o=r.slice(); adj.forEach(x=>{o[2]+=x.ortg; o[3]+=x.drtg;}); return o;});
+}
 // NBA: Dunks & Threes team stats (SRS-adjusted), games through Fri Oct 30 2026.
 // [abbr, name, aORTG, aDRTG, pace, gamesPlayed] — aORTG/aDRTG are points per 100 possessions scored/allowed, opponent-adjusted
 const NBA_ROWS = [
@@ -182,7 +192,7 @@ const LEAGUES = {
   },
   nba: { key:"nba", label:"NBA", weekLabel:"Thu Nov 19", dataDate:"2026-11-15", linesAt:"2026-11-19T13:45Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
-    footer:"Lines from DraftKings via ESPN, Nov 19. Finished games drop off once they end.",
+    footer:"Lines from DraftKings via ESPN, Nov 19. Injury adjustment: GSW without Stephen Curry (through Dec 5). Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Thu Nov 19", dataDate:"2026-11-18", linesAt:"2026-11-19T13:45Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, bigStart:20, bigK:0.027, wTotal:0.33, hfa:3.2, keys:[]},
@@ -311,7 +321,7 @@ function project(g,teams,cfg){
 function buildLeague(key){
   const L=LEAGUES[key];
   const hoops=key==="nba"||key==="cbb";
-  const teams=key==="nfl"?parseNFL(NFL_CSV):key==="nba"?parseNBA(NBA_ROWS):key==="cbb"?parseCBB(CBB_ROWS):parseCFB(CFB_ROWS);
+  const teams=key==="nfl"?parseNFL(NFL_CSV):key==="nba"?parseNBA(nbaRowsAdj(NBA_ROWS)):key==="cbb"?parseCBB(CBB_ROWS):parseCFB(CFB_ROWS);
   const LG=teams.__lg; delete teams.__lg;
   if(!hoops) buildRatings(teams,L.cfg);
   const src=key==="nfl"?NFL_GAMES:key==="nba"?NBA_GAMES:key==="cbb"?CBB_GAMES:CFB_GAMES;
