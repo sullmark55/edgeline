@@ -136,7 +136,13 @@ const NBA_ROWS = [
 ];
 // tip times ET
 const NBA_GAMES = [
-  ["2026-11-22", "15:30", "DET", "ATL", 2.5, 227.5, -130, 110, "Prime Video"],
+  ["2026-11-22", "15:30", "DET", "ATL", 1.5, 223.5, -130, 110, "Prime Video"],
+  ["2026-11-22", "18:00", "OKC", "MIA", -4.5, 231.5, 139, -165, ""],
+  ["2026-11-22", "19:00", "ORL", "WAS", 4.5, 219.5, -204, 170, ""],
+  ["2026-11-22", "19:00", "DEN", "CHI", 9.5, 235.5, -423, 331, ""],
+  ["2026-11-22", "19:00", "DAL", "UTA", 1.5, 224.5, -110, null, ""],
+  ["2026-11-22", "20:00", "IND", "NYK", -8.5, 213.5, 276, -344, ""],
+  ["2026-11-22", "20:30", "BOS", "GSW", 8.5, 209.5, -359, 286, ""],
 ];
 const NBA_VENUES={NYK:"Madison Square Garden",MIN:"Target Center",CHI:"United Center",DEN:"Ball Arena",PHX:"Mortgage Matchup Center",ATL:"State Farm Arena",DAL:"American Airlines Center",CLE:"Rocket Arena",MIL:"Fiserv Forum",BOS:"TD Garden",CHA:"Spectrum Center",IND:"Gainbridge Fieldhouse",UTA:"Delta Center",GSW:"Chase Center",SAC:"Golden 1 Center",PHI:"Xfinity Mobile Arena",OKC:"Paycom Center",DET:"Little Caesars Arena",NYK:"Madison Square Garden",SAS:"Frost Bank Center",ORL:"Kia Center",WAS:"Capital One Arena",BKN:"Barclays Center",MIA:"Kaseya Center",TOR:"Scotiabank Arena",MEM:"FedExForum",NOP:"Smoothie King Center",HOU:"Toyota Center",LAL:"Crypto.com Arena",POR:"Moda Center",LAC:"Intuit Dome"};
 
@@ -196,7 +202,7 @@ const LEAGUES = {
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
     footer:"Lines: DraftKings via ESPN, Nov 17 at 8:00 AM CT. Team stats (EPA per play, success rate, pass EPA) through Nov 16. Finished games drop off once they end.",
   },
-  nba: { key:"nba", label:"NBA", weekLabel:"Sun Nov 22", dataDate:"2026-11-20", linesAt:"2026-11-22T13:46Z",
+  nba: { key:"nba", label:"NBA", weekLabel:"Sun Nov 22", dataDate:"2026-11-20", linesAt:"2026-11-22T16:38Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN, Nov 22. Finished games drop off once they end.",
   },
