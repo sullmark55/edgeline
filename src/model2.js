@@ -190,6 +190,136 @@ const CBB_GAMES = [
   ["2026-11-23", "23:30", "Colorado State", "Arizona", -16.5, 159.5, 1200, -2400, "ESPN2", {"venue": "Lahaina Civic Center, Lahaina, HI", "hfa": 0, "note": "Maui Invitational — neutral site"}],
 ];
 
+// NHL (beta): team stats per game (Kalshi team stats page) and goalie stats (hockey-reference).
+// [abbr, nickname, gp, goalsFor/gp, goalsAgainst/gp, shotsFor/gp, shotsAgainst/gp, PP%, PK%]
+const NHL_TEAMS = [
+  ["CAR", "Hurricanes", 24, 4.17, 2.25, 33.5, 21.6, 25.6, 82.7],
+  ["COL", "Avalanche", 23, 3.91, 2.91, 30.1, 27.3, 23.1, 81.7],
+  ["EDM", "Oilers", 26, 3.85, 2.85, 24.6, 26.8, 32.6, 77.6],
+  ["NJ", "Devils", 23, 3.78, 3.17, 33.0, 25.9, 20.0, 64.2],
+  ["TB", "Lightning", 23, 3.65, 2.91, 29.0, 25.2, 21.3, 73.3],
+  ["ANA", "Ducks", 24, 3.63, 3.83, 26.2, 26.0, 34.2, 74.7],
+  ["MIN", "Wild", 25, 3.6, 2.2, 28.9, 26.0, 25.6, 79.7],
+  ["BOS", "Bruins", 23, 3.57, 2.65, 27.4, 28.0, 19.4, 79.5],
+  ["WSH", "Capitals", 21, 3.43, 3.95, 29.0, 27.2, 22.8, 73.9],
+  ["STL", "Blues", 24, 3.33, 3.21, 27.1, 29.8, 21.5, 83.1],
+  ["UTA", "Mammoth", 24, 3.33, 3.29, 28.9, 25.4, 32.5, 71.3],
+  ["VGK", "Golden Knights", 25, 3.32, 2.88, 29.6, 25.7, 27.3, 79.0],
+  ["SEA", "Kraken", 20, 3.25, 3.55, 25.5, 30.1, 23.8, 60.7],
+  ["OTT", "Senators", 24, 3.21, 2.92, 26.3, 25.7, 13.5, 76.2],
+  ["NYI", "Islanders", 22, 3.18, 2.77, 26.0, 28.4, 17.2, 85.1],
+  ["FLA", "Panthers", 24, 3.17, 2.96, 29.0, 25.3, 23.4, 84.6],
+  ["MTL", "Canadiens", 24, 3.13, 2.96, 27.3, 27.7, 14.3, 80.5],
+  ["TOR", "Maple Leafs", 25, 3.12, 3.52, 27.8, 29.0, 25.7, 82.1],
+  ["WPG", "Jets", 24, 3.08, 3.38, 27.3, 28.2, 23.9, 72.5],
+  ["BUF", "Sabres", 24, 3.04, 3.42, 26.8, 27.9, 16.7, 72.3],
+  ["NSH", "Predators", 23, 3.0, 2.87, 26.9, 29.7, 24.7, 89.1],
+  ["NYR", "Rangers", 23, 3.0, 2.74, 26.0, 27.0, 21.2, 90.0],
+  ["PIT", "Penguins", 23, 2.83, 3.48, 27.7, 28.2, 18.8, 82.0],
+  ["VAN", "Canucks", 26, 2.81, 4.38, 22.5, 31.2, 22.0, 61.2],
+  ["DAL", "Stars", 23, 2.74, 2.35, 25.9, 24.3, 21.4, 88.7],
+  ["LA", "Kings", 21, 2.71, 3.33, 27.5, 27.5, 20.6, 69.1],
+  ["CHI", "Blackhawks", 24, 2.67, 3.96, 23.8, 30.6, 21.7, 79.5],
+  ["SJ", "Sharks", 25, 2.64, 3.48, 27.5, 30.6, 21.3, 73.9],
+  ["PHI", "Flyers", 26, 2.58, 3.35, 24.5, 27.5, 18.1, 77.2],
+  ["DET", "Red Wings", 23, 2.52, 3.0, 27.8, 26.2, 20.0, 70.8],
+  ["CGY", "Flames", 24, 2.5, 3.5, 27.4, 29.5, 26.3, 80.8],
+  ["CBJ", "Blue Jackets", 21, 2.48, 3.24, 27.8, 28.2, 20.4, 72.4],
+];
+// [goalie, team, gp, gs, shotsAgainst, sv%, GSAA (goals saved above average)]
+const NHL_GOALIES = [
+  ["Jesper Wallstedt", "MIN", 22, 22, 575, 0.923, 18.4],
+  ["Spencer Knight", "CHI", 19, 19, 569, 0.888, -2.2],
+  ["Leevi Merilainen", "VAN", 18, 16, 521, 0.889, -1.5],
+  ["Mackenzie Blackwood", "COL", 17, 16, 438, 0.904, 5.5],
+  ["Jake Oettinger", "DAL", 17, 17, 383, 0.901, 3.6],
+  ["Juuse Saros", "NSH", 17, 16, 501, 0.916, 12.4],
+  ["Stuart Skinner", "WPG", 17, 17, 444, 0.883, -3.8],
+  ["Jeremy Swayman", "BOS", 17, 17, 460, 0.904, 5.9],
+  ["Andrei Vasilevskiy", "TB", 17, 17, 418, 0.895, 1.4],
+  ["Yaroslav Askarov", "SJ", 16, 16, 475, 0.888, -1.4],
+  ["Joel Hofer", "STL", 16, 16, 465, 0.923, 14.5],
+  ["Karel Vejmelka", "UTA", 16, 15, 368, 0.872, -8.1],
+  ["Jacob Fowler", "MTL", 15, 15, 425, 0.918, 11.1],
+  ["Dylan Garand", "NYR", 15, 13, 356, 0.91, 6.6],
+  ["Pyotr Kochetkov", "CAR", 15, 15, 302, 0.911, 5.8],
+  ["Ilya Sorokin", "NYI", 15, 15, 439, 0.918, 11.6],
+  ["Logan Thompson", "WSH", 15, 15, 378, 0.878, -5.0],
+  ["Sergei Bobrovsky", "TOR", 14, 14, 404, 0.874, -7.2],
+  ["John Gibson", "DET", 14, 14, 318, 0.862, -9.5],
+  ["Philipp Grubauer", "SEA", 14, 11, 350, 0.894, 1.0],
+  ["Dustin Wolf", "CGY", 14, 13, 381, 0.877, -5.6],
+  ["Lukas Dostal", "ANA", 13, 12, 308, 0.857, -10.6],
+  ["Carter Hart", "VGK", 13, 13, 324, 0.886, -1.8],
+  ["Darcy Kuemper", "LA", 13, 13, 347, 0.885, -2.3],
+  ["Devon Levi", "EDM", 13, 13, 345, 0.896, 0.4],
+  ["Ukko-Pekka Luukkonen", "BUF", 13, 12, 338, 0.873, -6.3],
+  ["Jacob Markstrom", "FLA", 13, 13, 302, 0.894, 0.8],
+  ["Arturs Silovs", "PIT", 13, 13, 347, 0.873, -6.3],
+  ["Daniel Vladar", "PHI", 13, 13, 340, 0.876, -6.1],
+  ["Joseph Woll", "PHI", 13, 13, 372, 0.892, 0.4],
+  ["Adin Hill", "VGK", 12, 12, 315, 0.898, 2.2],
+  ["Cam Talbot", "CBJ", 12, 11, 322, 0.907, 4.9],
+  ["Linus Ullmark", "OTT", 12, 12, 270, 0.937, 12.3],
+  ["Jake Allen", "NJ", 11, 10, 284, 0.873, -5.2],
+  ["Samuel Ersson", "OTT", 11, 8, 236, 0.869, -5.4],
+  ["Jet Greaves", "CBJ", 11, 10, 265, 0.875, -4.2],
+  ["Akira Schmid", "FLA", 11, 10, 279, 0.885, -1.7],
+  ["Anthony Stolarz", "TOR", 11, 11, 316, 0.902, 3.3],
+  ["Devin Cooley", "CGY", 10, 10, 288, 0.906, 4.3],
+  ["Sebastian Cossa", "UTA", 10, 9, 237, 0.886, -1.3],
+  ["Joey Daccord", "SEA", 10, 9, 250, 0.872, -4.9],
+  ["Tristan Jarry", "EDM", 10, 10, 274, 0.912, 4.7],
+  ["Daniil Tarasov", "DET", 10, 8, 247, 0.927, 8.8],
+  ["Jakub Dobes", "MTL", 9, 9, 236, 0.864, -6.4],
+  ["Anton Forsberg", "LA", 9, 8, 223, 0.901, 2.2],
+  ["Connor Hellebuyck", "NJ", 9, 9, 223, 0.897, 1.2],
+  ["Ville Husso", "ANA", 9, 7, 185, 0.854, -6.9],
+  ["Kevin Lankinen", "VAN", 9, 8, 219, 0.808, -19.2],
+  ["Sergei Murashov", "PIT", 9, 9, 273, 0.89, -0.4],
+  ["Alex Nedeljkovic", "SJ", 9, 9, 285, 0.902, 2.9],
+  ["Nico Daws", "NJ", 4, 4, 86, 0.872, -1.7],
+  ["Nico Daws", "WPG", 5, 3, 106, 0.906, 1.5],
+  ["Brandon Bussi", "CAR", 8, 8, 188, 0.872, -3.6],
+  ["Colten Ellis", "BUF", 8, 7, 181, 0.873, -3.4],
+  ["Charlie Lindgren", "WSH", 8, 6, 185, 0.849, -7.9],
+  ["Justus Annunen", "NSH", 7, 6, 162, 0.864, -4.4],
+  ["Jordan Binnington", "STL", 7, 7, 215, 0.847, -9.7],
+  ["Michael DiPietro", "BOS", 7, 6, 181, 0.923, 5.6],
+  ["Semyon Varlamov", "NYI", 7, 7, 180, 0.889, -0.5],
+  ["Scott Wedgewood", "COL", 7, 7, 188, 0.883, -1.6],
+  ["Casey DeSmith", "DAL", 6, 5, 139, 0.906, 2.1],
+  ["Laurent Brossoit", "ANA", 5, 5, 128, 0.867, -3.1],
+  ["Dennis Hildeby", "TB", 5, 5, 129, 0.899, 1.0],
+  ["Igor Shesterkin", "NYR", 5, 5, 109, 0.927, 3.8],
+  ["Arvid Soderblom", "CHI", 5, 4, 133, 0.842, -6.6],
+  ["Clay Stevenson", "WPG", 5, 4, 123, 0.87, -2.7],
+  ["Jonas Johansson", "OTT", 4, 4, 105, 0.848, -4.6],
+  ["Alex Lyon", "BUF", 4, 4, 118, 0.89, -0.2],
+  ["Joonas Korpisalo", "NYR", 3, 3, 83, 0.94, 4.0],
+  ["Calvin Pickard", "MIN", 3, 3, 76, 0.855, -2.8],
+  ["Michal Postava", "DET", 2, 1, 35, 0.886, -0.2],
+  ["Matt Tomkins", "EDM", 2, 2, 50, 0.88, -0.6],
+  ["Cooper Black", "FLA", 1, 1, 21, 0.857, -0.7],
+  ["Spencer Martin", "NYR", 1, 0, 18, 0.833, -1.0],
+  ["Matt Murray", "NSH", 1, 1, 20, 0.9, 0.2],
+  ["James Reimer", "NYR", 1, 1, 8, 0.625, -2.1],
+  ["Arsenii Sergeev", "CGY", 1, 1, 34, 0.853, -1.3],
+  ["Nikita Tolopilo", "VAN", 1, 1, 37, 0.946, 2.0],
+];
+// puck drop ET. [date, time, away, home, homePuckLine(-1.5/+1.5), total, mlAway, mlHome, tv, extra]
+// extra: plAway/plHome puck line prices, over/under prices, gA/gH starting goalies, gsA/gsH status (Confirmed/Likely/Unconfirmed)
+const NHL_GAMES = [
+  ["2026-11-23", "19:00", "CBJ", "NJ", -1.5, 6.5, 170, -205, "", {"plAway": -148, "plHome": 124, "over": 114, "under": -135, "gA": "Cam Talbot", "gH": "Connor Hellebuyck", "gsA": "Confirmed", "gsH": "Confirmed"}],
+  ["2026-11-23", "19:30", "LA", "MTL", -1.5, 6.5, 130, -155, "", {"plAway": -192, "plHome": 160, "over": 105, "under": -125, "gA": "Darcy Kuemper", "gH": "Jakub Dobes", "gsA": "Unconfirmed", "gsH": "Confirmed"}],
+  ["2026-11-23", "19:30", "CGY", "OTT", -1.5, 5.5, 210, -258, "", {"plAway": -130, "plHome": 110, "over": -120, "under": 100, "gA": "Devin Cooley", "gH": "Linus Ullmark", "gsA": "Confirmed", "gsH": "Confirmed"}],
+  ["2026-11-23", "19:30", "TOR", "NYI", -1.5, 6.5, 136, -162, "", {"plAway": -185, "plHome": 154, "over": -108, "under": -112, "gA": "Anthony Stolarz", "gH": "Ilya Sorokin", "gsA": "Confirmed", "gsH": "Likely"}],
+  ["2026-11-23", "19:30", "UTA", "WPG", 1.5, 6.5, -112, -108, "", {"plAway": 220, "plHome": -270, "over": -105, "under": -115, "gA": "Sebastian Cossa", "gH": "Stuart Skinner", "gsA": "Confirmed", "gsH": "Likely"}],
+  ["2026-11-23", "21:40", "ANA", "SEA", -1.5, 6.5, -102, -118, "", {"plAway": -245, "plHome": 200, "over": -135, "under": 114, "gA": "Lukas Dostal", "gH": "Joey Daccord", "gsA": "Unconfirmed", "gsH": "Likely"}],
+  ["2026-11-23", "22:00", "MIN", "SJ", 1.5, 6.5, -175, 145, "", {"plAway": 136, "plHome": -162, "over": -102, "under": -118, "gA": "Filip Gustavsson", "gH": "Yaroslav Askarov", "gsA": "Confirmed", "gsH": "Confirmed"}],
+];
+const NHL_VENUES={ANA:"Honda Center",BOS:"TD Garden",BUF:"KeyBank Center",CGY:"Scotiabank Saddledome",CAR:"Lenovo Center",CHI:"United Center",COL:"Ball Arena",CBJ:"Nationwide Arena",DAL:"American Airlines Center",DET:"Little Caesars Arena",EDM:"Rogers Place",FLA:"Amerant Bank Arena",LA:"Crypto.com Arena",MIN:"Grand Casino Arena",MTL:"Bell Centre",NSH:"Bridgestone Arena",NJ:"Prudential Center",NYI:"UBS Arena",NYR:"Madison Square Garden",OTT:"Canadian Tire Centre",PHI:"Xfinity Mobile Arena",PIT:"PPG Paints Arena",SJ:"SAP Center",SEA:"Climate Pledge Arena",STL:"Enterprise Center",TB:"Benchmark International Arena",TOR:"Scotiabank Arena",UTA:"Delta Center",VAN:"Rogers Arena",VGK:"T-Mobile Arena",WSH:"Capital One Arena",WPG:"Canada Life Centre"};
+
 const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",GB:"Packers",HOU:"Texans",IND:"Colts",JAX:"Jaguars",KC:"Chiefs",LA:"Rams",LAC:"Chargers",LV:"Raiders",MIA:"Dolphins",MIN:"Vikings",NE:"Patriots",NO:"Saints",NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",TB:"Buccaneers",TEN:"Titans",WAS:"Commanders"};
 
 // ===================== MODEL =====================
@@ -205,6 +335,10 @@ const LEAGUES = {
   nba: { key:"nba", label:"NBA", weekLabel:"Mon Nov 23", dataDate:"2026-11-20", linesAt:"2026-11-23T13:42Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN and FanDuel Research, Nov 23. Finished games drop off once they end.",
+  },
+  nhl: { key:"nhl", label:"NHL", beta:true, weekLabel:"Mon Nov 23", dataDate:"2026-11-23", linesAt:"2026-11-23T22:45Z",
+    cfg:{regressGP:20, wShots:0.5, hfa:0.20, wModel:0.35, goaliePrior:900, maxGoals:12, tieBoost:1.35},
+    footer:"Beta. Lines from DraftKings via ESPN, Nov 23. Starting goalies from Daily Faceoff. Team stats through Nov 23 (Kalshi); goalie stats through Nov 21 (hockey-reference). Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 23", dataDate:"2026-11-23", linesAt:"2026-11-23T16:38Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, bigStart:20, bigK:0.027, wTotal:0.33, hfa:3.2, keys:[]},
@@ -287,7 +421,7 @@ function toGame(row,i,league){
   const [date,time,away,home,spread,total,mlAway,mlHome,tv,extra]=row; const x=extra||{};
   return {id:league+"-"+(i+1), league, date, time, away, home, spread, total, mlAway, mlHome, tv,
     kickoff:new Date(`${date}T${time}:00${date>="2026-11-01"&&date<"2027-03-14"?"-05:00":"-04:00"}`), // listed in Eastern (EST from Nov 1)
-    venue:x.venue||(league==="nfl"?NFL_VENUES[home]:league==="nba"?NBA_VENUES[home]:""), hfa:x.hfa, adjAway:x.adjAway||0, adjHome:x.adjHome||0, note:x.note||(spread===0?"Pick'em line":""), noTotal:!!x.noTotal};
+    x, venue:x.venue||(league==="nfl"?NFL_VENUES[home]:league==="nba"?NBA_VENUES[home]:league==="nhl"?NHL_VENUES[home]:""), hfa:x.hfa, adjAway:x.adjAway||0, adjHome:x.adjHome||0, note:x.note||(spread===0?"Pick'em line":""), noTotal:!!x.noTotal};
 }
 
 function project(g,teams,cfg){
@@ -330,8 +464,103 @@ function project(g,teams,cfg){
         probEdge:mlHome?pHomeWin-nvHome:(1-pHomeWin)-nvAway,ev:mlEV,score:mScore,tier:tier(mScore),pHomeWin,nvHome,nvAway}};
 }
 
+// ===================== NHL (beta): Poisson goals model =====================
+function parseNHL(rows,goalies,cfg){
+  const t={}, gpSum=rows.reduce((s,r)=>s+r[2],0);
+  const lg=rows.reduce((s,r)=>s+r[3]*r[2],0)/gpSum;                        // league goals per team-game
+  const lgSh=rows.reduce((s,r)=>s+r[3]*r[2],0)/rows.reduce((s,r)=>s+r[5]*r[2],0); // goals per shot on goal
+  const lgPP=rows.reduce((s,r)=>s+r[7],0)/rows.length, lgPK=rows.reduce((s,r)=>s+r[8],0)/rows.length;
+  const G={}; goalies.forEach(([name,team,gp,gs,sa,sv,gsaa])=>{
+    (G[team]=G[team]||[]).push({name,team,gp,gs,sa,sv,gsaa,perShot:gsaa/(sa+cfg.goaliePrior)}); });
+  rows.forEach(([ab,name,gp,gf,ga,sf,sa,pp,pk])=>{
+    const gl=(G[ab]||[]).sort((a,b)=>b.gs-a.gs), gsaaTeam=gl.reduce((s,x)=>s+x.gsaa,0);
+    const shrink=gp/(gp+cfg.regressGP);
+    const offRaw=cfg.wShots*sf*lgSh+(1-cfg.wShots)*gf;                     // shot volume and actual goals
+    const gaNeutral=ga+gsaaTeam/gp;                                         // goals allowed with average goaltending
+    const defRaw=cfg.wShots*sa*lgSh+(1-cfg.wShots)*gaNeutral;
+    const off=lg+(offRaw-lg)*shrink, def=lg+(defRaw-lg)*shrink;
+    t[ab]={team:ab, short:ab, name, gp, gf, ga, sf, sa, pp, pk, gaNeutral, gsaaTeam, goalies:gl,
+      off, def, offRating:off-lg, defRating:def-lg, net:(off-lg)-(def-lg)};
+  });
+  const T=Object.values(t);
+  [...T].sort((a,b)=>b.net-a.net).forEach((x,i)=>x.powerRank=i+1);
+  [...T].sort((a,b)=>b.offRating-a.offRating).forEach((x,i)=>x.offRank=i+1);
+  [...T].sort((a,b)=>a.defRating-b.defRating).forEach((x,i)=>x.defRank=i+1);
+  t.__lg={lg,lgSh,lgPP,lgPK};
+  return t;
+}
+function nhlGoalie(team,name){
+  const g=(team.goalies||[]).find(x=>x.name===name);
+  if(g) return g;
+  if(!name&&team.goalies&&team.goalies.length) return team.goalies[0];      // no starter listed: the team's top goalie
+  return {name:name||"Unknown", team:team.team, gp:0, gs:0, sa:0, sv:null, gsaa:0, perShot:0, unknown:true};
+}
+let EN_SHARE=0.30;
+function poisArr(l,n){const a=[Math.exp(-l)];for(let k=1;k<=n;k++)a.push(a[k-1]*l/k);return a;}
+// regulation goals are Poisson; tied scores are weighted up (tieBoost) because real NHL games reach OT more often (~22%)
+// than independent Poisson says (~16%). A regulation tie goes to OT/shootout, won by the home side with share lh/(la+lh).
+function nhlProbs(la,lh,n,tb){
+  const A=poisArr(la,n),H=poisArr(lh,n), q=lh/(la+lh), k=tb||1.35; let pHome=0,pTie=0,Z=0; const cells=[];
+  for(let i=0;i<=n;i++)for(let j=0;j<=n;j++){const p=A[i]*H[j]*(i===j?k:1); Z+=p; cells.push([i,j,p]);}
+  cells.forEach(c=>{c[2]/=Z;});
+  // empty-net goals: a share of one-goal regulation results end as two-goal wins (adds a goal to the total too)
+  const en=EN_SHARE; if(en>0){ const add=[]; cells.forEach(c=>{const d=c[1]-c[0]; if(Math.abs(d)===1){const m=c[2]*en; c[2]-=m; add.push(d>0?[c[0],c[1]+1,m]:[c[0]+1,c[1],m]);}}); cells.push(...add); }
+  cells.forEach(c=>{ if(c[1]>c[0])pHome+=c[2]; else if(c[0]===c[1])pTie+=c[2];});
+  pHome+=pTie*q;
+  const over=L=>cells.reduce((s,[i,j,p])=>s+(i+j+(i===j?1:0)>L?p:0),0);
+  const homeCover=line=>cells.reduce((s,[i,j,p])=>{ if(i===j) return s+p*((1+line>0?q:0)+(-1+line>0?1-q:0)); return s+(j-i+line>0?p:0); },0);
+  return {pHome,pTie,q,over,homeCover};
+}
+// market goals: find (away, home) expected goals whose Poisson odds match the no-vig moneyline and total
+function nhlMarket(pHomeNV,pOverNV,L,n){
+  let lo=3,hi=10,la=3,lh=3;
+  for(let it=0;it<28;it++){ const T=(lo+hi)/2;
+    let a=0.2,b=0.8; for(let k=0;k<28;k++){const s=(a+b)/2; nhlProbs(T*(1-s),T*s,n).pHome<pHomeNV?a=s:b=s;}
+    const s=(a+b)/2; la=T*(1-s); lh=T*s; nhlProbs(la,lh,n).over(L)<pOverNV?lo=T:hi=T; }
+  return [la,lh];
+}
+function projectNHL(g,teams,cfg,LG){
+  const A=teams[g.away],H=teams[g.home], x=g.x||{}, n=cfg.maxGoals;
+  const gA=nhlGoalie(A,x.gA), gH=nhlGoalie(H,x.gH);
+  const shotsOnH=(A.sf+H.sa)/2, shotsOnA=(H.sf+A.sa)/2;                  // shots each goalie should face
+  const hfa=g.hfa??cfg.hfa;
+  const rawAway=Math.max(0.8,LG.lg*(A.off/LG.lg)*(H.def/LG.lg)-gH.perShot*shotsOnH-hfa/2);
+  const rawHome=Math.max(0.8,LG.lg*(H.off/LG.lg)*(A.def/LG.lg)-gA.perShot*shotsOnA+hfa/2);
+  const nv=(a,b)=>{const ia=mlToProb(a),ib=mlToProb(b);return [ia/(ia+ib),ib/(ia+ib)];};
+  const [nvAway,nvHome]=nv(g.mlAway,g.mlHome), [nvOver]=nv(x.over??-110,x.under??-110);
+  const [mA,mH]=nhlMarket(nvHome,nvOver,g.total,n);
+  const w=cfg.wModel, away=w*rawAway+(1-w)*mA, home=w*rawHome+(1-w)*mH;
+  const P=nhlProbs(away,home,n), R=nhlProbs(rawAway,rawHome,n);
+  const longshot=pr=>pr>250?(pr-250)/150:0;
+  // puck line
+  const plH=x.plHome??-110, plA=x.plAway??-110, lineH=g.spread, lineA=-g.spread;
+  const pcH=P.homeCover(lineH), pcA=1-pcH, evPH=evOf(pcH,plH), evPA=evOf(pcA,plA), plHome=evPH>=evPA;
+  const plPrice=plHome?plH:plA, pPL=plHome?pcH:pcA;
+  const sScore=edgeScore(pPL,mlToProb(plPrice),1.1,-longshot(plPrice));
+  // total
+  const pOver=P.over(g.total), oP=x.over??-110, uP=x.under??-110, evO=evOf(pOver,oP), evU=evOf(1-pOver,uP), isOver=evO>=evU;
+  const tPrice=isOver?oP:uP, pT=isOver?pOver:1-pOver, tScore=edgeScore(pT,mlToProb(tPrice),1.2,0);
+  // moneyline
+  const pHomeWin=P.pHome, evH=evOf(pHomeWin,g.mlHome), evA=evOf(1-pHomeWin,g.mlAway), mlHome=evH>=evA, mlPrice=mlHome?g.mlHome:g.mlAway;
+  const mScore=edgeScore(mlHome?pHomeWin:1-pHomeWin,mlToProb(mlPrice),1.1,-longshot(mlPrice));
+  const total=away+home, margin=home-away;
+  return {away,home,margin,total,rawAway,rawHome,rawMargin:rawHome-rawAway,rawTotal:rawAway+rawHome,mktAway:mA,mktHome:mH,goalies:{away:gA,home:gH},
+    spread:{pick:plHome?`${g.home} ${fmtLine(lineH)} ${fmtML(plH)}`:`${g.away} ${fmtLine(lineA)} ${fmtML(plA)}`,side:plHome?"home":"away",line:plHome?lineH:lineA,price:plPrice,
+      edgePts:Math.abs(margin-(mH-mA)),prob:pPL,ev:Math.max(evPH,evPA),score:sScore,tier:tier(sScore),modelLine:-margin,pHomeCover:pcH,implied:mlToProb(plPrice)},
+    totals:{pick:`${isOver?"Over":"Under"} ${g.total}`,side:isOver?"over":"under",price:tPrice,edgePts:Math.abs(total-(mA+mH)),prob:pT,ev:Math.max(evO,evU),score:tScore,tier:tier(tScore),pOver,rawPOver:R.over(g.total),implied:mlToProb(tPrice)},
+    ml:{pick:mlHome?`${g.home} ${fmtML(g.mlHome)}`:`${g.away} ${fmtML(g.mlAway)}`,prob:mlHome?pHomeWin:1-pHomeWin,implied:mlHome?nvHome:nvAway,
+      probEdge:mlHome?pHomeWin-nvHome:(1-pHomeWin)-nvAway,ev:Math.max(evH,evA),score:mScore,tier:tier(mScore),pHomeWin,nvHome,nvAway,pTie:P.pTie}};
+}
+
 function buildLeague(key){
   const L=LEAGUES[key];
+  if(key==="nhl"){
+    const teams=parseNHL(NHL_TEAMS,NHL_GOALIES,L.cfg), LG=teams.__lg; delete teams.__lg; L.cfg.lg=LG;
+    const missing=[];
+    const games=NHL_GAMES.map((r,i)=>toGame(r,i,key)).filter(g=>{const ok=teams[g.away]&&teams[g.home]; if(!ok)missing.push(g.away+" @ "+g.home); return ok;});
+    const rows=games.map(g=>{const p=projectNHL(g,teams,L.cfg,LG);return {g,p,best:Math.max(p.spread.score,p.totals.score,p.ml.score)};});
+    return {L,teams,rows,missing,teamCount:Object.keys(teams).length};
+  }
   const hoops=key==="nba"||key==="cbb";
   const teams=key==="nfl"?parseNFL(NFL_CSV):key==="nba"?parseNBA(nbaRowsAdj(NBA_ROWS)):key==="cbb"?parseCBB(CBB_ROWS):parseCFB(CFB_ROWS);
   const LG=teams.__lg; delete teams.__lg;

@@ -98,7 +98,7 @@ details.wk{border-bottom:1px solid var(--line)}
 .toprow .pk{font-weight:700;font-size:15px}
 .toprow .sub{font-size:12px;color:var(--muted);margin-top:2px}
 .lgtag{display:inline-block;min-width:38px;text-align:center;font:800 11px var(--body);letter-spacing:.04em;padding:4px 6px;border-radius:6px;color:#fff;background:var(--tc)}
-.lgtag[data-lg="nfl"]{--tc:var(--t-nfl)}.lgtag[data-lg="nba"]{--tc:var(--t-nba)}.lgtag[data-lg="cfb"]{--tc:var(--t-cfb);color:#1b1400}.lgtag[data-lg="cbb"]{--tc:var(--t-cbb)}
+.lgtag[data-lg="nfl"]{--tc:var(--t-nfl)}.lgtag[data-lg="nba"]{--tc:var(--t-nba)}.lgtag[data-lg="cfb"]{--tc:var(--t-cfb);color:#1b1400}.lgtag[data-lg="cbb"]{--tc:var(--t-cbb)}.lgtag[data-lg="nhl"]{--tc:var(--t-nhl)}
 .lockt{display:inline-block;margin-left:6px;font:700 10px var(--body);letter-spacing:.04em;text-transform:uppercase;color:var(--turf);border:1px solid var(--turf);border-radius:4px;padding:1px 4px;vertical-align:2px}
 .topcut{font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:12px 4px 4px}
 @media (max-width:520px){.hdrbtns .themebtn #themeLbl{display:none}.hdrbtns .themebtn{padding:0 11px}}
@@ -143,11 +143,15 @@ details.wk>summary:focus-visible{outline:2px solid var(--accent);outline-offset:
 .league button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
 .league button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 /* league tab colors: NFL brown, NBA orange, CFB gold, CBB blue */
-:root{--t-nfl:#7a4a24;--t-nba:#d9620f;--t-cfb:#b8860b;--t-cbb:#1f5fc4}
-:root[data-theme="dark"]{--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5}}
+:root{--t-nfl:#7a4a24;--t-nba:#d9620f;--t-cfb:#b8860b;--t-cbb:#1f5fc4;--t-nhl:#0e7c74}
+:root[data-theme="dark"]{--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5;--t-nhl:#3cc4b6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5;--t-nhl:#3cc4b6}}
 .league button[data-lg="nfl"]{--tc:var(--t-nfl)}.league button[data-lg="nba"]{--tc:var(--t-nba)}
-.league button[data-lg="cfb"]{--tc:var(--t-cfb)}.league button[data-lg="cbb"]{--tc:var(--t-cbb)}
+.league button[data-lg="cfb"]{--tc:var(--t-cfb)}.league button[data-lg="cbb"]{--tc:var(--t-cbb)}.league button[data-lg="nhl"]{--tc:var(--t-nhl)}
+.league .beta{font:600 11px var(--body,inherit);text-transform:none;letter-spacing:0;vertical-align:3px;opacity:.85}
+.league button{white-space:nowrap}
+@media (max-width:520px){.league{gap:0}.league button{padding:8px 9px 10px;font-size:18px}.league .beta{font-size:10px}}
+@media (max-width:360px){.league button{padding:8px 6px 10px;font-size:17px}}
 .league button{color:var(--tc);opacity:.75}
 .league button:hover{opacity:.9}
 .league button[aria-selected="true"]{color:var(--tc);opacity:1;border-bottom-color:var(--tc)}
@@ -339,6 +343,7 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
     <button id="lg-cfb" role="tab" data-lg="cfb" aria-selected="false">CFB</button>
     <button id="lg-nba" role="tab" data-lg="nba" aria-selected="false">NBA</button>
     <button id="lg-cbb" role="tab" data-lg="cbb" aria-selected="false">CBB</button>
+    <button id="lg-nhl" role="tab" data-lg="nhl" aria-selected="false" aria-label="NHL (beta)">NHL <span class="beta">(beta)</span></button>
   </nav>
 
   <div class="stickyrow">
@@ -619,6 +624,136 @@ const CBB_GAMES = [
   ["2026-11-23", "23:30", "Colorado State", "Arizona", -16.5, 159.5, 1200, -2400, "ESPN2", {"venue": "Lahaina Civic Center, Lahaina, HI", "hfa": 0, "note": "Maui Invitational — neutral site"}],
 ];
 
+// NHL (beta): team stats per game (Kalshi team stats page) and goalie stats (hockey-reference).
+// [abbr, nickname, gp, goalsFor/gp, goalsAgainst/gp, shotsFor/gp, shotsAgainst/gp, PP%, PK%]
+const NHL_TEAMS = [
+  ["CAR", "Hurricanes", 24, 4.17, 2.25, 33.5, 21.6, 25.6, 82.7],
+  ["COL", "Avalanche", 23, 3.91, 2.91, 30.1, 27.3, 23.1, 81.7],
+  ["EDM", "Oilers", 26, 3.85, 2.85, 24.6, 26.8, 32.6, 77.6],
+  ["NJ", "Devils", 23, 3.78, 3.17, 33.0, 25.9, 20.0, 64.2],
+  ["TB", "Lightning", 23, 3.65, 2.91, 29.0, 25.2, 21.3, 73.3],
+  ["ANA", "Ducks", 24, 3.63, 3.83, 26.2, 26.0, 34.2, 74.7],
+  ["MIN", "Wild", 25, 3.6, 2.2, 28.9, 26.0, 25.6, 79.7],
+  ["BOS", "Bruins", 23, 3.57, 2.65, 27.4, 28.0, 19.4, 79.5],
+  ["WSH", "Capitals", 21, 3.43, 3.95, 29.0, 27.2, 22.8, 73.9],
+  ["STL", "Blues", 24, 3.33, 3.21, 27.1, 29.8, 21.5, 83.1],
+  ["UTA", "Mammoth", 24, 3.33, 3.29, 28.9, 25.4, 32.5, 71.3],
+  ["VGK", "Golden Knights", 25, 3.32, 2.88, 29.6, 25.7, 27.3, 79.0],
+  ["SEA", "Kraken", 20, 3.25, 3.55, 25.5, 30.1, 23.8, 60.7],
+  ["OTT", "Senators", 24, 3.21, 2.92, 26.3, 25.7, 13.5, 76.2],
+  ["NYI", "Islanders", 22, 3.18, 2.77, 26.0, 28.4, 17.2, 85.1],
+  ["FLA", "Panthers", 24, 3.17, 2.96, 29.0, 25.3, 23.4, 84.6],
+  ["MTL", "Canadiens", 24, 3.13, 2.96, 27.3, 27.7, 14.3, 80.5],
+  ["TOR", "Maple Leafs", 25, 3.12, 3.52, 27.8, 29.0, 25.7, 82.1],
+  ["WPG", "Jets", 24, 3.08, 3.38, 27.3, 28.2, 23.9, 72.5],
+  ["BUF", "Sabres", 24, 3.04, 3.42, 26.8, 27.9, 16.7, 72.3],
+  ["NSH", "Predators", 23, 3.0, 2.87, 26.9, 29.7, 24.7, 89.1],
+  ["NYR", "Rangers", 23, 3.0, 2.74, 26.0, 27.0, 21.2, 90.0],
+  ["PIT", "Penguins", 23, 2.83, 3.48, 27.7, 28.2, 18.8, 82.0],
+  ["VAN", "Canucks", 26, 2.81, 4.38, 22.5, 31.2, 22.0, 61.2],
+  ["DAL", "Stars", 23, 2.74, 2.35, 25.9, 24.3, 21.4, 88.7],
+  ["LA", "Kings", 21, 2.71, 3.33, 27.5, 27.5, 20.6, 69.1],
+  ["CHI", "Blackhawks", 24, 2.67, 3.96, 23.8, 30.6, 21.7, 79.5],
+  ["SJ", "Sharks", 25, 2.64, 3.48, 27.5, 30.6, 21.3, 73.9],
+  ["PHI", "Flyers", 26, 2.58, 3.35, 24.5, 27.5, 18.1, 77.2],
+  ["DET", "Red Wings", 23, 2.52, 3.0, 27.8, 26.2, 20.0, 70.8],
+  ["CGY", "Flames", 24, 2.5, 3.5, 27.4, 29.5, 26.3, 80.8],
+  ["CBJ", "Blue Jackets", 21, 2.48, 3.24, 27.8, 28.2, 20.4, 72.4],
+];
+// [goalie, team, gp, gs, shotsAgainst, sv%, GSAA (goals saved above average)]
+const NHL_GOALIES = [
+  ["Jesper Wallstedt", "MIN", 22, 22, 575, 0.923, 18.4],
+  ["Spencer Knight", "CHI", 19, 19, 569, 0.888, -2.2],
+  ["Leevi Merilainen", "VAN", 18, 16, 521, 0.889, -1.5],
+  ["Mackenzie Blackwood", "COL", 17, 16, 438, 0.904, 5.5],
+  ["Jake Oettinger", "DAL", 17, 17, 383, 0.901, 3.6],
+  ["Juuse Saros", "NSH", 17, 16, 501, 0.916, 12.4],
+  ["Stuart Skinner", "WPG", 17, 17, 444, 0.883, -3.8],
+  ["Jeremy Swayman", "BOS", 17, 17, 460, 0.904, 5.9],
+  ["Andrei Vasilevskiy", "TB", 17, 17, 418, 0.895, 1.4],
+  ["Yaroslav Askarov", "SJ", 16, 16, 475, 0.888, -1.4],
+  ["Joel Hofer", "STL", 16, 16, 465, 0.923, 14.5],
+  ["Karel Vejmelka", "UTA", 16, 15, 368, 0.872, -8.1],
+  ["Jacob Fowler", "MTL", 15, 15, 425, 0.918, 11.1],
+  ["Dylan Garand", "NYR", 15, 13, 356, 0.91, 6.6],
+  ["Pyotr Kochetkov", "CAR", 15, 15, 302, 0.911, 5.8],
+  ["Ilya Sorokin", "NYI", 15, 15, 439, 0.918, 11.6],
+  ["Logan Thompson", "WSH", 15, 15, 378, 0.878, -5.0],
+  ["Sergei Bobrovsky", "TOR", 14, 14, 404, 0.874, -7.2],
+  ["John Gibson", "DET", 14, 14, 318, 0.862, -9.5],
+  ["Philipp Grubauer", "SEA", 14, 11, 350, 0.894, 1.0],
+  ["Dustin Wolf", "CGY", 14, 13, 381, 0.877, -5.6],
+  ["Lukas Dostal", "ANA", 13, 12, 308, 0.857, -10.6],
+  ["Carter Hart", "VGK", 13, 13, 324, 0.886, -1.8],
+  ["Darcy Kuemper", "LA", 13, 13, 347, 0.885, -2.3],
+  ["Devon Levi", "EDM", 13, 13, 345, 0.896, 0.4],
+  ["Ukko-Pekka Luukkonen", "BUF", 13, 12, 338, 0.873, -6.3],
+  ["Jacob Markstrom", "FLA", 13, 13, 302, 0.894, 0.8],
+  ["Arturs Silovs", "PIT", 13, 13, 347, 0.873, -6.3],
+  ["Daniel Vladar", "PHI", 13, 13, 340, 0.876, -6.1],
+  ["Joseph Woll", "PHI", 13, 13, 372, 0.892, 0.4],
+  ["Adin Hill", "VGK", 12, 12, 315, 0.898, 2.2],
+  ["Cam Talbot", "CBJ", 12, 11, 322, 0.907, 4.9],
+  ["Linus Ullmark", "OTT", 12, 12, 270, 0.937, 12.3],
+  ["Jake Allen", "NJ", 11, 10, 284, 0.873, -5.2],
+  ["Samuel Ersson", "OTT", 11, 8, 236, 0.869, -5.4],
+  ["Jet Greaves", "CBJ", 11, 10, 265, 0.875, -4.2],
+  ["Akira Schmid", "FLA", 11, 10, 279, 0.885, -1.7],
+  ["Anthony Stolarz", "TOR", 11, 11, 316, 0.902, 3.3],
+  ["Devin Cooley", "CGY", 10, 10, 288, 0.906, 4.3],
+  ["Sebastian Cossa", "UTA", 10, 9, 237, 0.886, -1.3],
+  ["Joey Daccord", "SEA", 10, 9, 250, 0.872, -4.9],
+  ["Tristan Jarry", "EDM", 10, 10, 274, 0.912, 4.7],
+  ["Daniil Tarasov", "DET", 10, 8, 247, 0.927, 8.8],
+  ["Jakub Dobes", "MTL", 9, 9, 236, 0.864, -6.4],
+  ["Anton Forsberg", "LA", 9, 8, 223, 0.901, 2.2],
+  ["Connor Hellebuyck", "NJ", 9, 9, 223, 0.897, 1.2],
+  ["Ville Husso", "ANA", 9, 7, 185, 0.854, -6.9],
+  ["Kevin Lankinen", "VAN", 9, 8, 219, 0.808, -19.2],
+  ["Sergei Murashov", "PIT", 9, 9, 273, 0.89, -0.4],
+  ["Alex Nedeljkovic", "SJ", 9, 9, 285, 0.902, 2.9],
+  ["Nico Daws", "NJ", 4, 4, 86, 0.872, -1.7],
+  ["Nico Daws", "WPG", 5, 3, 106, 0.906, 1.5],
+  ["Brandon Bussi", "CAR", 8, 8, 188, 0.872, -3.6],
+  ["Colten Ellis", "BUF", 8, 7, 181, 0.873, -3.4],
+  ["Charlie Lindgren", "WSH", 8, 6, 185, 0.849, -7.9],
+  ["Justus Annunen", "NSH", 7, 6, 162, 0.864, -4.4],
+  ["Jordan Binnington", "STL", 7, 7, 215, 0.847, -9.7],
+  ["Michael DiPietro", "BOS", 7, 6, 181, 0.923, 5.6],
+  ["Semyon Varlamov", "NYI", 7, 7, 180, 0.889, -0.5],
+  ["Scott Wedgewood", "COL", 7, 7, 188, 0.883, -1.6],
+  ["Casey DeSmith", "DAL", 6, 5, 139, 0.906, 2.1],
+  ["Laurent Brossoit", "ANA", 5, 5, 128, 0.867, -3.1],
+  ["Dennis Hildeby", "TB", 5, 5, 129, 0.899, 1.0],
+  ["Igor Shesterkin", "NYR", 5, 5, 109, 0.927, 3.8],
+  ["Arvid Soderblom", "CHI", 5, 4, 133, 0.842, -6.6],
+  ["Clay Stevenson", "WPG", 5, 4, 123, 0.87, -2.7],
+  ["Jonas Johansson", "OTT", 4, 4, 105, 0.848, -4.6],
+  ["Alex Lyon", "BUF", 4, 4, 118, 0.89, -0.2],
+  ["Joonas Korpisalo", "NYR", 3, 3, 83, 0.94, 4.0],
+  ["Calvin Pickard", "MIN", 3, 3, 76, 0.855, -2.8],
+  ["Michal Postava", "DET", 2, 1, 35, 0.886, -0.2],
+  ["Matt Tomkins", "EDM", 2, 2, 50, 0.88, -0.6],
+  ["Cooper Black", "FLA", 1, 1, 21, 0.857, -0.7],
+  ["Spencer Martin", "NYR", 1, 0, 18, 0.833, -1.0],
+  ["Matt Murray", "NSH", 1, 1, 20, 0.9, 0.2],
+  ["James Reimer", "NYR", 1, 1, 8, 0.625, -2.1],
+  ["Arsenii Sergeev", "CGY", 1, 1, 34, 0.853, -1.3],
+  ["Nikita Tolopilo", "VAN", 1, 1, 37, 0.946, 2.0],
+];
+// puck drop ET. [date, time, away, home, homePuckLine(-1.5/+1.5), total, mlAway, mlHome, tv, extra]
+// extra: plAway/plHome puck line prices, over/under prices, gA/gH starting goalies, gsA/gsH status (Confirmed/Likely/Unconfirmed)
+const NHL_GAMES = [
+  ["2026-11-23", "19:00", "CBJ", "NJ", -1.5, 6.5, 170, -205, "", {"plAway": -148, "plHome": 124, "over": 114, "under": -135, "gA": "Cam Talbot", "gH": "Connor Hellebuyck", "gsA": "Confirmed", "gsH": "Confirmed"}],
+  ["2026-11-23", "19:30", "LA", "MTL", -1.5, 6.5, 130, -155, "", {"plAway": -192, "plHome": 160, "over": 105, "under": -125, "gA": "Darcy Kuemper", "gH": "Jakub Dobes", "gsA": "Unconfirmed", "gsH": "Confirmed"}],
+  ["2026-11-23", "19:30", "CGY", "OTT", -1.5, 5.5, 210, -258, "", {"plAway": -130, "plHome": 110, "over": -120, "under": 100, "gA": "Devin Cooley", "gH": "Linus Ullmark", "gsA": "Confirmed", "gsH": "Confirmed"}],
+  ["2026-11-23", "19:30", "TOR", "NYI", -1.5, 6.5, 136, -162, "", {"plAway": -185, "plHome": 154, "over": -108, "under": -112, "gA": "Anthony Stolarz", "gH": "Ilya Sorokin", "gsA": "Confirmed", "gsH": "Likely"}],
+  ["2026-11-23", "19:30", "UTA", "WPG", 1.5, 6.5, -112, -108, "", {"plAway": 220, "plHome": -270, "over": -105, "under": -115, "gA": "Sebastian Cossa", "gH": "Stuart Skinner", "gsA": "Confirmed", "gsH": "Likely"}],
+  ["2026-11-23", "21:40", "ANA", "SEA", -1.5, 6.5, -102, -118, "", {"plAway": -245, "plHome": 200, "over": -135, "under": 114, "gA": "Lukas Dostal", "gH": "Joey Daccord", "gsA": "Unconfirmed", "gsH": "Likely"}],
+  ["2026-11-23", "22:00", "MIN", "SJ", 1.5, 6.5, -175, 145, "", {"plAway": 136, "plHome": -162, "over": -102, "under": -118, "gA": "Filip Gustavsson", "gH": "Yaroslav Askarov", "gsA": "Confirmed", "gsH": "Confirmed"}],
+];
+const NHL_VENUES={ANA:"Honda Center",BOS:"TD Garden",BUF:"KeyBank Center",CGY:"Scotiabank Saddledome",CAR:"Lenovo Center",CHI:"United Center",COL:"Ball Arena",CBJ:"Nationwide Arena",DAL:"American Airlines Center",DET:"Little Caesars Arena",EDM:"Rogers Place",FLA:"Amerant Bank Arena",LA:"Crypto.com Arena",MIN:"Grand Casino Arena",MTL:"Bell Centre",NSH:"Bridgestone Arena",NJ:"Prudential Center",NYI:"UBS Arena",NYR:"Madison Square Garden",OTT:"Canadian Tire Centre",PHI:"Xfinity Mobile Arena",PIT:"PPG Paints Arena",SJ:"SAP Center",SEA:"Climate Pledge Arena",STL:"Enterprise Center",TB:"Benchmark International Arena",TOR:"Scotiabank Arena",UTA:"Delta Center",VAN:"Rogers Arena",VGK:"T-Mobile Arena",WSH:"Capital One Arena",WPG:"Canada Life Centre"};
+
 const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",GB:"Packers",HOU:"Texans",IND:"Colts",JAX:"Jaguars",KC:"Chiefs",LA:"Rams",LAC:"Chargers",LV:"Raiders",MIA:"Dolphins",MIN:"Vikings",NE:"Patriots",NO:"Saints",NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",TB:"Buccaneers",TEN:"Titans",WAS:"Commanders"};
 
 // ===================== MODEL =====================
@@ -634,6 +769,10 @@ const LEAGUES = {
   nba: { key:"nba", label:"NBA", weekLabel:"Mon Nov 23", dataDate:"2026-11-20", linesAt:"2026-11-23T13:42Z",
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN and FanDuel Research, Nov 23. Finished games drop off once they end.",
+  },
+  nhl: { key:"nhl", label:"NHL", beta:true, weekLabel:"Mon Nov 23", dataDate:"2026-11-23", linesAt:"2026-11-23T22:45Z",
+    cfg:{regressGP:20, wShots:0.5, hfa:0.20, wModel:0.35, goaliePrior:900, maxGoals:12, tieBoost:1.35},
+    footer:"Beta. Lines from DraftKings via ESPN, Nov 23. Starting goalies from Daily Faceoff. Team stats through Nov 23 (Kalshi); goalie stats through Nov 21 (hockey-reference). Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 23", dataDate:"2026-11-23", linesAt:"2026-11-23T16:38Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, bigStart:20, bigK:0.027, wTotal:0.33, hfa:3.2, keys:[]},
@@ -716,7 +855,7 @@ function toGame(row,i,league){
   const [date,time,away,home,spread,total,mlAway,mlHome,tv,extra]=row; const x=extra||{};
   return {id:league+"-"+(i+1), league, date, time, away, home, spread, total, mlAway, mlHome, tv,
     kickoff:new Date(`${date}T${time}:00${date>="2026-11-01"&&date<"2027-03-14"?"-05:00":"-04:00"}`), // listed in Eastern (EST from Nov 1)
-    venue:x.venue||(league==="nfl"?NFL_VENUES[home]:league==="nba"?NBA_VENUES[home]:""), hfa:x.hfa, adjAway:x.adjAway||0, adjHome:x.adjHome||0, note:x.note||(spread===0?"Pick'em line":""), noTotal:!!x.noTotal};
+    x, venue:x.venue||(league==="nfl"?NFL_VENUES[home]:league==="nba"?NBA_VENUES[home]:league==="nhl"?NHL_VENUES[home]:""), hfa:x.hfa, adjAway:x.adjAway||0, adjHome:x.adjHome||0, note:x.note||(spread===0?"Pick'em line":""), noTotal:!!x.noTotal};
 }
 
 function project(g,teams,cfg){
@@ -759,8 +898,103 @@ function project(g,teams,cfg){
         probEdge:mlHome?pHomeWin-nvHome:(1-pHomeWin)-nvAway,ev:mlEV,score:mScore,tier:tier(mScore),pHomeWin,nvHome,nvAway}};
 }
 
+// ===================== NHL (beta): Poisson goals model =====================
+function parseNHL(rows,goalies,cfg){
+  const t={}, gpSum=rows.reduce((s,r)=>s+r[2],0);
+  const lg=rows.reduce((s,r)=>s+r[3]*r[2],0)/gpSum;                        // league goals per team-game
+  const lgSh=rows.reduce((s,r)=>s+r[3]*r[2],0)/rows.reduce((s,r)=>s+r[5]*r[2],0); // goals per shot on goal
+  const lgPP=rows.reduce((s,r)=>s+r[7],0)/rows.length, lgPK=rows.reduce((s,r)=>s+r[8],0)/rows.length;
+  const G={}; goalies.forEach(([name,team,gp,gs,sa,sv,gsaa])=>{
+    (G[team]=G[team]||[]).push({name,team,gp,gs,sa,sv,gsaa,perShot:gsaa/(sa+cfg.goaliePrior)}); });
+  rows.forEach(([ab,name,gp,gf,ga,sf,sa,pp,pk])=>{
+    const gl=(G[ab]||[]).sort((a,b)=>b.gs-a.gs), gsaaTeam=gl.reduce((s,x)=>s+x.gsaa,0);
+    const shrink=gp/(gp+cfg.regressGP);
+    const offRaw=cfg.wShots*sf*lgSh+(1-cfg.wShots)*gf;                     // shot volume and actual goals
+    const gaNeutral=ga+gsaaTeam/gp;                                         // goals allowed with average goaltending
+    const defRaw=cfg.wShots*sa*lgSh+(1-cfg.wShots)*gaNeutral;
+    const off=lg+(offRaw-lg)*shrink, def=lg+(defRaw-lg)*shrink;
+    t[ab]={team:ab, short:ab, name, gp, gf, ga, sf, sa, pp, pk, gaNeutral, gsaaTeam, goalies:gl,
+      off, def, offRating:off-lg, defRating:def-lg, net:(off-lg)-(def-lg)};
+  });
+  const T=Object.values(t);
+  [...T].sort((a,b)=>b.net-a.net).forEach((x,i)=>x.powerRank=i+1);
+  [...T].sort((a,b)=>b.offRating-a.offRating).forEach((x,i)=>x.offRank=i+1);
+  [...T].sort((a,b)=>a.defRating-b.defRating).forEach((x,i)=>x.defRank=i+1);
+  t.__lg={lg,lgSh,lgPP,lgPK};
+  return t;
+}
+function nhlGoalie(team,name){
+  const g=(team.goalies||[]).find(x=>x.name===name);
+  if(g) return g;
+  if(!name&&team.goalies&&team.goalies.length) return team.goalies[0];      // no starter listed: the team's top goalie
+  return {name:name||"Unknown", team:team.team, gp:0, gs:0, sa:0, sv:null, gsaa:0, perShot:0, unknown:true};
+}
+let EN_SHARE=0.30;
+function poisArr(l,n){const a=[Math.exp(-l)];for(let k=1;k<=n;k++)a.push(a[k-1]*l/k);return a;}
+// regulation goals are Poisson; tied scores are weighted up (tieBoost) because real NHL games reach OT more often (~22%)
+// than independent Poisson says (~16%). A regulation tie goes to OT/shootout, won by the home side with share lh/(la+lh).
+function nhlProbs(la,lh,n,tb){
+  const A=poisArr(la,n),H=poisArr(lh,n), q=lh/(la+lh), k=tb||1.35; let pHome=0,pTie=0,Z=0; const cells=[];
+  for(let i=0;i<=n;i++)for(let j=0;j<=n;j++){const p=A[i]*H[j]*(i===j?k:1); Z+=p; cells.push([i,j,p]);}
+  cells.forEach(c=>{c[2]/=Z;});
+  // empty-net goals: a share of one-goal regulation results end as two-goal wins (adds a goal to the total too)
+  const en=EN_SHARE; if(en>0){ const add=[]; cells.forEach(c=>{const d=c[1]-c[0]; if(Math.abs(d)===1){const m=c[2]*en; c[2]-=m; add.push(d>0?[c[0],c[1]+1,m]:[c[0]+1,c[1],m]);}}); cells.push(...add); }
+  cells.forEach(c=>{ if(c[1]>c[0])pHome+=c[2]; else if(c[0]===c[1])pTie+=c[2];});
+  pHome+=pTie*q;
+  const over=L=>cells.reduce((s,[i,j,p])=>s+(i+j+(i===j?1:0)>L?p:0),0);
+  const homeCover=line=>cells.reduce((s,[i,j,p])=>{ if(i===j) return s+p*((1+line>0?q:0)+(-1+line>0?1-q:0)); return s+(j-i+line>0?p:0); },0);
+  return {pHome,pTie,q,over,homeCover};
+}
+// market goals: find (away, home) expected goals whose Poisson odds match the no-vig moneyline and total
+function nhlMarket(pHomeNV,pOverNV,L,n){
+  let lo=3,hi=10,la=3,lh=3;
+  for(let it=0;it<28;it++){ const T=(lo+hi)/2;
+    let a=0.2,b=0.8; for(let k=0;k<28;k++){const s=(a+b)/2; nhlProbs(T*(1-s),T*s,n).pHome<pHomeNV?a=s:b=s;}
+    const s=(a+b)/2; la=T*(1-s); lh=T*s; nhlProbs(la,lh,n).over(L)<pOverNV?lo=T:hi=T; }
+  return [la,lh];
+}
+function projectNHL(g,teams,cfg,LG){
+  const A=teams[g.away],H=teams[g.home], x=g.x||{}, n=cfg.maxGoals;
+  const gA=nhlGoalie(A,x.gA), gH=nhlGoalie(H,x.gH);
+  const shotsOnH=(A.sf+H.sa)/2, shotsOnA=(H.sf+A.sa)/2;                  // shots each goalie should face
+  const hfa=g.hfa??cfg.hfa;
+  const rawAway=Math.max(0.8,LG.lg*(A.off/LG.lg)*(H.def/LG.lg)-gH.perShot*shotsOnH-hfa/2);
+  const rawHome=Math.max(0.8,LG.lg*(H.off/LG.lg)*(A.def/LG.lg)-gA.perShot*shotsOnA+hfa/2);
+  const nv=(a,b)=>{const ia=mlToProb(a),ib=mlToProb(b);return [ia/(ia+ib),ib/(ia+ib)];};
+  const [nvAway,nvHome]=nv(g.mlAway,g.mlHome), [nvOver]=nv(x.over??-110,x.under??-110);
+  const [mA,mH]=nhlMarket(nvHome,nvOver,g.total,n);
+  const w=cfg.wModel, away=w*rawAway+(1-w)*mA, home=w*rawHome+(1-w)*mH;
+  const P=nhlProbs(away,home,n), R=nhlProbs(rawAway,rawHome,n);
+  const longshot=pr=>pr>250?(pr-250)/150:0;
+  // puck line
+  const plH=x.plHome??-110, plA=x.plAway??-110, lineH=g.spread, lineA=-g.spread;
+  const pcH=P.homeCover(lineH), pcA=1-pcH, evPH=evOf(pcH,plH), evPA=evOf(pcA,plA), plHome=evPH>=evPA;
+  const plPrice=plHome?plH:plA, pPL=plHome?pcH:pcA;
+  const sScore=edgeScore(pPL,mlToProb(plPrice),1.1,-longshot(plPrice));
+  // total
+  const pOver=P.over(g.total), oP=x.over??-110, uP=x.under??-110, evO=evOf(pOver,oP), evU=evOf(1-pOver,uP), isOver=evO>=evU;
+  const tPrice=isOver?oP:uP, pT=isOver?pOver:1-pOver, tScore=edgeScore(pT,mlToProb(tPrice),1.2,0);
+  // moneyline
+  const pHomeWin=P.pHome, evH=evOf(pHomeWin,g.mlHome), evA=evOf(1-pHomeWin,g.mlAway), mlHome=evH>=evA, mlPrice=mlHome?g.mlHome:g.mlAway;
+  const mScore=edgeScore(mlHome?pHomeWin:1-pHomeWin,mlToProb(mlPrice),1.1,-longshot(mlPrice));
+  const total=away+home, margin=home-away;
+  return {away,home,margin,total,rawAway,rawHome,rawMargin:rawHome-rawAway,rawTotal:rawAway+rawHome,mktAway:mA,mktHome:mH,goalies:{away:gA,home:gH},
+    spread:{pick:plHome?`${g.home} ${fmtLine(lineH)} ${fmtML(plH)}`:`${g.away} ${fmtLine(lineA)} ${fmtML(plA)}`,side:plHome?"home":"away",line:plHome?lineH:lineA,price:plPrice,
+      edgePts:Math.abs(margin-(mH-mA)),prob:pPL,ev:Math.max(evPH,evPA),score:sScore,tier:tier(sScore),modelLine:-margin,pHomeCover:pcH,implied:mlToProb(plPrice)},
+    totals:{pick:`${isOver?"Over":"Under"} ${g.total}`,side:isOver?"over":"under",price:tPrice,edgePts:Math.abs(total-(mA+mH)),prob:pT,ev:Math.max(evO,evU),score:tScore,tier:tier(tScore),pOver,rawPOver:R.over(g.total),implied:mlToProb(tPrice)},
+    ml:{pick:mlHome?`${g.home} ${fmtML(g.mlHome)}`:`${g.away} ${fmtML(g.mlAway)}`,prob:mlHome?pHomeWin:1-pHomeWin,implied:mlHome?nvHome:nvAway,
+      probEdge:mlHome?pHomeWin-nvHome:(1-pHomeWin)-nvAway,ev:Math.max(evH,evA),score:mScore,tier:tier(mScore),pHomeWin,nvHome,nvAway,pTie:P.pTie}};
+}
+
 function buildLeague(key){
   const L=LEAGUES[key];
+  if(key==="nhl"){
+    const teams=parseNHL(NHL_TEAMS,NHL_GOALIES,L.cfg), LG=teams.__lg; delete teams.__lg; L.cfg.lg=LG;
+    const missing=[];
+    const games=NHL_GAMES.map((r,i)=>toGame(r,i,key)).filter(g=>{const ok=teams[g.away]&&teams[g.home]; if(!ok)missing.push(g.away+" @ "+g.home); return ok;});
+    const rows=games.map(g=>{const p=projectNHL(g,teams,L.cfg,LG);return {g,p,best:Math.max(p.spread.score,p.totals.score,p.ml.score)};});
+    return {L,teams,rows,missing,teamCount:Object.keys(teams).length};
+  }
   const hoops=key==="nba"||key==="cbb";
   const teams=key==="nfl"?parseNFL(NFL_CSV):key==="nba"?parseNBA(nbaRowsAdj(NBA_ROWS)):key==="cbb"?parseCBB(CBB_ROWS):parseCFB(CFB_ROWS);
   const LG=teams.__lg; delete teams.__lg;
@@ -784,9 +1018,13 @@ function buildLeague(key){
 }
 
 
-const DATA={nfl:buildLeague("nfl"),cfb:buildLeague("cfb"),nba:buildLeague("nba"),cbb:buildLeague("cbb")};
+const DATA={nfl:buildLeague("nfl"),cfb:buildLeague("cfb"),nba:buildLeague("nba"),cbb:buildLeague("cbb"),nhl:buildLeague("nhl")};
 const HOOPS=lg=>lg==="nba"||lg==="cbb";
+const DAILY=lg=>HOOPS(lg)||lg==="nhl"; // slates that change every day (records group by date)
+const LEAGUE_KEYS=["nfl","cfb","nba","cbb","nhl"];
+const startWord=lg=>lg==="nhl"?"Puck drop":HOOPS(lg)?"Tip":"Kickoff";
 const MK={spread:"Spread",totals:"Total",ml:"ML"};
+const mkName=(lg,k)=>lg==="nhl"&&k==="spread"?"Puck line":MK[k];
 let state={lg:"nfl",m:"all",s:"edge",q:"",collapsed:true};
 try{const v=JSON.parse(localStorage.getItem("geb-state")||"null"); if(v){state=Object.assign(state,v); state.q="";}}catch(e){}
 if(!DATA[state.lg]) state.lg="nfl";
@@ -822,6 +1060,7 @@ function netChip(tv){
 const TEAM_COLORS={
  nba:{ATL:["#E03A3E","#C1D32F"],BOS:["#007A33","#BA9653"],BKN:["#000000","#FFFFFF"],CHA:["#1D1160","#00788C"],CHI:["#CE1141","#000000"],CLE:["#860038","#FDBB30"],DAL:["#00538C","#B8C4CA"],DEN:["#0E2240","#FEC524"],DET:["#C8102E","#1D42BA"],GSW:["#1D428A","#FFC72C"],HOU:["#CE1141","#000000"],IND:["#002D62","#FDBB30"],LAC:["#1D428A","#C8102E"],LAL:["#552583","#FDB927"],MEM:["#5D76A9","#12173F"],MIA:["#98002E","#F9A01B"],MIL:["#00471B","#EEE1C6"],MIN:["#0C2340","#78BE20"],NOP:["#0C2340","#C8102E"],NYK:["#006BB6","#F58426"],OKC:["#007AC1","#EF3B24"],ORL:["#0077C0","#C4CED4"],PHI:["#006BB6","#ED174C"],PHX:["#1D1160","#E56020"],POR:["#E03A3E","#000000"],SAC:["#5A2D81","#63727A"],SAS:["#C4CED4","#000000"],TOR:["#CE1141","#000000"],UTA:["#002B5C","#F9A01B"],WAS:["#002B5C","#E31837"]},
  cbbx:{"Duquesne":["#041E42","#BA0C2F"],"Rhode Island":["#75B2DD","#002147"],"Villanova":["#00205B","#13B5EA"],"Gonzaga":["#041E42","#C8102E"],"Saint Mary's":["#06315B","#D80024"],"Santa Clara":["#862633","#FFFFFF"],"Wichita State":["#FFCD00","#000000"],"Creighton":["#005CA9","#FFFFFF"],"Marquette":["#003366","#FFCC00"],"St. John's":["#BA0C2F","#FFFFFF"],"Xavier":["#0C2340","#9EA2A2"],"Providence":["#000000","#8A8D8F"],"Butler":["#13294B","#FFFFFF"],"Georgetown":["#041E42","#8D817B"],"Seton Hall":["#004488","#A2AAAD"],"DePaul":["#005EB8","#E4002B"],"Dayton":["#CE1141","#004B8D"],"VCU":["#000000","#FFB300"],"Saint Louis":["#003DA5","#FFFFFF"],"Wofford":["#886E4C","#000000"],"Manhattan":["#00703C","#FFFFFF"],"Coppin State":["#2D2F87","#FDB927"],"Hampton":["#0067AC","#FFFFFF"],"Holy Cross":["#602D89","#FFFFFF"],"Wagner":["#00483A","#FFFFFF"],"Drexel":["#07294D","#FFC600"],"Stetson":["#0A5640","#FFFFFF"],"Purdue Fort Wayne":["#003087","#A2AAAD"],"Cleveland State":["#006747","#FFFFFF"],"Lipscomb":["#2C2A72","#F1B434"],"South Dakota State":["#0033A0","#FFD100"],"South Dakota":["#AD0000","#FFFFFF"],"Northern Kentucky":["#000000","#FFC72C"],"Milwaukee":["#000000","#FFBD00"],"North Florida":["#00246B","#8A8D8F"],"Cal Baptist":["#002554","#A27D4F"],"Cal State Fullerton":["#00274C","#FF7900"],"CSUN":["#CE1126","#000000"],"Northern Arizona":["#003466","#FFD200"],"Alabama State":["#000000","#C99700"],"Arkansas Pine Bluff":["#000000","#E5B53B"],"LSU New Orleans":["#003366","#8A8D8F"],"North Dakota State":["#0A5640","#FFC72A"],"Sam Houston":["#F76800","#FFFFFF"],"Grand Canyon":["#522398","#FFFFFF"],"High Point":["#330072","#FFFFFF"],"Murray State":["#002144","#ECAC00"],"UC San Diego":["#182B49","#C69214"],"McNeese":["#00529B","#FFD204"],"George Washington":["#033C5A","#E8D0A9"],"George Mason":["#006633","#FFCC33"],"UC Santa Barbara":["#003660","#FEBC11"],"Davidson":["#AC1A2F","#000000"],"Seattle":["#AA0000","#FFFFFF"],"Illinois Chicago":["#001E62","#D50032"],"UNC Wilmington":["#006666","#FFD600"],"Illinois State":["#CE1126","#FFFFFF"],"Fordham":["#860038","#FFFFFF"],"UC Irvine":["#0064A4","#FFD200"],"Utah Valley":["#275D38","#FFFFFF"],"Richmond":["#990000","#000066"],"Saint Joseph's":["#9E1B32","#A2AAAD"],"Charleston":["#800000","#CBA052"],"Loyola Chicago":["#861F41","#FFB81C"],"Penn":["#011F5B","#990000"],"Yale":["#00356B","#FFFFFF"],"Montana State":["#003875","#C99700"],"Harvard":["#A51C30","#000000"],"Belmont":["#002469","#C8102E"],"Wright State":["#00754A","#CBA052"],"Pacific":["#F47920","#000000"],"Valparaiso":["#613318","#FFCC00"],"Furman":["#582C83","#FFFFFF"],"Hofstra":["#00337F","#FFD100"],"Northern Iowa":["#4B116F","#FFCC00"],"Loyola Marymount":["#8A2432","#00205B"],"Drake":["#004477","#FFFFFF"],"Eastern Washington":["#A10022","#000000"],"Central Arkansas":["#4F2D7F","#818A8F"],"Stephen F. Austin":["#3F2A56","#FFFFFF"],"Princeton":["#E77500","#000000"],"Southern Illinois":["#720000","#FFFFFF"],"San Francisco":["#00543C","#FDBB30"],"Cal Poly":["#154734","#C69214"],"St. Thomas":["#510C76","#8A8D8F"],"Pepperdine":["#00205B","#F47A20"],"East Tennessee State":["#041E42","#FFC72C"],"Western Carolina":["#592C88","#C1A875"],"Bradley":["#A50000","#FFFFFF"],"Oakland":["#000000","#B59A57"],"Monmouth":["#041E42","#FFFFFF"],"Queens":["#002D72","#C99700"],"Portland":["#5E2B7E","#FFFFFF"],"Elon":["#73000A","#B59A57"],"San Diego":["#002868","#75BEE9"],"La Salle":["#00386B","#FFC72C"],"Vermont":["#154734","#FFD100"],"Cornell":["#B31B1B","#FFFFFF"],"Northern Colorado":["#013C65","#F6B000"],"Towson":["#FFBB00","#000000"],"Little Rock":["#6E2639","#A5ACAF"],"Youngstown State":["#CE1141","#FFFFFF"],"Howard":["#003A63","#E51937"],"Robert Morris":["#14234B","#A6192E"],"Longwood":["#002855","#9EA2A2"],"Denver":["#8B2332","#8B6F4E"],"Austin Peay":["#C41E3A","#000000"],"UC Riverside":["#003DA5","#FFB81C"],"American":["#C4122F","#002F87"],"Indiana State":["#00669A","#FFFFFF"],"Samford":["#002649","#C8102E"],"William & Mary":["#115740","#B9975B"],"Mercer":["#F76800","#000000"],"St. Bonaventure":["#54261A","#FFFFFF"],"Colgate":["#821019","#FFFFFF"],"UC Davis":["#022851","#FFBF00"],"Texas A&M Corpus Chris":["#0067C5","#007F3E"],"Tennessee Tech":["#4F2984","#FFDD00"],"Winthrop":["#872434","#FFD200"],"Portland State":["#154734","#FFFFFF"],"Iona":["#7F1E3C","#FDB71A"],"Bethune Cookman":["#6F263D","#F2A900"],"Stony Brook":["#990000","#16243E"],"Tarleton State":["#4F2D7F","#FFFFFF"],"UT Arlington":["#0064B1","#F58025"],"Jacksonville":["#00563F","#FFFFFF"],"Houston Christian":["#00509D","#F47321"],"Florida Gulf Coast":["#002D72","#00885A"],"East Texas A&M":["#00386C","#FFC72C"],"Abilene Christian":["#4F2170","#FFFFFF"],"Long Beach State":["#000000","#F1C400"],"Fairfield":["#C8102E","#000000"],"Green Bay":["#006747","#FFFFFF"],"Tennessee State":["#00539F","#FFFFFF"],"Presbyterian":["#0060A9","#9D2235"],"Merrimack":["#003768","#F2A900"],"Southern Utah":["#CC0000","#FFFFFF"],"UT Rio Grande Valley":["#F05023","#646469"],"Montana":["#70263C","#999999"],"Utah Tech":["#BA1C21","#003058"],"Brown":["#4E3629","#ED1C24"],"Chattanooga":["#00386B","#E0AA0F"],"Columbia":["#B9D9EB","#002B7F"],"LIU":["#69B3E7","#FFC72C"],"Idaho":["#F1B300","#000000"],"Cal State Bakersfield":["#003594","#FFC72C"],"Evansville":["#4F2D7F","#F58025"],"Lamar":["#E31837","#FFFFFF"],"Southern":["#5FA2D9","#F2B33D"],"Southeast Missouri":["#C8102E","#000000"],"Lehigh":["#653819","#FFFFFF"],"Southeastern Louisiana":["#006341","#EEB111"],"Radford":["#C2011B","#003C71"],"Campbell":["#F47B20","#000000"],"UNC Greensboro":["#0F2044","#FFB71B"],"Nebraska Omaha":["#000000","#D71920"],"Northeastern":["#C8102E","#000000"],"Quinnipiac":["#0C2340","#C99700"],"Kansas City":["#004B87","#FFC82E"],"Eastern Kentucky":["#861F41","#FFFFFF"],"Nicholls":["#C41230","#A2AAAD"],"Dartmouth":["#00693E","#FFFFFF"],"Norfolk State":["#007A53","#F2A900"],"Tennessee Martin":["#0E1F56","#FF6720"],"Detroit Mercy":["#A6192E","#002D72"],"Incarnate Word":["#CB2C30","#000000"],"Northwestern State":["#492F92","#F58025"],"North Alabama":["#46166B","#DB9F11"],"UMBC":["#000000","#FDB515"],"SIUE":["#E31837","#000000"],"Siena":["#006B54","#FFC72C"],"Oral Roberts":["#002F6C","#C5B783"],"Bryant":["#000000","#B7A57A"],"Mercyhurst":["#004236","#1D4F91"],"Weber State":["#492365","#FFFFFF"],"Boston University":["#CC0000","#FFFFFF"],"Marist":["#C8102E","#FFFFFF"],"Mount St. Mary's":["#003B71","#C1A875"],"Saint Peter's":["#0033A0","#FFFFFF"],"Grambling State":["#000000","#F7B71C"],"Bellarmine":["#9E1B32","#A7A8AA"],"UMass Lowell":["#0067B1","#C8102E"],"Lindenwood":["#000000","#B5A36A"],"North Carolina A&T":["#004684","#FDB927"],"Alabama A&M":["#660000","#FFFFFF"],"IU Indy":["#990000","#EEEDEB"],"Sacred Heart":["#CE1141","#A2AAAD"],"Le Moyne":["#00563F","#FFC72C"],"UNC Asheville":["#003DA5","#FFFFFF"],"Prairie View A&M":["#4F2D7F","#FDB913"],"West Georgia":["#0656A5","#C8102E"],"Charleston Southern":["#002855","#B9975B"],"Niagara":["#582C83","#FFFFFF"],"Southern Indiana":["#002D72","#C8102E"],"Bucknell":["#E87722","#003865"],"Jackson State":["#002147","#FFFFFF"],"Alcorn State":["#4F2D7F","#F2A900"],"The Citadel":["#3975B7","#FFFFFF"],"Texas Southern":["#6C0000","#A2AAAD"],"Idaho State":["#F47920","#000000"],"Florida A&M":["#F47920","#00843D"],"VMI":["#AE122A","#FFD100"],"Morehead State":["#0033A0","#FFC72C"],"North Dakota":["#009A44","#FFFFFF"],"USC Upstate":["#00704A","#000000"],"New Hampshire":["#003591","#FFFFFF"],"Central Connecticut":["#1B49A2","#FFFFFF"],"Fairleigh Dickinson":["#002B5C","#9D2235"],"Albany":["#46166B","#EEB211"],"Maine":["#003263","#B0D7FF"],"Stonehill":["#2F2A6B","#FFFFFF"],"Lafayette":["#98002E","#FFFFFF"],"Chicago State":["#006747","#FFFFFF"],"Rider":["#9E1B32","#FFFFFF"],"NJIT":["#D22630","#071D49"],"Canisius":["#0E2240","#FFC72C"],"Binghamton":["#005A43","#FFFFFF"],"Loyola MD":["#00694E","#A2AAAD"],"Gardner Webb":["#BF1E2E","#000000"],"Morgan State":["#F47920","#0033A0"],"North Carolina Central":["#880023","#A2AAAD"],"New Haven":["#002D72","#FFC72C"],"West Florida":["#004C97","#009639"],"South Carolina State":["#841C3D","#003DA5"],"Eastern Illinois":["#004B83","#A2AAAD"],"Maryland Eastern Shore":["#862633","#A2AAAD"],"Delaware State":["#C8102E","#00A3E0"],"Western Illinois":["#663399","#FFCC00"],"Mississippi Valley State":["#00703C","#FFFFFF"]},
+ nhl:{ANA:["#F47A38","#B9975B"],BOS:["#FFB81C","#000000"],BUF:["#003087","#FFB81C"],CGY:["#C8102E","#F1BE48"],CAR:["#CE1126","#000000"],CHI:["#CF0A2C","#000000"],COL:["#6F263D","#236192"],CBJ:["#002654","#CE1126"],DAL:["#006847","#8F8F8C"],DET:["#CE1126","#FFFFFF"],EDM:["#041E42","#FF4C00"],FLA:["#041E42","#C8102E"],LA:["#111111","#A2AAAD"],MIN:["#154734","#A6192E"],MTL:["#AF1E2D","#192168"],NSH:["#FFB81C","#041E42"],NJ:["#CE1126","#000000"],NYI:["#00539B","#F47D30"],NYR:["#0038A8","#CE1126"],OTT:["#C52032","#000000"],PHI:["#F74902","#000000"],PIT:["#000000","#FCB514"],SJ:["#006D75","#EA7200"],SEA:["#001628","#99D9D9"],STL:["#002F87","#FCB514"],TB:["#002868","#FFFFFF"],TOR:["#00205B","#FFFFFF"],UTA:["#6CACE4","#010101"],VAN:["#00205B","#00843D"],VGK:["#B4975A","#333F42"],WSH:["#041E42","#C8102E"],WPG:["#041E42","#004C97"]},
  nfl:{ARI:["#97233F","#FFB612"],ATL:["#A71930","#000000"],BAL:["#241773","#9E7C0C"],BUF:["#00338D","#C60C30"],CAR:["#0085CA","#101820"],CHI:["#0B162A","#C83803"],CIN:["#FB4F14","#000000"],CLE:["#311D00","#FF3C00"],DAL:["#003594","#869397"],DEN:["#FB4F14","#002244"],DET:["#0076B6","#B0B7BC"],GB:["#203731","#FFB612"],HOU:["#03202F","#A71930"],IND:["#002C5F","#A2AAAD"],JAX:["#006778","#D7A22A"],KC:["#E31837","#FFB81C"],LA:["#003594","#FFA300"],LAC:["#0080C6","#FFC20E"],LV:["#000000","#A5ACAF"],MIA:["#008E97","#FC4C02"],MIN:["#4F2683","#FFC62F"],NE:["#002244","#C60C30"],NO:["#D3BC8D","#101820"],NYG:["#0B2265","#A71930"],NYJ:["#125740","#FFFFFF"],PHI:["#004C54","#A5ACAF"],PIT:["#FFB612","#101820"],SEA:["#002244","#69BE28"],SF:["#AA0000","#B3995D"],TB:["#D50A0A","#34302B"],TEN:["#0C2340","#4B92DB"],WAS:["#5A1414","#FFB612"]},
  cfb:{"Arizona":["#CC0033", "#003366"],"Boise State":["#0033A0", "#D64309"],"Clemson":["#F56600", "#522D80"],"Illinois":["#13294B", "#E84A27"],"Iowa":["#000000", "#FFCD00"],"Iowa State":["#C8102E", "#F1BE48"],"Liberty":["#0A254E", "#C41230"],"Marshall":["#00B140", "#000000"],"Minnesota":["#7A0019", "#FFCC33"],"NC State":["#CC0000", "#000000"],"New Mexico State":["#861F41", "#FFFFFF"],"North Texas":["#00853E", "#000000"],"South Alabama":["#00205B", "#BF0D3E"],"South Carolina":["#73000A", "#000000"],"Stanford":["#8C1515", "#FFFFFF"],"Texas A&M":["#500000", "#FFFFFF"],"UCF":["#000000", "#BA9B37"],"UConn":["#000E2F", "#FFFFFF"],"USC":["#990000", "#FFC72C"],"Utah State":["#0F2439", "#8A8D8F"],"Delaware":["#00539F","#FFD200"],"Middle Tennessee":["#0066CC","#000000"],"Florida International":["#081E3F","#B6862C"],"Jacksonville State":["#CC0000","#000000"],"Kennesaw State":["#FDBB30","#0B1315"],"Missouri State":["#5E0009","#FFFFFF"],"Western Kentucky":["#C60C30","#000000"],"Sam Houston":["#F76800","#FFFFFF"],"Georgia Southern":["#011E41","#87714D"],"Old Dominion":["#003057","#7C878E"],"East Carolina":["#592A8A","#FDC82F"],"UAB":["#1E6B52","#F4C300"],"Colorado State":["#1E4D2B","#C8C372"],"Texas State":["#501214","#8D734A"],"Memphis":["#003087","#898D8D"],"Tulane":["#006747","#418FDE"],"App State":["#222222","#FFCC00"],"Coastal Carolina":["#006F71","#A27752"],"Washington":["#4B2E83","#B7A57A"],"Purdue":["#CEB888","#000000"],"Florida":["#0021A5","#FA4616"],"Texas":["#BF5700","#FFFFFF"],"Virginia":["#232D4B","#F84C1E"],"SMU":["#0033A0","#C8102E"],"Mississippi State":["#660000","#FFFFFF"],"LSU":["#461D7C","#FDD023"],"Kansas":["#0051BA","#E8000D"],"Kansas State":["#512888","#FFFFFF"],"Cincinnati":["#E00122","#000000"],"West Virginia":["#002855","#EAAA00"],"Georgia State":["#0039A6","#C60C30"],"James Madison":["#450084","#CBB677"],"Pittsburgh":["#003594","#FFB81C"],"Boston College":["#98002E","#BC9B6A"],"Florida Atlantic":["#003366","#CC0000"],"Army":["#000000","#D4BF91"],"Northwestern":["#4E2A84","#FFFFFF"],"Michigan State":["#18453B","#FFFFFF"],"Ball State":["#BA0C2F","#FFFFFF"],"Bowling Green":["#FE5000","#4F2C1D"],"Ohio State":["#BB0000","#666666"],"Indiana":["#990000","#EEEDEB"],"Rutgers":["#CC0033","#5F6A72"],"Maryland":["#E03A3E","#FFD520"],"Charlotte":["#046A38","#B9975B"],"Temple":["#9D2235","#FFFFFF"],"Massachusetts":["#881C1C","#FFFFFF"],"Buffalo":["#005BBB","#FFFFFF"],"Western Michigan":["#6C4023","#B5A167"],"Central Michigan":["#6A0032","#FFC82E"],"Georgia Tech":["#003057","#B3A369"],"Virginia Tech":["#861F41","#E5751F"],"Northern Illinois":["#BA0C2F","#000000"],"Wyoming":["#492F24","#FFC425"],"UNLV":["#CF0A2C","#666666"],"Air Force":["#003087","#8A8D8F"],"Arizona State":["#8C1D40","#FFC627"],"Texas Tech":["#CC0000","#000000"],"Missouri":["#F1B82D","#000000"],"Ole Miss":["#CE1126","#14213D"],"Penn State":["#041E42","#FFFFFF"],"Michigan":["#00274C","#FFCB05"],"Alabama":["#9E1B32","#828A8F"],"Tennessee":["#FF8200","#FFFFFF"],"Auburn":["#0C2340","#E87722"],"Georgia":["#BA0C2F","#000000"],"Toledo":["#15397F","#FFDA00"],"Eastern Michigan":["#006633","#FFFFFF"],"North Carolina":["#7BAFD4","#13294B"],"Duke":["#003087","#FFFFFF"],"Akron":["#041E42","#A89968"],"Miami (OH)":["#C3142D","#FFFFFF"],"Tulsa":["#002D72","#C8102E"],"Rice":["#00205B","#7C7E7F"],"Troy":["#8A2432","#B3B5B8"],"Louisiana":["#CE181E","#FFFFFF"],"Washington State":["#981E32","#5E6A71"],"Oregon State":["#DC4405","#000000"],"Florida State":["#782F40","#CEB888"],"Miami":["#F47321","#005030"],"Kent State":["#002664","#EAAB00"],"South Florida":["#006747","#CFC493"],"TCU":["#4D1979","#A3A9AC"],"Baylor":["#154734","#FFB81C"],"Nevada":["#003366","#807F84"],"North Dakota State":["#0A5640","#FFC72A"],"Arkansas State":["#CC092F","#000000"],"Southern Miss":["#000000","#FFAB00"],"Arkansas":["#9D2235","#FFFFFF"],"Vanderbilt":["#000000","#CFAE70"],"Wisconsin":["#C5050C","#FFFFFF"],"UCLA":["#2D68C4","#F2A900"],"Louisville":["#AD0000","#000000"],"Syracuse":["#F76900","#000E54"],"Notre Dame":["#0C2340","#C99700"],"BYU":["#002E5D","#FFFFFF"],"Kentucky":["#0033A0","#FFFFFF"],"Oklahoma":["#841617","#FDF9D8"],"Oklahoma State":["#FF7300","#000000"],"Houston":["#C8102E","#FFFFFF"],"Louisiana Tech":["#002F8B","#E31B23"],"UL Monroe":["#840029","#BA9B37"],"Navy":["#00205B","#C5B783"],"UTSA":["#0C2340","#F15A22"],"San José State":["#0055A2","#E5A823"],"UTEP":["#FF8200","#041E42"],"Ohio":["#00694E","#FFFFFF"],"Sacramento State":["#043927","#C4B581"],"Utah":["#CC0000","#FFFFFF"],"Colorado":["#CFB87C","#000000"],"Wake Forest":["#9E7E38","#000000"],"California":["#003262","#FDB515"],"Fresno State":["#DB0032","#002E6D"],"San Diego State":["#A6192E","#000000"],"New Mexico":["#BA0C2F","#63666A"],"Hawai'i":["#024731","#FFFFFF"],"Nebraska":["#E41C38","#FFFFFF"],"Oregon":["#154733","#FEE123"]}
 };
@@ -849,7 +1088,8 @@ const finalOf=g=>FINALS[g.league+":"+g.away+"|"+g.home]||(HOOPS(g.league)?null:F
 // NBA: hide finished games 24 hours after they end (tip + ~2.5h)
 (function(){const D=DATA.nba; if(!D) return; const cut=Date.now()-(24+2.5)*3600e3;
   D.rows=D.rows.filter(r=>!FINALS["nba:"+r.g.away+"|"+r.g.home]);})();
-(function(){const D=DATA.cbb; if(D) D.rows=D.rows.filter(r=>!FINALS["cbb:"+r.g.away+"|"+r.g.home]);})(); // finished NBA games leave the board (they stay in the record)
+(function(){const D=DATA.cbb; if(D) D.rows=D.rows.filter(r=>!FINALS["cbb:"+r.g.away+"|"+r.g.home]);})();
+(function(){const D=DATA.nhl; if(D) D.rows=D.rows.filter(r=>!FINALS["nhl:"+r.g.away+"|"+r.g.home]);})(); // finished NBA games leave the board (they stay in the record)
 
 // team display helpers (NFL uses abbreviations + nicknames; college uses school names)
 // 2026 college records through Nov 1 (CBS Sports standings): [overall, home, away]; "" = not yet available
@@ -868,7 +1108,7 @@ function matches(r){
 
 // "Lines updated ... · Team data through ..." with a warning when either is out of date.
 function freshness(L){
-  const hoops=HOOPS(L.key), now=Date.now(), day=864e5;
+  const hoops=DAILY(L.key), now=Date.now(), day=864e5;
   const dFmt=d=>d.toLocaleDateString(undefined,{month:"short",day:"numeric"});
   const tFmt=d=>d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"});
   const mid=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime();
@@ -876,18 +1116,30 @@ function freshness(L){
   const parts=[];
   if(L.linesAt){const d=new Date(L.linesAt), age=(now-d)/36e5, stale=age>(hoops?26:72);
     parts.push(`<span class="${stale?"stale":""}">${stale?"Lines last updated":"Lines updated"} ${rel(d)}${stale?",":""} ${tFmt(d)}</span>`);}
-  const dd=new Date(L.dataDate+"T12:00"), dAge=(now-dd)/day, dStale=dAge>(L.key==="nba"?4.5:L.key==="cbb"?7.5:8.5);
+  const dd=new Date(L.dataDate+"T12:00"), dAge=(now-dd)/day, dStale=dAge>(L.key==="nba"||L.key==="nhl"?4.5:L.key==="cbb"?7.5:8.5);
   parts.push(`<span class="${dStale?"stale":""}">Team data through ${dFmt(dd)}${dStale?" (out of date)":""}</span>`);
   return parts.join(" · ");
 }
 function header(){
   const d=cur(), L=d.L; let plays=0, strong=0;
   d.rows.forEach(r=>["spread","totals","ml"].forEach(k=>{if(r.p[k].score>=4)plays++; if(r.p[k].score>=8)strong++;}));
-  $("#sub").textContent=`${L.label} ${L.weekLabel} · Model vs. Vegas`;
+  $("#sub").textContent=`${L.label}${L.beta?" (beta)":""} ${L.weekLabel} · Model vs. Vegas`;
   $("#upd").innerHTML=freshness(L);
   $("#meta").innerHTML=`<div><b class="num">${d.rows.length}</b>games</div><div><b class="num">${plays}</b>plays 4+</div><div><b class="num">${strong}</b>strong</div>`;
-  $("#foot").textContent=`${L.footer} ${HOOPS(state.lg)?"Tip":"Kickoff"} times are shown in your time zone. Projections update when new team data and lines are loaded.`;
+  $("#foot").textContent=`${L.footer} ${startWord(state.lg)} times are shown in your time zone. Projections update when new team data and lines are loaded.`;
   const c=L.cfg, isNFL=state.lg==="nfl";
+  if(state.lg==="nhl"){
+    $("#methodList").innerHTML=`
+    <li><b>Beta.</b> This tab is new. The model is simpler than it will be once expected-goals data (Natural Stat Trick or MoneyPuck) is loaded, so picks here are tracked separately and should be treated as a test.</li>
+    <li><b>Team ratings.</b> Offense blends shots on goal per game (times the league's ${(c.lg.lgSh*100).toFixed(1)}% scoring rate per shot) with actual goals per game, 50/50. Defense does the same for shots and goals allowed, with goals allowed adjusted to average goaltending so a hot or cold goalie isn't counted twice. Both are pulled toward the league average (${c.lg.lg.toFixed(2)} goals per team per game) with ${c.regressGP} games' worth of average added.</li>
+    <li><b>Starting goalie.</b> Each starter's goals saved above average per shot (regressed with ${c.goaliePrior} average shots) times the shots he's expected to face. Starters come from Daily Faceoff; a goalie with no NHL games this season counts as average.</li>
+    <li><b>Expected goals.</b> Each team's goals = league average × its offense ÷ average × the opponent's defense ÷ average, minus the opposing goalie's adjustment, ± ${(c.hfa/2).toFixed(2)} for home ice.</li>
+    <li><b>Blend with Vegas.</b> The moneyline and total are converted into each team's expected goals, and the projection is ${Math.round(c.wModel*100)}% model / ${Math.round((1-c.wModel)*100)}% market.</li>
+    <li><b>Probabilities.</b> Regulation goals are Poisson. A regulation tie goes to overtime/shootout, which adds one goal to the total, and the puck line only covers on a regulation result (OT and shootout wins are by one).</li>
+    <li><b>Edge Score (0–10).</b> Same scale as the other tabs, measured against the break-even for the posted price on all three bets (puck lines and totals in hockey carry real prices, not −110). Long-shot prices above +250 are discounted.</li>`;
+    $("#methodNote").textContent="Team stats from Kalshi's NHL team stats page; goalie stats from hockey-reference. Lines from DraftKings via ESPN. Picks lock at the prices shown and are graded at those prices. Goalie changes after lock aren't re-priced. This is a statistical model for entertainment and research, not financial advice.";
+    return;
+  }
   if(state.lg==="cbb"){
     $("#methodList").innerHTML=`
     <li><b>Team ratings.</b> KenPom adjusted offensive and defensive efficiency (points per 100 possessions, adjusted for opponent and venue) and adjusted tempo, as of ${new Date(L.dataDate+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"})}. Each is measured against the Division I average (${c.lg.lgO.toFixed(1)} per 100). This early in the season KenPom leans mostly on its preseason ratings.</li>
@@ -931,7 +1183,7 @@ function bestPlays(){
     return `<button class="bp" data-id="${g.id}" aria-label="Open ${esc(g.away)} at ${esc(g.home)}">
       <span class="bp-top">${gauge(x.b.score,x.b.tier,52)}<span class="chip t-${x.b.tier}">${x.b.tier}</span></span>
       <span class="bp-pick">${team?badge(lg,team,22):'<span class="ou">O/U</span>'}<span class="pk">${esc(x.b.pick)}</span></span>
-      <span class="lbl">${x.k==="ml"?"Moneyline":MK[x.k]} · ${esc(abbr(lg,g.away))} @ ${esc(abbr(lg,g.home))}</span>
+      <span class="lbl">${x.k==="ml"?"Moneyline":mkName(lg,x.k)} · ${esc(abbr(lg,g.away))} @ ${esc(abbr(lg,g.home))}</span>
       <span class="lbl">${fmtDay(g.kickoff)} · ${fmtTime(g.kickoff)}</span>
     </button>`;}).join(""):`<div class="empty">No positive edges match.</div>`;
 }
@@ -941,10 +1193,10 @@ function tile(r){
   const keys=state.m==="all"?["spread","totals","ml"]:[state.m];
   const heroKey=keys.reduce((a,k)=>p[k].score>p[a].score?k:a,keys[0]), hb=p[heroKey];
   const rest=keys.filter(k=>k!==heroKey);
-  const vg=`${abbr(lg,g.home)} ${fmtLine(g.spread)} · O/U ${g.total} · ML ${fmtML(g.mlAway)}/${fmtML(g.mlHome)}`;
+  const vg=lg==="nhl"?`PL ${abbr(lg,g.home)} ${fmtLine(g.spread)} ${fmtML(g.x.plHome)} · O/U ${g.total} · ML ${fmtML(g.mlAway)}/${fmtML(g.mlHome)}`:`${abbr(lg,g.home)} ${fmtLine(g.spread)} · O/U ${g.total} · ML ${fmtML(g.mlAway)}/${fmtML(g.mlHome)}`;
   const pa=1-p.ml.pHomeWin, ph=p.ml.pHomeWin, [ca]=colorsOf(lg,g.away), [ch]=colorsOf(lg,g.home);
   const hero=hb.score>0
-    ? `<div class="hero" style="--tc:${tierVar(hb.tier)}"><div style="min-width:0"><div class="hk">Best bet · ${heroKey==="ml"?"Moneyline":MK[heroKey]}</div><div class="hp">${esc(hb.pick)}</div><div class="hs">${pct(hb.prob)} to hit · <span class="chip t-${hb.tier}">${hb.tier}</span></div></div>${gauge(hb.score,hb.tier,50)}</div>`
+    ? `<div class="hero" style="--tc:${tierVar(hb.tier)}"><div style="min-width:0"><div class="hk">Best bet · ${heroKey==="ml"?"Moneyline":mkName(lg,heroKey)}</div><div class="hp">${esc(hb.pick)}</div><div class="hs">${pct(hb.prob)} to hit · <span class="chip t-${hb.tier}">${hb.tier}</span></div></div>${gauge(hb.score,hb.tier,50)}</div>`
     : `<div class="hero none"><div><div class="hk">${keys.length>1?"No edge on this game":"No edge"}</div><div class="hs">The model agrees with Vegas here.</div></div></div>`;
   const open=OPEN.has(g.id)!==state.collapsed?false:true;
   const label=`${esc(fullName(lg,g.away))} at ${esc(fullName(lg,g.home))}`;
@@ -953,7 +1205,7 @@ function tile(r){
     : `<span class="peek none">No edge</span>`;
   return `<article class="tile${live?' live':''}${open?' is-open':''}" style="--ca:${ca};--ch:${ch}">
     <button class="tile-main" type="button" data-id="${g.id}" aria-label="${label}, open details">
-    <div class="kick">${fin?`<span class="livetag final">Final · ${esc(abbr(lg,g.away))} ${fin[0]}, ${esc(abbr(lg,g.home))} ${fin[1]}</span>`:live?`<span class="livetag">${HOOPS(lg)?"Tipped off":"Kicked off"}</span>`:`<span class="when">${fmtDay(g.kickoff)} · ${fmtTime(g.kickoff)}</span>`}${netChip(g.tv)}</div>
+    <div class="kick">${fin?`<span class="livetag final">Final · ${esc(abbr(lg,g.away))} ${fin[0]}, ${esc(abbr(lg,g.home))} ${fin[1]}</span>`:live?`<span class="livetag">${lg==="nhl"?"Puck dropped":HOOPS(lg)?"Tipped off":"Kicked off"}</span>`:`<span class="when">${fmtDay(g.kickoff)} · ${fmtTime(g.kickoff)}</span>`}${netChip(g.tv)}</div>
     <div class="score">
       <div class="team">${teamLine(lg,g.away)}</div><div class="pts" style="${aw?'color:var(--turf)':''}">${p.away.toFixed(1)}</div>
       <div class="team">${teamLine(lg,g.home,true)}</div><div class="pts" style="${hw?'color:var(--turf)':''}">${p.home.toFixed(1)}</div>
@@ -969,7 +1221,7 @@ function tile(r){
       <button class="tile-more" type="button" data-id="${g.id}" tabindex="${open?0:-1}" aria-label="${label}, open details">
         <div class="vegas num"><abbr title="Vegas" style="text-decoration:none">V</abbr>: ${esc(vg)}</div>
         ${hero}
-        ${rest.length?`<div class="picks">${rest.map(k=>{const b=p[k];return `<div class="prow ${b.score===0?'dim':''}"><span class="mk">${MK[k]}</span><span class="pk">${b.score===0?'No edge':esc(b.pick)}<em>${b.score===0?'':pct(b.prob)}</em></span>${esHTML(b)}</div>`}).join("")}</div>`:""}
+        ${rest.length?`<div class="picks">${rest.map(k=>{const b=p[k];return `<div class="prow ${b.score===0?'dim':''}"><span class="mk">${mkName(lg,k)}</span><span class="pk">${b.score===0?'No edge':esc(b.pick)}<em>${b.score===0?'':pct(b.prob)}</em></span>${esHTML(b)}</div>`}).join("")}</div>`:""}
         <div class="tilefoot"><span class="open">Details ›</span></div>
       </button>
     </div>
@@ -981,7 +1233,7 @@ const OPEN=new Set();
 function setFold(id,toOpen){
   const art=document.querySelector(`[data-fold="${CSS.escape(id)}"]`)?.closest(".tile"); if(!art) return;
   const differs=toOpen===state.collapsed; differs?OPEN.add(id):OPEN.delete(id);
-  const r=[...DATA.nfl.rows,...DATA.cfb.rows,...DATA.nba.rows,...DATA.cbb.rows].find(x=>x.g.id===id);
+  const r=LEAGUE_KEYS.flatMap(k=>DATA[k].rows).find(x=>x.g.id===id);
   const fresh=document.createElement("div"); fresh.innerHTML=tile(r); art.replaceWith(fresh.firstElementChild);
   const btn=document.querySelector(`[data-fold="${CSS.escape(id)}"]`); btn&&btn.focus({preventScroll:true});
 }
@@ -1002,14 +1254,26 @@ function statRow(label,k,A,H,lowerBetter,digits=3){
   const a=A[k],h=H[k]; const better=lowerBetter?(a<h?'a':'h'):(a>h?'a':'h');
   return `<tr><td>${label}</td><td class="${better==='a'?'good':''}">${a.toFixed(digits)}</td><td class="${better==='h'?'good':''}">${h.toFixed(digits)}</td></tr>`;
 }
-function mbar(label,off,def){
-  const e=off+def; const w=Math.min(50,Math.abs(e)*400); const left=e>=0?50:50-w;
-  return `<div class="mbar"><span class="l">${esc(label)}</span><span class="track"><i style="left:${left}%;width:${w}%;background:${e>=0?'var(--strong)':'var(--accent)'}"></i><i style="left:50%;width:1px;background:var(--muted)"></i></span><span class="num">${e>=0?'+':''}${e.toFixed(3)}</span></div>`;
+function mbar(label,off,def,scale,digits){
+  const e=off+def; const w=Math.min(50,Math.abs(e)*(scale||400)); const left=e>=0?50:50-w;
+  return `<div class="mbar"><span class="l">${esc(label)}</span><span class="track"><i style="left:${left}%;width:${w}%;background:${e>=0?'var(--strong)':'var(--accent)'}"></i><i style="left:50%;width:1px;background:var(--muted)"></i></span><span class="num">${e>=0?'+':''}${e.toFixed(digits??3)}</span></div>`;
 }
 
+const gShort=n=>{const w=String(n).split(" "); return w.length>1?w[0][0]+". "+w.slice(1).join(" "):n;};
 function betBlock(k,b,g,p){
   let rows="";
-  if(k==="spread"){
+  const evS=`<dt>EV per $100</dt><dd>${b.ev>=0?'+':'−'}$${Math.abs(b.ev*100).toFixed(2)}</dd>`;
+  if(g.league==="nhl"&&k==="spread"){
+    rows=`<dt>Puck line</dt><dd>${esc(g.away)} ${fmtLine(-g.spread)} ${fmtML(g.x.plAway)} · ${esc(g.home)} ${fmtLine(g.spread)} ${fmtML(g.x.plHome)}</dd>
+    <dt>Cover (${esc(g.away)} / ${esc(g.home)})</dt><dd>${pct(1-b.pHomeCover)} / ${pct(b.pHomeCover)}</dd><dt>Break-even</dt><dd>${pct(b.implied)}</dd>
+    <dt>Margin</dt><dd>${esc(p.margin>=0?g.home:g.away)} by ${Math.abs(p.margin).toFixed(2)}</dd>${evS}`;
+  } else if(g.league==="nhl"&&k==="totals"){
+    rows=`<dt>Vegas total</dt><dd>${g.total} · O ${fmtML(g.x.over??-110)} / U ${fmtML(g.x.under??-110)}</dd><dt>Model goals</dt><dd>${p.total.toFixed(2)}</dd><dt>Pure model / market</dt><dd>${p.rawTotal.toFixed(2)} / ${(p.mktAway+p.mktHome).toFixed(2)}</dd>
+    <dt>Over / Under</dt><dd>${pct(b.pOver)} / ${pct(1-b.pOver)}</dd><dt>Break-even</dt><dd>${pct(b.implied)}</dd>${evS}`;
+  } else if(g.league==="nhl"){
+    rows=`<dt>${esc(g.away)} price · model win</dt><dd>${fmtML(g.mlAway)} · ${pct(1-b.pHomeWin)}</dd><dt>${esc(g.home)} price · model win</dt><dd>${fmtML(g.mlHome)} · ${pct(b.pHomeWin)}</dd>
+    <dt>Vegas no-vig (away / home)</dt><dd>${pct(b.nvAway)} / ${pct(b.nvHome)}</dd><dt>Goes to OT/shootout</dt><dd>${pct(b.pTie)}</dd><dt>Probability edge</dt><dd>${sgn(b.probEdge*100)} pts</dd>${evS}`;
+  } else if(k==="spread"){
     rows=`<dt>Vegas line</dt><dd>${esc(g.home)} ${fmtLine(g.spread)}</dd><dt>Model line</dt><dd>${esc(g.home)} ${fmtLine(+p.spread.modelLine.toFixed(1))}</dd>
     <dt>${HOOPS(g.league)?"Pure ratings line":"Pure EPA line"}</dt><dd>${esc(g.home)} ${fmtLine(+(-p.rawMargin).toFixed(1))}</dd><dt>Edge</dt><dd>${b.edgePts.toFixed(1)} pts</dd>
     <dt>Cover chance</dt><dd>${pct(b.prob)}</dd><dt>Break-even (−110)</dt><dd>52.4%</dd><dt>EV per $100</dt><dd>${b.ev>=0?'+':'−'}$${Math.abs(b.ev*100).toFixed(2)}</dd>`;
@@ -1021,7 +1285,7 @@ function betBlock(k,b,g,p){
     <dt>Vegas no-vig (away / home)</dt><dd>${pct(b.nvAway)} / ${pct(b.nvHome)}</dd><dt>Probability edge</dt><dd>${sgn(b.probEdge*100)} pts</dd>
     <dt>EV per $100</dt><dd>${b.ev>=0?'+':'−'}$${Math.abs(b.ev*100).toFixed(2)}</dd>`;
   }
-  return `<div class="bet"><div class="bethead"><span style="min-width:0"><span class="mk note">${k==="ml"?"Moneyline":MK[k]}</span><br><span class="pk">${b.score===0?'No edge':esc(b.pick)}</span></span>
+  return `<div class="bet"><div class="bethead"><span style="min-width:0"><span class="mk note">${k==="ml"?"Moneyline":g.league==="nhl"&&k==="spread"?"Puck line":MK[k]}</span><br><span class="pk">${b.score===0?'No edge':esc(b.pick)}</span></span>
     <span style="text-align:right"><span class="scorebig c-${b.tier}">${b.score.toFixed(1)}</span><br><span class="chip t-${b.tier}">${b.tier}</span></span></div>
     <dl class="kv">${rows}</dl></div>`;
 }
@@ -1034,13 +1298,19 @@ function openSheet(id){
   $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">${esc(g.away)} @ ${esc(g.home)}</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
   <div class="note" style="margin-top:8px"><span class="when">${fmtDayLong(g.kickoff)} · ${fmtTime(g.kickoff)}</span> ${netChip(g.tv)}${where?` · ${where}`:""}</div>
   <div class="block"><h4>Projected score</h4>
-    <div class="bigscore"><div>${badge(lg,g.away,44)}<div class="t">${esc(fullName(lg,g.away))}</div><div class="n">${p.away.toFixed(1)}</div></div><div class="at">at</div><div>${badge(lg,g.home,44)}<div class="t">${esc(fullName(lg,g.home))}</div><div class="n">${p.home.toFixed(1)}</div></div></div>
-    <p class="note" style="text-align:center;margin:8px 0 0">${esc(fav)} by ${Math.abs(p.margin).toFixed(1)} · total ${p.total.toFixed(1)} · ${HOOPS(lg)?"pure ratings model":"pure EPA model"}: ${esc(g.away)} ${p.rawAway.toFixed(1)}, ${esc(g.home)} ${p.rawHome.toFixed(1)}</p>
+    <div class="bigscore"><div>${badge(lg,g.away,44)}<div class="t">${esc(fullName(lg,g.away))}</div><div class="n">${p.away.toFixed(lg==="nhl"?2:1)}</div></div><div class="at">at</div><div>${badge(lg,g.home,44)}<div class="t">${esc(fullName(lg,g.home))}</div><div class="n">${p.home.toFixed(lg==="nhl"?2:1)}</div></div></div>
+    <p class="note" style="text-align:center;margin:8px 0 0">${lg==="nhl"?`Expected goals. ${esc(fav)} by ${Math.abs(p.margin).toFixed(2)} · total ${p.total.toFixed(2)} · pure model: ${esc(g.away)} ${p.rawAway.toFixed(2)}, ${esc(g.home)} ${p.rawHome.toFixed(2)}`:`${esc(fav)} by ${Math.abs(p.margin).toFixed(1)} · total ${p.total.toFixed(1)} · ${HOOPS(lg)?"pure ratings model":"pure EPA model"}: ${esc(g.away)} ${p.rawAway.toFixed(1)}, ${esc(g.home)} ${p.rawHome.toFixed(1)}`}</p>
   </div>
   <div class="block"><h4>Bets</h4>${["spread","totals","ml"].map(k=>betBlock(k,p[k],g,p)).join("")}</div>
+  ${lg==="nhl"?`<div class="block"><h4>Starting goalies</h4><div class="tblwrap"><table class="tbl"><thead><tr><th></th><th>${esc(g.away)}</th><th>${esc(g.home)}</th></tr></thead><tbody>
+    <tr><td>Starter</td><td>${esc(gShort(p.goalies.away.name))}</td><td>${esc(gShort(p.goalies.home.name))}</td></tr>
+    <tr><td>Status</td><td>${esc(g.x.gsA||"—")}</td><td>${esc(g.x.gsH||"—")}</td></tr>
+    <tr><td>Starts, SV%</td><td>${p.goalies.away.unknown?"No NHL games":p.goalies.away.gs+" · "+p.goalies.away.sv.toFixed(3).replace(/^0/,"")}</td><td>${p.goalies.home.unknown?"No NHL games":p.goalies.home.gs+" · "+p.goalies.home.sv.toFixed(3).replace(/^0/,"")}</td></tr>
+    <tr><td>Saved vs. avg</td><td class="${p.goalies.away.gsaa>p.goalies.home.gsaa?'good':''}">${sgn(p.goalies.away.gsaa)}</td><td class="${p.goalies.home.gsaa>p.goalies.away.gsaa?'good':''}">${sgn(p.goalies.home.gsaa)}</td></tr>
+    </tbody></table></div><p class="note" style="margin:8px 0 0">Starters from Daily Faceoff. If a different goalie starts, the projection is off.</p></div>`:""}
   <div class="block"><h4>Matchup edges</h4>
-    <p class="note" style="margin:0 0 6px">Offense rating + opposing defense rating${HOOPS(lg)?" (per possession)":""}. Right of center favors the offense.</p>
-    ${mbar(shortName(lg,g.away)+" off",A.offRating,H.defRating)}${mbar(shortName(lg,g.home)+" off",H.offRating,A.defRating)}
+    <p class="note" style="margin:0 0 6px">Offense rating + opposing defense rating${lg==="nhl"?" (goals per game vs. average)":HOOPS(lg)?" (per possession)":""}. Right of center favors the offense.</p>
+    ${lg==="nhl"?mbar(shortName(lg,g.away)+" off",A.offRating,H.defRating,100,2)+mbar(shortName(lg,g.home)+" off",H.offRating,A.defRating,100,2):mbar(shortName(lg,g.away)+" off",A.offRating,H.defRating)+mbar(shortName(lg,g.home)+" off",H.offRating,A.defRating)}
   </div>
   <div class="block"><h4>Team data</h4><div class="tblwrap"><table class="tbl">
     <thead><tr><th></th><th>${esc(g.away)}</th><th>${esc(g.home)}</th></tr></thead><tbody>
@@ -1055,13 +1325,20 @@ function openSheet(id){
     <tr><td>Adj. ORTG / DRTG</td><td>${A.aORTG.toFixed(1)} / ${A.aDRTG.toFixed(1)}</td><td>${H.aORTG.toFixed(1)} / ${H.aDRTG.toFixed(1)}</td></tr>
     <tr><td>Pace (rank)</td><td>${A.pace.toFixed(1)} (#${A.paceRank})</td><td>${H.pace.toFixed(1)} (#${H.paceRank})</td></tr>
     <tr><td>Games in sample</td><td>${A.gp}</td><td>${H.gp}</td></tr>`:""}
+    ${lg==="nhl"?`<tr><td>Goals for / against per game</td><td>${A.gf.toFixed(2)} / ${A.ga.toFixed(2)}</td><td>${H.gf.toFixed(2)} / ${H.ga.toFixed(2)}</td></tr>
+    <tr><td>Shots for / against per game</td><td>${A.sf.toFixed(1)} / ${A.sa.toFixed(1)}</td><td>${H.sf.toFixed(1)} / ${H.sa.toFixed(1)}</td></tr>
+    <tr><td>Offense (goals/gm vs avg)</td><td class="${A.offRating>H.offRating?'good':''}">${sgn(A.offRating)}</td><td class="${H.offRating>A.offRating?'good':''}">${sgn(H.offRating)}</td></tr>
+    <tr><td>Defense (goals/gm vs avg)</td><td class="${A.defRating<H.defRating?'good':''}">${sgn(A.defRating)}</td><td class="${H.defRating<A.defRating?'good':''}">${sgn(H.defRating)}</td></tr>
+    <tr><td>Power play / penalty kill</td><td>${A.pp.toFixed(1)}% / ${A.pk.toFixed(1)}%</td><td>${H.pp.toFixed(1)}% / ${H.pk.toFixed(1)}%</td></tr>
+    <tr><td>Goalies' goals saved above avg</td><td>${sgn(A.gsaaTeam)}</td><td>${sgn(H.gsaaTeam)}</td></tr>
+    <tr><td>Games played</td><td>${A.gp}</td><td>${H.gp}</td></tr>`:""}
     <tr><td>Power rank (of ${n})</td><td>#${A.powerRank}</td><td>#${H.powerRank}</td></tr>
     <tr><td>Offense rank</td><td>#${A.offRank}</td><td>#${H.offRank}</td></tr>
     <tr><td>Defense rank</td><td>#${A.defRank}</td><td>#${H.defRank}</td></tr>
-    ${HOOPS(lg)?"":`${statRow(lg==="cfb"?"Off PPA/play":"Off EPA/play","offEPA",A,H,false)}${statRow(lg==="cfb"?"Def PPA/play":"Def EPA/play","defEPA",A,H,true)}
+    ${HOOPS(lg)||lg==="nhl"?"":`${statRow(lg==="cfb"?"Off PPA/play":"Off EPA/play","offEPA",A,H,false)}${statRow(lg==="cfb"?"Def PPA/play":"Def EPA/play","defEPA",A,H,true)}
     ${statRow("Off success rate","offSR",A,H,false)}${statRow("Def success rate","defSR",A,H,true)}
     ${statRow(lg==="cfb"?"Off pass PPA":"Off pass EPA","offPass",A,H,false)}${statRow(lg==="cfb"?"Def pass PPA":"Def pass EPA","defPass",A,H,true)}`}
-    </tbody></table></div><p class="note" style="margin:8px 0 0">${HOOPS(lg)?`Green marks the better side. Offense and defense are points per 100 possessions vs. ${lg==="cbb"?"D-I":"league"} average; positive is better on both ends. ${lg==="cbb"?"Tempo is possessions per 40 minutes (KenPom adjusted tempo).":"Pace is possessions per 48 minutes."}`:"Green marks the better side of each stat. Defensive numbers are allowed, so lower is better."}</p></div>`;
+    </tbody></table></div><p class="note" style="margin:8px 0 0">${lg==="nhl"?"Green marks the better side. Defense is goals allowed vs. average with average goaltending, so lower is better. Power play and penalty kill are shown for context; they're already inside goals for and against.":HOOPS(lg)?`Green marks the better side. Offense and defense are points per 100 possessions vs. ${lg==="cbb"?"D-I":"league"} average; positive is better on both ends. ${lg==="cbb"?"Tempo is possessions per 40 minutes (KenPom adjusted tempo).":"Pace is possessions per 48 minutes."}`:"Green marks the better side of each stat. Defensive numbers are allowed, so lower is better."}</p></div>`;
   $("#scrim").hidden=false; document.body.style.overflow="hidden";
   $("#closeBtn").focus(); $("#closeBtn").onclick=closeSheet;
 }
@@ -1093,7 +1370,7 @@ function statBox(label,t){
   return `<div class="stat"><div class="k">${label}</div><div class="v num">${rec} <span class="${t.units>0?'pos':t.units<0?'neg':''}" style="font-size:18px">${u}</span></div><div class="s">${bits||"&nbsp;"}</div></div>`;
 }
 function openRecord(grp){
-  grp=grp||state.lg||"nfl"; const hoopsG=HOOPS(grp);
+  grp=grp||state.lg||"nfl"; const hoopsG=DAILY(grp);
   const LOG=PICK_LOG.filter(x=>x.lg===grp);
   const all=tally(LOG);
   const by=(f)=>LOG.filter(f);
@@ -1114,7 +1391,7 @@ function openRecord(grp){
       const chip=r?`<span class="res res-${r}">${r}</span>`:`<span class="res res-pending">—</span>`;
       const fin=r?` · Final ${esc(x.away)} ${x.fa}, ${esc(x.home)} ${x.fh}`:"";
       const u=r?` <span class="num ${unitsFor(x,r)>=0?'pos':'neg'}">${fmtU(unitsFor(x,r))}</span>`:"";
-      return `<div class="row">${chip}<div style="min-width:0"><div class="pk">${esc(x.pick)}${u}</div><div class="sub">${MK[x.m]==="ML"?"Moneyline":MK[x.m]} · ${esc(x.away)} @ ${esc(x.home)}${fin}</div></div><span class="scorebig c-${tier(x.score)}" style="font-size:18px">${x.score.toFixed(1)}</span></div>`;}).join("")}</div></details>`;
+      return `<div class="row">${chip}<div style="min-width:0"><div class="pk">${esc(x.pick)}${u}</div><div class="sub">${MK[x.m]==="ML"?"Moneyline":x.lg==="nhl"&&x.m==="spread"?"Puck line":MK[x.m]} · ${esc(x.away)} @ ${esc(x.home)}${fin}</div></div><span class="scorebig c-${tier(x.score)}" style="font-size:18px">${x.score.toFixed(1)}</span></div>`;}).join("")}</div></details>`;
   };
   // NBA: once a month is over and fully graded, its days fold under one month row
   const sumOf=t=>[t.graded||t.P?`${t.W}-${t.L}${t.P?"-"+t.P:""} <span class="num ${t.units>0?'pos':t.units<0?'neg':''}">${t.units===0?"0.00u":fmtU(t.units)}</span>`:"",t.pend?`${t.pend} pending`:""].filter(Boolean).join(" · ");
@@ -1132,15 +1409,15 @@ function openRecord(grp){
       return `<details class="wk mo"><summary><span class="wkhead">${esc(lbl)}</span><span class="wksum">${sumOf(t)}</span><span class="wkchev" aria-hidden="true"></span></summary><div class="moin">${days.map(dayRow).join("")}</div></details>`;
     }).join("");
   } else rows=ordered.map(dayRow).join("");
-  $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">${({nfl:"NFL record",cfb:"CFB record",nba:"NBA record",cbb:"CBB record"})[grp]}</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
-  <div class="rgsw" role="group" aria-label="Which record"><button type="button" data-rg="nfl" aria-pressed="${grp==="nfl"}">NFL</button><button type="button" data-rg="cfb" aria-pressed="${grp==="cfb"}">CFB</button><button type="button" data-rg="nba" aria-pressed="${grp==="nba"}">NBA</button><button type="button" data-rg="cbb" aria-pressed="${grp==="cbb"}">CBB</button></div>
-  <p class="note" style="margin:8px 0 0">${({nfl:"NFL",cfb:"College football",nba:"NBA",cbb:"College basketball"})[grp]} picks are tracked on their own. Every pick rated 6.0 or higher, locked before ${hoopsG?"tip-off":"kickoff"}. Spreads and totals graded at −110; moneylines at the posted price. 1 unit risked per pick.</p>
+  $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">${({nfl:"NFL record",cfb:"CFB record",nba:"NBA record",cbb:"CBB record",nhl:"NHL record (beta)"})[grp]}</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
+  <div class="rgsw" role="group" aria-label="Which record"><button type="button" data-rg="nfl" aria-pressed="${grp==="nfl"}">NFL</button><button type="button" data-rg="cfb" aria-pressed="${grp==="cfb"}">CFB</button><button type="button" data-rg="nba" aria-pressed="${grp==="nba"}">NBA</button><button type="button" data-rg="cbb" aria-pressed="${grp==="cbb"}">CBB</button><button type="button" data-rg="nhl" aria-pressed="${grp==="nhl"}">NHL</button></div>
+  <p class="note" style="margin:8px 0 0">${({nfl:"NFL",cfb:"College football",nba:"NBA",cbb:"College basketball",nhl:"NHL (beta)"})[grp]} picks are tracked on their own. Every pick rated 6.0 or higher, locked before ${grp==="nhl"?"puck drop":hoopsG?"tip-off":"kickoff"}. ${grp==="nhl"?"Puck lines, totals and moneylines are all graded at the price posted when the pick locked.":"Spreads and totals graded at −110; moneylines at the posted price."} 1 unit risked per pick.</p>
   <div class="block"><h4>Overall</h4><div class="recgrid">
     ${statBox("All 6+ picks",all)}
     <div class="stat"><div class="k">Units</div><div class="v num ${all.units>=0?'pos':'neg'}">${all.graded?fmtU(all.units):"—"}</div><div class="s">ROI ${all.roi!=null?(all.roi*100).toFixed(1)+"%":"—"}</div></div>
     <div class="stat"><div class="k">Pending</div><div class="v num">${all.pend}</div><div class="s">of ${LOG.length} picks</div></div>
   </div></div>
-  <div class="block"><h4>By bet type</h4><div class="recgrid">${statBox("Spread",tally(by(x=>x.m==="spread")))}${statBox("Total",tally(by(x=>x.m==="totals")))}${statBox("Moneyline",tally(by(x=>x.m==="ml")))}</div></div>
+  <div class="block"><h4>By bet type</h4><div class="recgrid">${statBox(grp==="nhl"?"Puck line":"Spread",tally(by(x=>x.m==="spread")))}${statBox("Total",tally(by(x=>x.m==="totals")))}${statBox("Moneyline",tally(by(x=>x.m==="ml")))}</div></div>
   <div class="block"><h4>By rating</h4><div class="recgrid">${statBox("Strong 8+",tally(by(x=>x.score>=8)))}${statBox("Solid 6–7.9",tally(by(x=>x.score<8)))}</div></div>
   <div class="block"><h4>Pick history</h4>${rows||'<p class="note">No picks yet.</p>'}</div>`;
   $("#scrim").hidden=false; document.body.style.overflow="hidden";
@@ -1149,11 +1426,11 @@ function openRecord(grp){
 }
 $("#recBtn").onclick=()=>openRecord();
 // Top plays: best edges across every league for games that haven't started, one day at a time
-const LG_NAME={nfl:"NFL",cfb:"CFB",nba:"NBA",cbb:"CBB"};
+const LG_NAME={nfl:"NFL",cfb:"CFB",nba:"NBA",cbb:"CBB",nhl:"NHL"};
 const localKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 function openTop(day){
   const items=[];
-  for(const lg of ["nfl","cfb","nba","cbb"]) for(const r of DATA[lg].rows){
+  for(const lg of LEAGUE_KEYS) for(const r of DATA[lg].rows){
     const {g,p}=r; if(started(g)||finalOf(g)) continue;
     for(const k of ["spread","totals","ml"]){ const b=p[k]; if(b.score>0) items.push({lg,g,k,b,day:localKey(g.kickoff)}); }
   }
@@ -1168,9 +1445,9 @@ function openTop(day){
   const row=x=>`<button class="toprow" type="button" data-gid="${x.g.id}" data-glg="${x.lg}">
       <span class="lgtag" data-lg="${x.lg}">${LG_NAME[x.lg]}</span>
       <span style="min-width:0"><span class="pk">${esc(x.b.pick)}</span>${locked(x)?'<span class="lockt">Locked</span>':""}
-        <span class="sub" style="display:block">${x.k==="ml"?"Moneyline":MK[x.k]} · ${esc(abbr(x.lg,x.g.away))} @ ${esc(abbr(x.lg,x.g.home))} · ${fmtTime(x.g.kickoff)} · ${pct(x.b.prob)} to hit</span></span>
+        <span class="sub" style="display:block">${x.k==="ml"?"Moneyline":x.lg==="nhl"&&x.k==="spread"?"Puck line":MK[x.k]} · ${esc(abbr(x.lg,x.g.away))} @ ${esc(abbr(x.lg,x.g.home))} · ${fmtTime(x.g.kickoff)} · ${pct(x.b.prob)} to hit</span></span>
       <span class="scorebig c-${x.b.tier}" style="font-size:22px">${x.b.score.toFixed(1)}</span></button>`;
-  const counts=["nfl","cfb","nba","cbb"].map(lg=>[lg,new Set(list.filter(x=>x.lg===lg).map(x=>x.g.id)).size]).filter(c=>c[1]);
+  const counts=LEAGUE_KEYS.map(lg=>[lg,new Set(list.filter(x=>x.lg===lg).map(x=>x.g.id)).size]).filter(c=>c[1]);
   $("#sheet").innerHTML=`<div class="sheethead"><h3 id="sh-title">Top plays</h3><button class="x" id="closeBtn" aria-label="Close">×</button></div>
   ${days.length>1?`<div class="rgsw days" role="group" aria-label="Which day">${days.map(d=>`<button type="button" data-tday="${d}" aria-pressed="${d===day}">${esc(dayLbl(d))}</button>`).join("")}</div>`:""}
   <p class="note" style="margin:8px 0 0">${days.length?`The best edges in every sport for games that haven't started ${esc(dayLong(day))}${counts.length?" ("+counts.map(c=>c[1]+" "+LG_NAME[c[0]]).join(", ")+")":""}. Plays rated 6+ are the ones the record tracks. Tap a play for the full breakdown.`:"No upcoming games on the board right now."}</p>
@@ -1199,6 +1476,7 @@ function render(){
   document.querySelectorAll("[data-lg]").forEach(b=>b.setAttribute("aria-selected",b.dataset.lg===state.lg));
   document.querySelectorAll("[data-m]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.m===state.m));
   document.querySelectorAll("[data-s]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===state.s));
+  {const ms=$("#m-spread"); if(ms) ms.textContent=state.lg==="nhl"?"Puck line":"Spread";}
   try{localStorage.setItem("geb-state",JSON.stringify({lg:state.lg,m:state.m,s:state.s,collapsed:state.collapsed}))}catch(e){}
   syncFoldAll();
   $("#grid").dataset.lg=state.lg; header(); bestPlays(); grid();

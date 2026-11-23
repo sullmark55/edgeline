@@ -7,7 +7,8 @@ finals.json (any league may be left out):
   {"nfl": {"BUF|NYJ": [27, 13]},                      # NFL: team abbreviations as on the NFL tab (LA = Rams, JAX = Jaguars)
    "cfb": {"Western Michigan|Akron": [42, 14]},       # CFB: names exactly as in cfb_data.json
    "nba": {"MIA|UTA": [118, 104]},                    # NBA: abbreviations as in NBA_ROWS
-   "cbb": {"Hofstra|Arizona State": [64, 85]}}        # CBB: names exactly as in cbb_data.json
+   "cbb": {"Hofstra|Arizona State": [64, 85]},        # CBB: names exactly as in cbb_data.json
+   "nhl": {"CBJ|NJ": [2, 3]}}                         # NHL: abbreviations as in NHL_TEAMS (NJ, LA, SJ, TB, VGK); include the OT/shootout winner's goal
 Keys are "away|home" in the same order the game is listed on the board, values [awayPts, homePts].
 Only finished games. A pick is graded only when its date is within 4 days of the final being recorded,
 so an old matchup can't grade a rematch.
@@ -21,8 +22,8 @@ PL = re.search(r'const PICK_LOG = (\[.*?\]);?\n', A)
 P = json.loads(PL.group(1))
 FM = re.search(r'const FINALS=(\{.*?\});', A)
 F = json.loads(FM.group(1))
-PREFIX = {'nfl': '', 'cfb': '', 'nba': 'nba:', 'cbb': 'cbb:'}
-SLATE = {'nfl': 'NFL_GAMES', 'cfb': 'CFB_GAMES', 'nba': 'NBA_GAMES', 'cbb': 'CBB_GAMES'}
+PREFIX = {'nfl': '', 'cfb': '', 'nba': 'nba:', 'cbb': 'cbb:', 'nhl': 'nhl:'}
+SLATE = {'nfl': 'NFL_GAMES', 'cfb': 'CFB_GAMES', 'nba': 'NBA_GAMES', 'cbb': 'CBB_GAMES', 'nhl': 'NHL_GAMES'}
 
 
 def slate_times():
@@ -37,6 +38,8 @@ def slate_times():
 def names(lg):
     if lg == 'cfb': return {r[0] for r in json.load(open('cfb_data.json'))}
     if lg == 'cbb': return {r[0] for r in json.load(open('cbb_data.json'))}
+    if lg == 'nhl':
+        i = M.index('const NHL_TEAMS'); return set(re.findall(r'\["([A-Z]{2,3})"', M[i:M.index('];', i)]))
     if lg == 'nba':
         i = M.index('const NBA_ROWS'); return set(re.findall(r'\["([A-Z]{2,3})"', M[i:M.index('];', i)]))
     csv = re.search(r'const CSV = `(.*?)`', open('model.js').read(), re.S).group(1).strip().split('\n')[1:]
@@ -105,7 +108,7 @@ print('recorded', sum(len(v) for v in U.values()), 'finals; graded', len(graded)
 subprocess.run(['python3', 'build.py'], check=True, stdout=subprocess.DEVNULL)
 subprocess.run(['node', '--check', 'chk.js'], check=True)
 subprocess.run(['python3', 'make_site.py'], check=True, stdout=subprocess.DEVNULL)
-for grp, lgs in [('NFL', ('nfl',)), ('CFB', ('cfb',)), ('NBA', ('nba',)), ('CBB', ('cbb',))]:
+for grp, lgs in [('NFL', ('nfl',)), ('CFB', ('cfb',)), ('NBA', ('nba',)), ('CBB', ('cbb',)), ('NHL', ('nhl',))]:
     w = l = 0; u = 0.0; pend = 0
     for p in P:
         if p['lg'] not in lgs: continue

@@ -84,7 +84,7 @@ details.wk{border-bottom:1px solid var(--line)}
 .toprow .pk{font-weight:700;font-size:15px}
 .toprow .sub{font-size:12px;color:var(--muted);margin-top:2px}
 .lgtag{display:inline-block;min-width:38px;text-align:center;font:800 11px var(--body);letter-spacing:.04em;padding:4px 6px;border-radius:6px;color:#fff;background:var(--tc)}
-.lgtag[data-lg="nfl"]{--tc:var(--t-nfl)}.lgtag[data-lg="nba"]{--tc:var(--t-nba)}.lgtag[data-lg="cfb"]{--tc:var(--t-cfb);color:#1b1400}.lgtag[data-lg="cbb"]{--tc:var(--t-cbb)}
+.lgtag[data-lg="nfl"]{--tc:var(--t-nfl)}.lgtag[data-lg="nba"]{--tc:var(--t-nba)}.lgtag[data-lg="cfb"]{--tc:var(--t-cfb);color:#1b1400}.lgtag[data-lg="cbb"]{--tc:var(--t-cbb)}.lgtag[data-lg="nhl"]{--tc:var(--t-nhl)}
 .lockt{display:inline-block;margin-left:6px;font:700 10px var(--body);letter-spacing:.04em;text-transform:uppercase;color:var(--turf);border:1px solid var(--turf);border-radius:4px;padding:1px 4px;vertical-align:2px}
 .topcut{font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:12px 4px 4px}
 @media (max-width:520px){.hdrbtns .themebtn #themeLbl{display:none}.hdrbtns .themebtn{padding:0 11px}}
@@ -129,11 +129,15 @@ details.wk>summary:focus-visible{outline:2px solid var(--accent);outline-offset:
 .league button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
 .league button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 /* league tab colors: NFL brown, NBA orange, CFB gold, CBB blue */
-:root{--t-nfl:#7a4a24;--t-nba:#d9620f;--t-cfb:#b8860b;--t-cbb:#1f5fc4}
-:root[data-theme="dark"]{--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5}}
+:root{--t-nfl:#7a4a24;--t-nba:#d9620f;--t-cfb:#b8860b;--t-cbb:#1f5fc4;--t-nhl:#0e7c74}
+:root[data-theme="dark"]{--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5;--t-nhl:#3cc4b6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--t-nfl:#c99566;--t-nba:#f28b3d;--t-cfb:#e2b13c;--t-cbb:#64a2f5;--t-nhl:#3cc4b6}}
 .league button[data-lg="nfl"]{--tc:var(--t-nfl)}.league button[data-lg="nba"]{--tc:var(--t-nba)}
-.league button[data-lg="cfb"]{--tc:var(--t-cfb)}.league button[data-lg="cbb"]{--tc:var(--t-cbb)}
+.league button[data-lg="cfb"]{--tc:var(--t-cfb)}.league button[data-lg="cbb"]{--tc:var(--t-cbb)}.league button[data-lg="nhl"]{--tc:var(--t-nhl)}
+.league .beta{font:600 11px var(--body,inherit);text-transform:none;letter-spacing:0;vertical-align:3px;opacity:.85}
+.league button{white-space:nowrap}
+@media (max-width:520px){.league{gap:0}.league button{padding:8px 9px 10px;font-size:18px}.league .beta{font-size:10px}}
+@media (max-width:360px){.league button{padding:8px 6px 10px;font-size:17px}}
 .league button{color:var(--tc);opacity:.75}
 .league button:hover{opacity:.9}
 .league button[aria-selected="true"]{color:var(--tc);opacity:1;border-bottom-color:var(--tc)}
@@ -320,6 +324,7 @@ footer{margin-top:20px;font-size:12px;color:var(--muted)}
     <button id="lg-cfb" role="tab" data-lg="cfb" aria-selected="false">CFB</button>
     <button id="lg-nba" role="tab" data-lg="nba" aria-selected="false">NBA</button>
     <button id="lg-cbb" role="tab" data-lg="cbb" aria-selected="false">CBB</button>
+    <button id="lg-nhl" role="tab" data-lg="nhl" aria-selected="false" aria-label="NHL (beta)">NHL <span class="beta">(beta)</span></button>
   </nav>
 
   <div class="stickyrow">
