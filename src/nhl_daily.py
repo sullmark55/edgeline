@@ -13,7 +13,9 @@ update.json:
              {"plAway":220,"plHome":-270,"over":102,"under":-122,"gA":"Carter Hart","gH":"Tristan Jarry","gsA":"Likely","gsH":"Confirmed"}], ...],
              #  [date, ET time, away, home, home puck line (-1.5 or +1.5), total, mlAway, mlHome, tv, extra]
              #  starters from Daily Faceoff; a goalie not in NHL_GOALIES counts as league average
-  "finals": {"CBJ|NJ": [2, 3]}               # finished games, away|home: [awayGoals, homeGoals] incl. the OT/SO winner's goal
+  "finals": {"CBJ|NJ": [2, 3]},              # finished games, away|home: [awayGoals, homeGoals] incl. the OT/SO winner's goal
+  "lockBefore": "16:00"                       # optional: only lock picks for games starting before this ET time
+                                              # (morning runs use it so evening games wait for confirmed goalies)
 }
 Rewrites the NHL data in model2.js, records finals, grades NHL picks, locks new 6+ picks for games that
 haven't started, then rebuilds nfl-edge-board.html (the Claude artifact page) and ../index.html (edgeline.pro).
@@ -84,6 +86,8 @@ new = json.load(open('nhlpicks.json')); have = {(p['date'], p['away'], p['home']
 added = []
 for p in new:
     if (p['date'], p['away'], p['home'], p['m']) in have or ('nhl:' + p['away'] + '|' + p['home']) in F: continue
+    t = next((g[1] for g in U.get('games', []) if g[0] == p['date'] and g[2] == p['away'] and g[3] == p['home']), None)
+    if U.get('lockBefore') and t and t >= U['lockBefore']: continue
     p['locked'] = today.isoformat(); L.append(p); added.append(p)
 a = open('app_script.js').read(); pm = re.search(r'const PICK_LOG = (\[.*?\]);\n', a, re.S)
 a = a[:pm.start(1)] + json.dumps(L, ensure_ascii=False) + a[pm.end(1):]
