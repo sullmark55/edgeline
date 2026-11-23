@@ -1,425 +1,454 @@
 {
-"label": "Sun Nov 22",
-"footer": "Lines from DraftKings via ESPN, Nov 22. Games without a posted line are left off. Finished games drop off once they end.",
-"games": [
-[
-"2026-11-22",
-"12:00",
-"Miami (OH)",
-"Illinois Chicago",
-1.5,
-148.5,
--115,
--105,
-""
-],
-[
-"2026-11-22",
-"12:00",
-"Nebraska",
-"Butler",
-12.5,
-154.5,
--850,
-575,
-""
-],
-[
-"2026-11-22",
-"13:00",
-"Western Illinois",
-"Canisius",
--4.5,
-139.5,
-150,
--180,
-""
-],
-[
-"2026-11-22",
-"13:00",
-"Dayton",
-"Northwestern",
-3.5,
-135.5,
--170,
-142,
-""
-],
-[
-"2026-11-22",
-"13:00",
-"Fairfield",
-"LIU",
--2.5,
-145.5,
-120,
--142,
-""
-],
-[
-"2026-11-22",
-"13:00",
-"Towson",
-"American",
--1.5,
-130.5,
--108,
--112,
-""
-],
-[
-"2026-11-22",
-"13:00",
-"Chicago State",
-"Marquette",
--34.5,
-139.5,
-null,
-null,
-""
-],
-[
-"2026-11-22",
-"14:00",
-"George Washington",
-"Western Kentucky",
-5.5,
-148.5,
--218,
-180,
-""
-],
-[
-"2026-11-22",
-"14:00",
-"South Dakota",
-"Utah Tech",
--1.5,
-153.5,
--110,
--110,
-""
-],
-[
-"2026-11-22",
-"14:00",
-"UMass Lowell",
-"Cincinnati",
--30.5,
-147.5,
-null,
-null,
-""
-],
-[
-"2026-11-22",
-"14:00",
-"Wyoming",
-"Duquesne",
-3.5,
-139.5,
--175,
-145,
-""
-],
-[
-"2026-11-22",
-"14:00",
-"Evansville",
-"Memphis",
--21.5,
-158.5,
-1700,
--4500,
-""
-],
-[
-"2026-11-22",
-"14:00",
-"William & Mary",
-"Youngstown State",
-2.5,
-164.5,
--148,
-124,
-""
-],
-[
-"2026-11-22",
-"14:00",
-"San Diego",
-"Fordham",
--2.5,
-143.5,
-130,
--155,
-""
-],
-[
-"2026-11-22",
-"14:30",
-"Robert Morris",
-"New Mexico State",
--1.5,
-137.5,
-102,
--122,
-""
-],
-[
-"2026-11-22",
-"15:00",
-"Troy",
-"Nicholls",
-6.5,
-136.5,
--238,
-195,
-""
-],
-[
-"2026-11-22",
-"15:00",
-"West Florida",
-"South Alabama",
--6.5,
-141.5,
-215,
--265,
-""
-],
-[
-"2026-11-22",
-"15:00",
-"Southern Indiana",
-"Texas",
--39.5,
-149.5,
-null,
-null,
-""
-],
-[
-"2026-11-22",
-"15:30",
-"McNeese",
-"Texas State",
--2.5,
-142.5,
-120,
--142,
-""
-],
-[
-"2026-11-22",
-"15:30",
-"Mercyhurst",
-"Albany",
--1.5,
-129.5,
-100,
--120,
-""
-],
-[
-"2026-11-22",
-"15:30",
-"Virginia Tech",
-"Oklahoma State",
-1.5,
-159.5,
--125,
-105,
-""
-],
-[
-"2026-11-22",
-"16:30",
-"Richmond",
-"Liberty",
--1.5,
-143.5,
-105,
--125,
-""
-],
-[
-"2026-11-22",
-"16:30",
-"IU Indy",
-"Maryland Eastern Shore",
-10.5,
-140.5,
--535,
-400,
-""
-],
-[
-"2026-11-22",
-"16:30",
-"UC Irvine",
-"Loyola Marymount",
-3.5,
-138.5,
--155,
-130,
-""
-],
-[
-"2026-11-22",
-"17:00",
-"Rice",
-"Lamar",
--2.5,
-165.5,
-110,
--130,
-""
-],
-[
-"2026-11-22",
-"17:00",
-"UNC Asheville",
-"Samford",
--9.5,
-155.5,
-320,
--410,
-""
-],
-[
-"2026-11-22",
-"17:00",
-"Cal State Fullerton",
-"Portland State",
--4.5,
-163.5,
-164,
--198,
-""
-],
-[
-"2026-11-22",
-"17:00",
-"NJIT",
-"Boston College",
--24.5,
-135.5,
-2500,
--9000,
-""
-],
-[
-"2026-11-22",
-"17:30",
-"Temple",
-"Stephen F. Austin",
-1.5,
-144.5,
--130,
-110,
-""
-],
-[
-"2026-11-22",
-"18:00",
-"Southern Miss",
-"Valparaiso",
--8.5,
-145.5,
-295,
--375,
-""
-],
-[
-"2026-11-22",
-"18:00",
-"Utah",
-"Minnesota",
--10.5,
-131.5,
-500,
--700,
-""
-],
-[
-"2026-11-22",
-"19:00",
-"Delaware",
-"UCLA",
--29.5,
-145.5,
-null,
-null,
-""
-],
-[
-"2026-11-22",
-"19:00",
-"Rhode Island",
-"UAB",
-2.5,
-149.5,
--135,
-114,
-""
-],
-[
-"2026-11-22",
-"19:00",
-"Cal Baptist",
-"Portland",
--9.5,
-146.5,
-400,
--535,
-""
-],
-[
-"2026-11-22",
-"20:00",
-"Louisiana",
-"USC",
--33.5,
-147.5,
-null,
-null,
-""
-],
-[
-"2026-11-22",
-"20:00",
-"Tennessee Martin",
-"Utah Valley",
--7.5,
-146.5,
-280,
--355,
-""
-],
-[
-"2026-11-22",
-"21:30",
-"Seattle",
-"UC San Diego",
--1.5,
-145.5,
--105,
--115,
-""
-],
-[
-"2026-11-22",
-"23:59",
-"San Jos\u00e9 State",
-"Loyola Chicago",
--3.5,
-148.5,
-145,
--175,
-""
-]
-],
-"finals": {}
+ "label": "Mon Nov 23",
+ "footer": "Lines from DraftKings via ESPN, Nov 23. Games without a posted line are left off. Finished games drop off once they end.",
+ "games": [
+  [
+   "2026-11-23",
+   "11:00",
+   "St. Bonaventure",
+   "App State",
+   4.5,
+   134.5,
+   -205,
+   170,
+   "ESPN2",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "11:00",
+   "Northern Iowa",
+   "Davidson",
+   -5.5,
+   142.5,
+   185,
+   -225,
+   "",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "12:30",
+   "Indiana State",
+   "East Carolina",
+   -2.5,
+   146.5,
+   130,
+   -155,
+   "",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "13:00",
+   "Long Beach State",
+   "Florida International",
+   -9.5,
+   160.5,
+   380,
+   -500,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "13:30",
+   "Akron",
+   "Wright State",
+   -1.5,
+   148.5,
+   110,
+   -130,
+   "ESPNU",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "13:30",
+   "Charlotte",
+   "Florida Gulf Coast",
+   6.5,
+   144.5,
+   -278,
+   225,
+   "",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "14:00",
+   "Tulsa",
+   "Oregon State",
+   -6.5,
+   154.5,
+   230,
+   -285,
+   "FloSports",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "14:30",
+   "Ole Miss",
+   "Clemson",
+   5.5,
+   148.5,
+   -250,
+   205,
+   "ESPN2",
+   {
+    "venue": "Lahaina Civic Center, Lahaina, HI",
+    "hfa": 0,
+    "note": "Maui Invitational — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "15:00",
+   "Middle Tennessee",
+   "Southern Illinois",
+   -2.5,
+   148.5,
+   114,
+   -135,
+   "",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "15:30",
+   "Arkansas State",
+   "Southern Utah",
+   7.5,
+   162.5,
+   -325,
+   260,
+   "ESPN+",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "15:30",
+   "William & Mary",
+   "IU Indy",
+   4.5,
+   166.5,
+   -185,
+   154,
+   "ESPN+",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "16:00",
+   "Yale",
+   "Belmont",
+   -3.5,
+   143.5,
+   130,
+   -155,
+   "ESPNU",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "16:00",
+   "Tulane",
+   "Georgia State",
+   -1.5,
+   147.5,
+   105,
+   -125,
+   "",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "16:30",
+   "Nevada",
+   "San Francisco",
+   7.5,
+   140.5,
+   -325,
+   260,
+   "FloSports",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "17:00",
+   "Washington",
+   "BYU",
+   -12.5,
+   165.5,
+   575,
+   -850,
+   "ESPN2",
+   {
+    "venue": "Lahaina Civic Center, Lahaina, HI",
+    "hfa": 0,
+    "note": "Maui Invitational — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "17:30",
+   "Temple",
+   "Tennessee Martin",
+   4.5,
+   145.5,
+   -230,
+   190,
+   "",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — likely neutral site (venue unconfirmed)"
+   }
+  ],
+  [
+   "2026-11-23",
+   "18:30",
+   "Maryland Eastern Shore",
+   "Youngstown State",
+   -14.5,
+   133.5,
+   700,
+   -1100,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "19:00",
+   "North Carolina A&T",
+   "South Carolina State",
+   2.5,
+   149.5,
+   -142,
+   120,
+   ""
+  ],
+  [
+   "2026-11-23",
+   "19:00",
+   "Georgia Southern",
+   "Northern Kentucky",
+   -3.5,
+   166.5,
+   136,
+   -162,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "19:00",
+   "Fairleigh Dickinson",
+   "Iona",
+   -9.5,
+   135.5,
+   320,
+   -410,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "19:00",
+   "Central Arkansas",
+   "North Florida",
+   8.5,
+   164.5,
+   -470,
+   360,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "19:00",
+   "Illinois State",
+   "Santa Clara",
+   -4.5,
+   151.5,
+   185,
+   -225,
+   "FloSports",
+   {
+    "venue": "neutral site",
+    "hfa": 0,
+    "note": "Feast Week event — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "19:30",
+   "Texas A&M Corpus Chris",
+   "Wichita State",
+   -21.5,
+   144.5,
+   2000,
+   -6500,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "20:00",
+   "Stephen F. Austin",
+   "Utah Valley",
+   -3.5,
+   152.5,
+   145,
+   -175,
+   ""
+  ],
+  [
+   "2026-11-23",
+   "20:00",
+   "Winthrop",
+   "Illinois",
+   -43.5,
+   180.5,
+   null,
+   null,
+   "BTN"
+  ],
+  [
+   "2026-11-23",
+   "20:00",
+   "Monmouth",
+   "North Carolina",
+   -19.5,
+   153.5,
+   1700,
+   -4500,
+   "ACCN"
+  ],
+  [
+   "2026-11-23",
+   "20:00",
+   "Denver",
+   "Kansas",
+   -35.5,
+   158.5,
+   null,
+   null,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "21:00",
+   "VCU",
+   "Providence",
+   -1.5,
+   154.5,
+   102,
+   -122,
+   "ESPNU",
+   {
+    "venue": "Lahaina Civic Center, Lahaina, HI",
+    "hfa": 0,
+    "note": "Maui Invitational — neutral site"
+   }
+  ],
+  [
+   "2026-11-23",
+   "21:30",
+   "UNC Greensboro",
+   "Pepperdine",
+   -10.5,
+   155.5,
+   470,
+   -650,
+   "ESPN+"
+  ],
+  [
+   "2026-11-23",
+   "22:00",
+   "Eastern Washington",
+   "UNLV",
+   -7.5,
+   160.5,
+   270,
+   -340,
+   "MW Network"
+  ],
+  [
+   "2026-11-23",
+   "22:00",
+   "Alabama State",
+   "California",
+   -19.5,
+   145.5,
+   1800,
+   -5000,
+   "ACCNX"
+  ],
+  [
+   "2026-11-23",
+   "23:30",
+   "Colorado State",
+   "Arizona",
+   -16.5,
+   159.5,
+   1200,
+   -2400,
+   "ESPN2",
+   {
+    "venue": "Lahaina Civic Center, Lahaina, HI",
+    "hfa": 0,
+    "note": "Maui Invitational — neutral site"
+   }
+  ]
+ ],
+ "finals": {
+  "Seattle|UC San Diego": [
+   90,
+   64
+  ]
+ }
 }
