@@ -113,13 +113,14 @@ function header(){
   if(state.lg==="nhl"){
     $("#methodList").innerHTML=`
     <li><b>Beta.</b> This tab is new. The model is simpler than it will be once expected-goals data (Natural Stat Trick or MoneyPuck) is loaded, so picks here are tracked separately and should be treated as a test.</li>
-    <li><b>Team ratings.</b> Offense blends shots on goal per game (times the league's ${(c.lg.lgSh*100).toFixed(1)}% scoring rate per shot) with actual goals per game, 50/50. Defense does the same for shots and goals allowed, with goals allowed adjusted to average goaltending so a hot or cold goalie isn't counted twice. Both are pulled toward the league average (${c.lg.lg.toFixed(2)} goals per team per game) with ${c.regressGP} games' worth of average added.</li>
+    ${L.xgDate?`<li><b>Expected goals (${Math.round(c.wXG*100)}% of the rating).</b> MoneyPuck expected goals per 60 minutes, adjusted for score, venue and rebound flurries, through ${new Date(L.xgDate+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"})}. Each team's goals = 5-on-5 minutes × its xGF rate × the opponent's xGA rate ÷ league rate, plus the same for power-play minutes (its power play vs. their penalty kill) and shorthanded minutes. Minutes are the average of what the two teams usually play in each situation.</li>`:""}
+    <li><b>${L.xgDate?`Shots and goals (${Math.round((1-c.wXG)*100)}%).`:"Team ratings."}</b> Offense blends shots on goal per game (times the league's ${(c.lg.lgSh*100).toFixed(1)}% scoring rate per shot) with actual goals per game, 50/50. Defense does the same for shots and goals allowed, with goals allowed adjusted to average goaltending so a hot or cold goalie isn't counted twice. Both are pulled toward the league average (${c.lg.lg.toFixed(2)} goals per team per game) with ${c.regressGP} games' worth of average added.</li>
     <li><b>Starting goalie.</b> Each starter's goals saved above average per shot (regressed with ${c.goaliePrior} average shots) times the shots he's expected to face. Starters come from Daily Faceoff; a goalie with no NHL games this season counts as average.</li>
     <li><b>Expected goals.</b> Each team's goals = league average × its offense ÷ average × the opponent's defense ÷ average, minus the opposing goalie's adjustment, ± ${(c.hfa/2).toFixed(2)} for home ice.</li>
     <li><b>Blend with Vegas.</b> The moneyline and total are converted into each team's expected goals, and the projection is ${Math.round(c.wModel*100)}% model / ${Math.round((1-c.wModel)*100)}% market.</li>
     <li><b>Probabilities.</b> Regulation goals are Poisson. A regulation tie goes to overtime/shootout, which adds one goal to the total, and the puck line only covers on a regulation result (OT and shootout wins are by one).</li>
     <li><b>Edge Score (0–10).</b> Same scale as the other tabs, measured against the break-even for the posted price on all three bets (puck lines and totals in hockey carry real prices, not −110). Long-shot prices above +250 are discounted.</li>`;
-    $("#methodNote").textContent="Team stats from Kalshi's NHL team stats page; goalie stats from hockey-reference. Lines from DraftKings via ESPN. Picks lock at the prices shown and are graded at those prices. Goalie changes after lock aren't re-priced. This is a statistical model for entertainment and research, not financial advice.";
+    $("#methodNote").textContent="Expected goals from MoneyPuck. Team stats from Kalshi's NHL team stats page; goalie stats from hockey-reference. Lines from DraftKings via ESPN. Picks lock at the prices shown and are graded at those prices. Goalie changes after lock aren't re-priced. This is a statistical model for entertainment and research, not financial advice.";
     return;
   }
   if(state.lg==="cbb"){
@@ -308,6 +309,10 @@ function openSheet(id){
     <tr><td>Pace (rank)</td><td>${A.pace.toFixed(1)} (#${A.paceRank})</td><td>${H.pace.toFixed(1)} (#${H.paceRank})</td></tr>
     <tr><td>Games in sample</td><td>${A.gp}</td><td>${H.gp}</td></tr>`:""}
     ${lg==="nhl"?`<tr><td>Goals for / against per game</td><td>${A.gf.toFixed(2)} / ${A.ga.toFixed(2)}</td><td>${H.gf.toFixed(2)} / ${H.ga.toFixed(2)}</td></tr>
+    ${A.xg&&H.xg?`<tr><td>5-on-5 xGF / xGA per 60</td><td>${A.xg.evF60.toFixed(2)} / ${A.xg.evA60.toFixed(2)}</td><td>${H.xg.evF60.toFixed(2)} / ${H.xg.evA60.toFixed(2)}</td></tr>
+    <tr><td>Power play xGF per 60</td><td class="${A.xg.ppF60>H.xg.ppF60?'good':''}">${A.xg.ppF60.toFixed(2)}</td><td class="${H.xg.ppF60>A.xg.ppF60?'good':''}">${H.xg.ppF60.toFixed(2)}</td></tr>
+    <tr><td>Penalty kill xGA per 60</td><td class="${A.xg.pkA60<H.xg.pkA60?'good':''}">${A.xg.pkA60.toFixed(2)}</td><td class="${H.xg.pkA60<A.xg.pkA60?'good':''}">${H.xg.pkA60.toFixed(2)}</td></tr>
+    <tr><td>Expected goals for / against per game</td><td>${A.xg.xgf.toFixed(2)} / ${A.xg.xga.toFixed(2)}</td><td>${H.xg.xgf.toFixed(2)} / ${H.xg.xga.toFixed(2)}</td></tr>`:""}
     <tr><td>Shots for / against per game</td><td>${A.sf.toFixed(1)} / ${A.sa.toFixed(1)}</td><td>${H.sf.toFixed(1)} / ${H.sa.toFixed(1)}</td></tr>
     <tr><td>Offense (goals/gm vs avg)</td><td class="${A.offRating>H.offRating?'good':''}">${sgn(A.offRating)}</td><td class="${H.offRating>A.offRating?'good':''}">${sgn(H.offRating)}</td></tr>
     <tr><td>Defense (goals/gm vs avg)</td><td class="${A.defRating<H.defRating?'good':''}">${sgn(A.defRating)}</td><td class="${H.defRating<A.defRating?'good':''}">${sgn(H.defRating)}</td></tr>

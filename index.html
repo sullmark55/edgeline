@@ -660,6 +660,42 @@ const NHL_TEAMS = [
   ["CGY", "Flames", 24, 2.5, 3.5, 27.4, 29.5, 26.3, 80.8],
   ["CBJ", "Blue Jackets", 21, 2.48, 3.24, 27.8, 28.2, 20.4, 72.4],
 ];
+// MoneyPuck team expected goals (flurry + score/venue adjusted), loaded with nhl_moneypuck.py.
+// [abbr, gp, evSec, evXGF, evXGA, ppSec, ppXGF, ppXGA, pkSec, pkXGF, pkXGA, goalsFor, goalsAgainst]  (5on5 = ev, 5on4 = pp, 4on5 = pk)
+const NHL_XG = [
+  ["ANA", 24, 68417.0, 45.88, 55.09, 6683.0, 13.94, 0.7, 7278.0, 2.13, 12.33, 87, 92],
+  ["BOS", 23, 67625.0, 50.55, 44.53, 6836.0, 12.03, 2.48, 6238.0, 0.71, 12.88, 82, 61],
+  ["BUF", 24, 69575.0, 47.78, 48.56, 6988.0, 14.09, 2.34, 7129.0, 1.55, 16.57, 73, 82],
+  ["CAR", 24, 70040.0, 64.16, 39.61, 7166.0, 16.61, 0.66, 6782.0, 3.06, 10.6, 100, 54],
+  ["CBJ", 21, 63747.0, 41.73, 46.67, 5104.0, 9.41, 0.95, 5284.0, 0.83, 10.08, 52, 68],
+  ["CGY", 24, 71355.0, 45.82, 52.35, 5108.0, 8.26, 1.36, 7162.0, 1.84, 12.98, 60, 84],
+  ["CHI", 24, 71077.0, 40.45, 55.74, 6019.0, 10.43, 1.65, 7256.0, 1.88, 15.6, 64, 95],
+  ["COL", 23, 66979.0, 49.03, 42.82, 7569.0, 15.76, 1.82, 6626.0, 1.21, 11.76, 90, 67],
+  ["DAL", 23, 67813.0, 41.07, 41.91, 5708.0, 14.97, 1.44, 8296.0, 1.86, 12.15, 63, 54],
+  ["DET", 23, 68569.0, 44.08, 45.71, 6583.0, 14.29, 1.79, 6135.0, 0.66, 13.87, 58, 69],
+  ["EDM", 26, 75985.0, 41.87, 45.5, 7370.0, 17.1, 1.08, 7591.0, 1.17, 15.82, 100, 74],
+  ["FLA", 24, 66586.0, 41.14, 40.44, 8498.0, 22.57, 1.8, 8176.0, 1.67, 14.38, 76, 71],
+  ["LA", 21, 61210.0, 39.44, 38.57, 6131.0, 11.82, 0.97, 5915.0, 1.43, 11.38, 57, 70],
+  ["MIN", 25, 72721.0, 53.88, 44.4, 7316.0, 15.45, 2.06, 7345.0, 1.12, 13.0, 90, 55],
+  ["MTL", 24, 68262.0, 49.5, 47.03, 6468.0, 11.62, 1.71, 8217.0, 2.68, 17.15, 75, 71],
+  ["NJ", 23, 69473.0, 52.35, 42.2, 7164.0, 17.08, 0.91, 4919.0, 1.08, 9.49, 87, 73],
+  ["NSH", 23, 68918.0, 47.42, 51.06, 6756.0, 12.57, 2.37, 6448.0, 1.26, 11.16, 69, 66],
+  ["NYI", 22, 65625.0, 48.17, 46.26, 6119.0, 9.7, 1.14, 6250.0, 1.71, 13.94, 70, 61],
+  ["NYR", 23, 66733.0, 47.96, 43.52, 6080.0, 14.32, 1.31, 6489.0, 1.15, 10.67, 69, 63],
+  ["OTT", 24, 67793.0, 47.26, 37.92, 7725.0, 12.95, 1.88, 7394.0, 1.56, 14.94, 77, 70],
+  ["PHI", 26, 75603.0, 43.26, 55.81, 7894.0, 15.69, 2.56, 7815.0, 2.31, 13.86, 67, 87],
+  ["PIT", 23, 68200.0, 52.02, 48.7, 6021.0, 8.35, 1.47, 6257.0, 1.88, 13.34, 65, 80],
+  ["SEA", 20, 60104.0, 37.84, 45.68, 5749.0, 10.33, 1.4, 4291.0, 0.19, 10.23, 65, 71],
+  ["SJ", 25, 71911.0, 43.67, 56.48, 8877.0, 14.32, 2.6, 7509.0, 2.16, 19.27, 66, 87],
+  ["STL", 24, 71364.0, 51.11, 50.94, 6358.0, 11.44, 1.29, 6682.0, 1.54, 12.95, 80, 77],
+  ["TB", 23, 67172.0, 54.32, 40.76, 7403.0, 14.79, 1.23, 5860.0, 1.37, 11.74, 84, 67],
+  ["TOR", 25, 73660.0, 42.73, 50.76, 6081.0, 13.76, 1.35, 7936.0, 1.37, 16.68, 78, 88],
+  ["UTA", 24, 70351.0, 54.1, 41.08, 6942.0, 17.58, 0.7, 6642.0, 0.81, 15.45, 80, 79],
+  ["VAN", 26, 76180.0, 40.71, 65.18, 7699.0, 14.23, 1.3, 7045.0, 1.25, 21.5, 73, 114],
+  ["VGK", 25, 76550.0, 54.02, 47.8, 7061.0, 17.41, 3.26, 5745.0, 2.94, 10.59, 83, 72],
+  ["WPG", 24, 72419.0, 45.9, 50.98, 6340.0, 14.66, 1.14, 6225.0, 1.85, 16.31, 74, 81],
+  ["WSH", 21, 60149.0, 48.7, 43.88, 5625.0, 10.34, 1.11, 6504.0, 1.59, 15.19, 72, 83],
+];
 // [goalie, team, gp, gs, shotsAgainst, sv%, GSAA (goals saved above average)]
 const NHL_GOALIES = [
   ["Jesper Wallstedt", "MIN", 22, 22, 575, 0.923, 18.4],
@@ -770,8 +806,8 @@ const LEAGUES = {
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN and FanDuel Research, Nov 23. Finished games drop off once they end.",
   },
-  nhl: { key:"nhl", label:"NHL", beta:true, weekLabel:"Mon Nov 23", dataDate:"2026-11-23", linesAt:"2026-11-23T22:45Z",
-    cfg:{regressGP:8, wShots:0.5, hfa:0.20, wModel:0.60, goaliePrior:600, maxGoals:12, tieBoost:1.35},
+  nhl: { key:"nhl", label:"NHL", beta:true, weekLabel:"Mon Nov 23", dataDate:"2026-11-23", xgDate:"2026-11-23", linesAt:"2026-11-23T22:45Z",
+    cfg:{regressGP:8, wShots:0.5, hfa:0.20, wModel:0.60, goaliePrior:600, maxGoals:12, tieBoost:1.35, wXG:0.75, otGoals:0.08},
     footer:"Beta. Lines from DraftKings via ESPN, Nov 23. Starting goalies from Daily Faceoff. Team stats through Nov 23 (Kalshi); goalie stats through Nov 21 (hockey-reference). Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 23", dataDate:"2026-11-23", linesAt:"2026-11-23T16:38Z",
@@ -920,8 +956,31 @@ function parseNHL(rows,goalies,cfg){
   [...T].sort((a,b)=>b.net-a.net).forEach((x,i)=>x.powerRank=i+1);
   [...T].sort((a,b)=>b.offRating-a.offRating).forEach((x,i)=>x.offRank=i+1);
   [...T].sort((a,b)=>a.defRating-b.defRating).forEach((x,i)=>x.defRank=i+1);
-  t.__lg={lg,lgSh,lgPP,lgPK};
+  // MoneyPuck expected goals: per-60 rates at 5-on-5, on the power play and on the penalty kill, regressed like the rest
+  const X=(typeof NHL_XG!=="undefined"?NHL_XG:[]).filter(r=>t[r[0]]);
+  let xg=null;
+  if(X.length===rows.length){
+    const S=(i)=>X.reduce((s,r)=>s+r[i],0), per60=(g,sec)=>sec>0?g/sec*3600:0;
+    xg={ev:per60(S(3),S(2)), pp:per60(S(6),S(5)), sh:per60(S(9),S(8)), gp:S(1)};
+    xg.evMin=S(2)/xg.gp/60; xg.ppMin=S(5)/xg.gp/60;
+    X.forEach(([ab,gp,evS,evF,evA,ppS,ppF,ppA,pkS,pkF,pkA,gf,ga])=>{
+      const T=t[ab], k=gp/(gp+cfg.regressGP), reg=(v,l)=>l+(v-l)*k;
+      T.xg={gp, evF:reg(per60(evF,evS),xg.ev), evA:reg(per60(evA,evS),xg.ev), ppF:reg(per60(ppF,ppS),xg.pp), pkA:reg(per60(pkA,pkS),xg.pp),
+        pkF:reg(per60(pkF,pkS),xg.sh), ppA:reg(per60(ppA,ppS),xg.sh),
+        evMin:evS/gp/60, ppMin:ppS/gp/60, pkMin:pkS/gp/60,
+        evF60:per60(evF,evS), evA60:per60(evA,evS), ppF60:per60(ppF,ppS), pkA60:per60(pkA,pkS), xgf:(evF+ppF+pkF)/gp, xga:(evA+ppA+pkA)/gp};
+    });
+  }
+  t.__lg={lg,lgSh,lgPP,lgPK,xg};
   return t;
+}
+// expected regulation goals for team A against team B from MoneyPuck rates, relative to an average matchup
+function nhlXGRatio(A,B,XG){
+  const a=A.xg,b=B.xg; if(!a||!b||!XG) return null;
+  const ev=(a.evMin+b.evMin)/2, pp=(a.ppMin+b.pkMin)/2, sh=(a.pkMin+b.ppMin)/2;
+  const g=ev/60*a.evF*b.evA/XG.ev + pp/60*a.ppF*b.pkA/XG.pp + sh/60*a.pkF*b.ppA/(XG.sh||1);
+  const avg=XG.evMin/60*XG.ev + XG.ppMin/60*XG.pp + XG.ppMin/60*XG.sh;
+  return g/avg;
 }
 function nhlGoalie(team,name){
   const g=(team.goalies||[]).find(x=>x.name===name);
@@ -958,8 +1017,12 @@ function projectNHL(g,teams,cfg,LG){
   const gA=nhlGoalie(A,x.gA), gH=nhlGoalie(H,x.gH);
   const shotsOnH=(A.sf+H.sa)/2, shotsOnA=(H.sf+A.sa)/2;                  // shots each goalie should face
   const hfa=g.hfa??cfg.hfa;
-  const rawAway=Math.max(0.8,LG.lg*(A.off/LG.lg)*(H.def/LG.lg)-gH.perShot*shotsOnH-hfa/2);
-  const rawHome=Math.max(0.8,LG.lg*(H.off/LG.lg)*(A.def/LG.lg)-gA.perShot*shotsOnA+hfa/2);
+  // blend MoneyPuck expected goals (wXG) with the shots-and-goals ratings; level = league regulation goals per team
+  const gRatA=(A.off/LG.lg)*(H.def/LG.lg), gRatH=(H.off/LG.lg)*(A.def/LG.lg);
+  const xA=nhlXGRatio(A,H,LG.xg), xH=nhlXGRatio(H,A,LG.xg), wx=xA!=null&&xH!=null?cfg.wXG:0;
+  const lvl=LG.lg-cfg.otGoals, ratA=wx*(xA||0)+(1-wx)*gRatA, ratH=wx*(xH||0)+(1-wx)*gRatH;
+  const rawAway=Math.max(0.8,lvl*ratA-gH.perShot*shotsOnH-hfa/2);
+  const rawHome=Math.max(0.8,lvl*ratH-gA.perShot*shotsOnA+hfa/2);
   const nv=(a,b)=>{const ia=mlToProb(a),ib=mlToProb(b);return [ia/(ia+ib),ib/(ia+ib)];};
   const [nvAway,nvHome]=nv(g.mlAway,g.mlHome), [nvOver]=nv(x.over??-110,x.under??-110);
   const [mA,mH]=nhlMarket(nvHome,nvOver,g.total,n);
@@ -978,7 +1041,7 @@ function projectNHL(g,teams,cfg,LG){
   const pHomeWin=P.pHome, evH=evOf(pHomeWin,g.mlHome), evA=evOf(1-pHomeWin,g.mlAway), mlHome=evH>=evA, mlPrice=mlHome?g.mlHome:g.mlAway;
   const mScore=edgeScore(mlHome?pHomeWin:1-pHomeWin,mlToProb(mlPrice),1.1,-longshot(mlPrice));
   const total=away+home, margin=home-away;
-  return {away,home,margin,total,rawAway,rawHome,rawMargin:rawHome-rawAway,rawTotal:rawAway+rawHome,mktAway:mA,mktHome:mH,goalies:{away:gA,home:gH},
+  return {away,home,margin,total,rawAway,rawHome,rawMargin:rawHome-rawAway,rawTotal:rawAway+rawHome,mktAway:mA,mktHome:mH,xgUsed:wx>0,goalies:{away:gA,home:gH},
     spread:{pick:plHome?`${g.home} ${fmtLine(lineH)} ${fmtML(plH)}`:`${g.away} ${fmtLine(lineA)} ${fmtML(plA)}`,side:plHome?"home":"away",line:plHome?lineH:lineA,price:plPrice,
       edgePts:Math.abs(margin-(mH-mA)),prob:pPL,ev:Math.max(evPH,evPA),score:sScore,tier:tier(sScore),modelLine:-margin,pHomeCover:pcH,implied:mlToProb(plPrice)},
     totals:{pick:`${isOver?"Over":"Under"} ${g.total}`,side:isOver?"over":"under",price:tPrice,edgePts:Math.abs(total-(mA+mH)),prob:pT,ev:Math.max(evO,evU),score:tScore,tier:tier(tScore),pOver,rawPOver:R.over(g.total),implied:mlToProb(tPrice)},
@@ -1131,13 +1194,14 @@ function header(){
   if(state.lg==="nhl"){
     $("#methodList").innerHTML=`
     <li><b>Beta.</b> This tab is new. The model is simpler than it will be once expected-goals data (Natural Stat Trick or MoneyPuck) is loaded, so picks here are tracked separately and should be treated as a test.</li>
-    <li><b>Team ratings.</b> Offense blends shots on goal per game (times the league's ${(c.lg.lgSh*100).toFixed(1)}% scoring rate per shot) with actual goals per game, 50/50. Defense does the same for shots and goals allowed, with goals allowed adjusted to average goaltending so a hot or cold goalie isn't counted twice. Both are pulled toward the league average (${c.lg.lg.toFixed(2)} goals per team per game) with ${c.regressGP} games' worth of average added.</li>
+    ${L.xgDate?`<li><b>Expected goals (${Math.round(c.wXG*100)}% of the rating).</b> MoneyPuck expected goals per 60 minutes, adjusted for score, venue and rebound flurries, through ${new Date(L.xgDate+"T12:00").toLocaleDateString(undefined,{month:"short",day:"numeric"})}. Each team's goals = 5-on-5 minutes × its xGF rate × the opponent's xGA rate ÷ league rate, plus the same for power-play minutes (its power play vs. their penalty kill) and shorthanded minutes. Minutes are the average of what the two teams usually play in each situation.</li>`:""}
+    <li><b>${L.xgDate?`Shots and goals (${Math.round((1-c.wXG)*100)}%).`:"Team ratings."}</b> Offense blends shots on goal per game (times the league's ${(c.lg.lgSh*100).toFixed(1)}% scoring rate per shot) with actual goals per game, 50/50. Defense does the same for shots and goals allowed, with goals allowed adjusted to average goaltending so a hot or cold goalie isn't counted twice. Both are pulled toward the league average (${c.lg.lg.toFixed(2)} goals per team per game) with ${c.regressGP} games' worth of average added.</li>
     <li><b>Starting goalie.</b> Each starter's goals saved above average per shot (regressed with ${c.goaliePrior} average shots) times the shots he's expected to face. Starters come from Daily Faceoff; a goalie with no NHL games this season counts as average.</li>
     <li><b>Expected goals.</b> Each team's goals = league average × its offense ÷ average × the opponent's defense ÷ average, minus the opposing goalie's adjustment, ± ${(c.hfa/2).toFixed(2)} for home ice.</li>
     <li><b>Blend with Vegas.</b> The moneyline and total are converted into each team's expected goals, and the projection is ${Math.round(c.wModel*100)}% model / ${Math.round((1-c.wModel)*100)}% market.</li>
     <li><b>Probabilities.</b> Regulation goals are Poisson. A regulation tie goes to overtime/shootout, which adds one goal to the total, and the puck line only covers on a regulation result (OT and shootout wins are by one).</li>
     <li><b>Edge Score (0–10).</b> Same scale as the other tabs, measured against the break-even for the posted price on all three bets (puck lines and totals in hockey carry real prices, not −110). Long-shot prices above +250 are discounted.</li>`;
-    $("#methodNote").textContent="Team stats from Kalshi's NHL team stats page; goalie stats from hockey-reference. Lines from DraftKings via ESPN. Picks lock at the prices shown and are graded at those prices. Goalie changes after lock aren't re-priced. This is a statistical model for entertainment and research, not financial advice.";
+    $("#methodNote").textContent="Expected goals from MoneyPuck. Team stats from Kalshi's NHL team stats page; goalie stats from hockey-reference. Lines from DraftKings via ESPN. Picks lock at the prices shown and are graded at those prices. Goalie changes after lock aren't re-priced. This is a statistical model for entertainment and research, not financial advice.";
     return;
   }
   if(state.lg==="cbb"){
@@ -1326,6 +1390,10 @@ function openSheet(id){
     <tr><td>Pace (rank)</td><td>${A.pace.toFixed(1)} (#${A.paceRank})</td><td>${H.pace.toFixed(1)} (#${H.paceRank})</td></tr>
     <tr><td>Games in sample</td><td>${A.gp}</td><td>${H.gp}</td></tr>`:""}
     ${lg==="nhl"?`<tr><td>Goals for / against per game</td><td>${A.gf.toFixed(2)} / ${A.ga.toFixed(2)}</td><td>${H.gf.toFixed(2)} / ${H.ga.toFixed(2)}</td></tr>
+    ${A.xg&&H.xg?`<tr><td>5-on-5 xGF / xGA per 60</td><td>${A.xg.evF60.toFixed(2)} / ${A.xg.evA60.toFixed(2)}</td><td>${H.xg.evF60.toFixed(2)} / ${H.xg.evA60.toFixed(2)}</td></tr>
+    <tr><td>Power play xGF per 60</td><td class="${A.xg.ppF60>H.xg.ppF60?'good':''}">${A.xg.ppF60.toFixed(2)}</td><td class="${H.xg.ppF60>A.xg.ppF60?'good':''}">${H.xg.ppF60.toFixed(2)}</td></tr>
+    <tr><td>Penalty kill xGA per 60</td><td class="${A.xg.pkA60<H.xg.pkA60?'good':''}">${A.xg.pkA60.toFixed(2)}</td><td class="${H.xg.pkA60<A.xg.pkA60?'good':''}">${H.xg.pkA60.toFixed(2)}</td></tr>
+    <tr><td>Expected goals for / against per game</td><td>${A.xg.xgf.toFixed(2)} / ${A.xg.xga.toFixed(2)}</td><td>${H.xg.xgf.toFixed(2)} / ${H.xg.xga.toFixed(2)}</td></tr>`:""}
     <tr><td>Shots for / against per game</td><td>${A.sf.toFixed(1)} / ${A.sa.toFixed(1)}</td><td>${H.sf.toFixed(1)} / ${H.sa.toFixed(1)}</td></tr>
     <tr><td>Offense (goals/gm vs avg)</td><td class="${A.offRating>H.offRating?'good':''}">${sgn(A.offRating)}</td><td class="${H.offRating>A.offRating?'good':''}">${sgn(H.offRating)}</td></tr>
     <tr><td>Defense (goals/gm vs avg)</td><td class="${A.defRating<H.defRating?'good':''}">${sgn(A.defRating)}</td><td class="${H.defRating<A.defRating?'good':''}">${sgn(H.defRating)}</td></tr>
