@@ -203,7 +203,7 @@ const LEAGUES = {
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN and FanDuel Research, Nov 23. Finished games drop off once they end.",
   },
-  cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 23", dataDate:"2026-11-20", linesAt:"2026-11-23T13:42Z",
+  cbb: { key:"cbb", label:"CBB", weekLabel:"Mon Nov 23", dataDate:"2026-11-23", linesAt:"2026-11-23T13:42Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, bigStart:20, bigK:0.027, wTotal:0.33, hfa:3.2, keys:[]},
     footer:"Lines from DraftKings via ESPN, Nov 23. Games without a posted line are left off. Finished games drop off once they end.",
   },
