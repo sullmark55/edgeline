@@ -387,7 +387,7 @@ const NHL_GOALIES = [
 // puck drop ET. [date, time, away, home, homePuckLine(-1.5/+1.5), total, mlAway, mlHome, tv, extra]
 // extra: plAway/plHome puck line prices, over/under prices, gA/gH starting goalies, gsA/gsH status (Confirmed/Likely/Unconfirmed)
 const NHL_GAMES = [
-  ["2026-11-24", "20:00", "VGK", "EDM", 1.5, 6.5, -118, -102, "", {"plAway": 220, "plHome": -270, "over": 102, "under": -122, "gA": "Adin Hill", "gH": "Devon Levi", "gsA": "Unconfirmed", "gsH": "Unconfirmed"}],
+  ["2026-11-24", "20:00", "VGK", "EDM", 1.5, 6.5, -125, 105, "", {"plAway": 210, "plHome": -258, "over": 105, "under": -125, "gA": "Carter Hart", "gH": "Devon Levi", "gsA": "Unconfirmed", "gsH": "Unconfirmed"}],
 ];
 const NHL_VENUES={ANA:"Honda Center",BOS:"TD Garden",BUF:"KeyBank Center",CGY:"Scotiabank Saddledome",CAR:"Lenovo Center",CHI:"United Center",COL:"Ball Arena",CBJ:"Nationwide Arena",DAL:"American Airlines Center",DET:"Little Caesars Arena",EDM:"Rogers Place",FLA:"Amerant Bank Arena",LA:"Crypto.com Arena",MIN:"Grand Casino Arena",MTL:"Bell Centre",NSH:"Bridgestone Arena",NJ:"Prudential Center",NYI:"UBS Arena",NYR:"Madison Square Garden",OTT:"Canadian Tire Centre",PHI:"Xfinity Mobile Arena",PIT:"PPG Paints Arena",SJ:"SAP Center",SEA:"Climate Pledge Arena",STL:"Enterprise Center",TB:"Benchmark International Arena",TOR:"Scotiabank Arena",UTA:"Delta Center",VAN:"Rogers Arena",VGK:"T-Mobile Arena",WSH:"Capital One Arena",WPG:"Canada Life Centre"};
 
@@ -407,9 +407,9 @@ const LEAGUES = {
     cfg:{basePts:115, plays:100, regress:0.85, sdMargin:12.5, sdTotal:18.0, wModel:0.40, hfa:2.0, keys:[], anchorTotals:false, wTotal:0.25},
     footer:"Lines from DraftKings via ESPN, Nov 24. Finished games drop off once they end.",
   },
-  nhl: { key:"nhl", label:"NHL", beta:true, weekLabel:"Tue Nov 24", dataDate:"2026-11-24", xgDate:"2026-11-23", linesAt:"2026-11-24T13:48Z",
+  nhl: { key:"nhl", label:"NHL", beta:true, weekLabel:"Tue Nov 24", dataDate:"2026-11-24", xgDate:"2026-11-23", linesAt:"2026-11-24T22:54Z",
     cfg:{regressGP:8, wShots:0.5, hfa:0.20, wModel:0.60, goaliePrior:600, maxGoals:12, tieBoost:1.35, wXG:0.75, otGoals:0.08},
-    footer:"Beta. Lines from DraftKings via ESPN, Nov 24. Starting goalies from Daily Faceoff. Finished games drop off once they end.",
+    footer:"Beta. Lines from DraftKings via ESPN, Nov 24 4:50 PM CT. Starting goalies from Daily Faceoff. Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Tue Nov 24", dataDate:"2026-11-23", linesAt:"2026-11-24T16:41Z",
     cfg:{basePts:70, plays:68, regress:1.0, sdMargin:10.5, sdGrow:0.12, sdTotal:12.0, wModel:0.35, bigStart:20, bigK:0.027, wTotal:0.33, hfa:3.2, keys:[]},
