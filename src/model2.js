@@ -6,21 +6,21 @@ const CFB_ROWS = /*CFBROWS*/; // [team, conf, offPPA, defPPA, offSR, defSR, offP
 // homeSpread: home team's line (negative = home favored).
 const NFL_GAMES = [
   ["2026-11-25", "20:00", "GB", "LA", -2.5, 44.5, 114, -135, "Netflix"],
-  ["2026-11-26", "13:00", "CHI", "DET", 2.5, 55.5, -142, 120, "CBS"],
-  ["2026-11-26", "16:30", "PHI", "DAL", -8.5, 47.5, 363, -469, "FOX"],
-  ["2026-11-26", "20:20", "KC", "BUF", -3, 47.5, 126, -150, "NBC"],
-  ["2026-11-27", "15:00", "DEN", "PIT", 3, 38.5, -156, 132, "Prime"],
-  ["2026-11-29", "13:00", "ATL", "MIN", -7, 42.5, 281, -351, ""],
-  ["2026-11-29", "13:00", "BAL", "HOU", -6.5, 46.5, 247, -304, ""],
-  ["2026-11-29", "13:00", "NO", "CIN", -9.5, 50.5, 448, -610, ""],
-  ["2026-11-29", "13:00", "NYG", "IND", 6.5, 41.5, -321, 259, ""],
-  ["2026-11-29", "13:00", "NYJ", "MIA", 3.5, 40.5, -212, 177, ""],
-  ["2026-11-29", "13:00", "TEN", "JAX", -14.5, 47.5, 770, -1240, ""],
-  ["2026-11-29", "16:05", "NE", "LAC", -1.5, 35.5, -103, -114, ""],
-  ["2026-11-29", "16:25", "SEA", "SF", -3, 46.5, 148, -176, ""],
-  ["2026-11-29", "16:25", "WAS", "ARI", 7.5, 42.5, -413, 325, ""],
-  ["2026-11-29", "20:20", "LV", "CLE", -4.5, 41.5, 183, -220, "NBC"],
-  ["2026-11-30", "20:15", "CAR", "TB", -3, 43.5, 130, -154, "ESPN"],
+  ["2026-11-26", "13:00", "CHI", "DET", 1.5, 56.5, -114, -103, "CBS"],
+  ["2026-11-26", "16:30", "PHI", "DAL", -9.5, 49.5, 371, -482, "FOX"],
+  ["2026-11-26", "20:20", "KC", "BUF", -3, 45.5, 129, -153, "NBC"],
+  ["2026-11-27", "15:00", "DEN", "PIT", 4.5, 36.5, -229, 190, "Prime"],
+  ["2026-11-29", "13:00", "ATL", "MIN", -7, 41.5, 252, -311, ""],
+  ["2026-11-29", "13:00", "BAL", "HOU", -6.5, 47.5, 267, -332, ""],
+  ["2026-11-29", "13:00", "NO", "CIN", -10, 49.5, 423, -563, ""],
+  ["2026-11-29", "13:00", "NYG", "IND", 6, 41.5, -287, 236, ""],
+  ["2026-11-29", "13:00", "NYJ", "MIA", 4.5, 40.5, -220, 183, ""],
+  ["2026-11-29", "13:00", "TEN", "JAX", -14.5, 49.5, 740, -1180, ""],
+  ["2026-11-29", "16:05", "NE", "LAC", 1.5, 35.5, -117, -101, ""],
+  ["2026-11-29", "16:25", "SEA", "SF", -2.5, 44.5, 130, -154, ""],
+  ["2026-11-29", "16:25", "WAS", "ARI", 6.5, 41.5, -351, 281, ""],
+  ["2026-11-29", "20:20", "LV", "CLE", -4.5, 40.5, 201, -244, "NBC"],
+  ["2026-11-30", "20:15", "CAR", "TB", -3, 43.5, 132, -157, "ESPN"],
 ];
 const NFL_VENUES={"BAL": "M&T Bank Stadium", "NO": "Caesars Superdome", "IND": "Lucas Oil Stadium", "CAR": "Bank of America Stadium", "MIA": "Hard Rock Stadium", "WAS": "Northwest Stadium", "PHI": "Lincoln Financial Field", "KC": "GEHA Field at Arrowhead Stadium", "LAC": "SoFi Stadium", "SF": "Levi's Stadium", "NE": "Gillette Stadium", "SEA": "Lumen Field", "CHI": "Soldier Field", "MIN": "U.S. Bank Stadium"};
 
@@ -340,9 +340,9 @@ const NFL_NAMES={ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Pan
 
 // ===================== MODEL =====================
 const LEAGUES = {
-  nfl: { key:"nfl", label:"NFL", weekLabel:"Week 12", dataDate:"2026-11-24", linesAt:"2026-11-24T19:55Z",
+  nfl: { key:"nfl", label:"NFL", weekLabel:"Week 12", dataDate:"2026-11-24", linesAt:"2026-11-26T16:50Z",
     cfg:{basePts:22.0, plays:62, regress:0.55, sdMargin:13.5, sdTotal:13.0, srScale:2.4, passScale:0.65, wModel:0.40, hfa:1.5, keys:[3,7]},
-    footer:"Lines: DraftKings via ESPN, Nov 24. No byes this week. Packers–Rams is Wednesday night; three Thanksgiving games Thursday; Broncos–Steelers Friday. Team ratings do not account for injuries.",
+    footer:"Lines: DraftKings via ESPN, Nov 26. No byes this week. Packers–Rams is Wednesday night; three Thanksgiving games Thursday; Broncos–Steelers Friday. Team ratings do not account for injuries.",
   },
   cfb: { key:"cfb", label:"CFB", weekLabel:"Week 13", dataDate:"2026-11-23", linesAt:"2026-11-23T19:50Z",
     cfg:{basePts:28.0, plays:68, regress:0.40, sdMargin:15.5, sdTotal:15.0, srScale:2.5, passScale:0.65, wModel:0.30, hfa:2.5, keys:[3,7], calibrateTotals:true},
