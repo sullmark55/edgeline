@@ -1,6 +1,6 @@
 {
  "label": "Fri Nov 27",
- "footer": "Beta. Lines from DraftKings via ESPN, Nov 27. Starting goalies from Daily Faceoff. Finished games drop off once they end.",
+ "footer": "Beta. Lines from DraftKings via ESPN, Nov 27 5:00 PM CT. Starting goalies from Daily Faceoff. Finished games drop off once they end.",
  "games": [
   [
    "2026-11-27",
@@ -261,14 +261,14 @@
    "NYI",
    -1.5,
    6.5,
-   114,
-   -135,
+   105,
+   -125,
    "",
    {
-    "plAway": -225,
-    "plHome": 185,
-    "over": -105,
-    "under": -115,
+    "plAway": -238,
+    "plHome": 195,
+    "over": -110,
+    "under": -110,
     "gA": "Stuart Skinner",
     "gH": "Semyon Varlamov",
     "gsA": "Likely",
@@ -282,17 +282,17 @@
    "BUF",
    -1.5,
    6.5,
-   130,
-   -155,
+   110,
+   -130,
    "",
    {
-    "plAway": -198,
-    "plHome": 164,
+    "plAway": -205,
+    "plHome": 170,
     "over": -115,
     "under": -105,
     "gA": "Sergei Murashov",
     "gH": "Ukko-Pekka Luukkonen",
-    "gsA": "Unconfirmed",
+    "gsA": "Confirmed",
     "gsH": "Likely"
    }
   ],
@@ -311,13 +311,12 @@
     "plHome": 120,
     "over": -108,
     "under": -112,
-    "gA": "Joey Daccord",
+    "gA": "Philipp Grubauer",
     "gH": "Tristan Jarry",
-    "gsA": "Unconfirmed",
-    "gsH": "Unconfirmed"
+    "gsA": "Likely",
+    "gsH": "Confirmed"
    }
   ]
  ],
- "finals": {},
- "lockBefore": "16:00"
+ "finals": {}
 }
