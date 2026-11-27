@@ -4,24 +4,13 @@
  "games": [
   [
    "2026-11-27",
-   "11:00",
-   "Virginia",
-   "Xavier",
-   7.5,
-   156.5,
-   -340,
-   270,
-   ""
-  ],
-  [
-   "2026-11-27",
    "12:00",
    "Liberty",
    "St. Thomas",
-   1.5,
-   146.5,
-   -118,
-   -102,
+   -1.5,
+   144.5,
+   100,
+   -120,
    ""
   ],
   [
@@ -29,10 +18,10 @@
    "13:00",
    "Vermont",
    "Merrimack",
-   3.5,
-   130.5,
-   null,
-   null,
+   1.5,
+   128.5,
+   -130,
+   110,
    ""
   ],
   [
@@ -40,21 +29,37 @@
    "13:00",
    "Hampton",
    "UMass Lowell",
-   -2.5,
-   142.5,
-   null,
-   null,
+   -1.5,
+   139.5,
+   105,
+   -125,
    ""
+  ],
+  [
+   "2026-11-27",
+   "13:00",
+   "St. John's",
+   "Iowa State",
+   1.5,
+   151.5,
+   -130,
+   110,
+   "",
+   {
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Players Era 16 \u2014 neutral site"
+   }
   ],
   [
    "2026-11-27",
    "13:30",
    "Wake Forest",
    "Memphis",
-   -2.5,
-   154.5,
-   114,
-   -135,
+   -1.5,
+   153.5,
+   -108,
+   -112,
    ""
   ],
   [
@@ -62,10 +67,10 @@
    "14:00",
    "South Alabama",
    "Fresno State",
-   -1.5,
+   2.5,
    144.5,
-   -112,
-   -108,
+   -142,
+   120,
    ""
   ],
   [
@@ -74,7 +79,7 @@
    "Southern",
    "Vanderbilt",
    -36.5,
-   151.5,
+   152.5,
    null,
    null,
    ""
@@ -86,8 +91,8 @@
    "Fairfield",
    -4.5,
    135.5,
-   null,
-   null,
+   170,
+   -205,
    ""
   ],
   [
@@ -95,10 +100,10 @@
    "14:00",
    "Maine",
    "Le Moyne",
-   1.5,
-   140.5,
-   null,
-   null,
+   -1.5,
+   139.5,
+   -105,
+   -115,
    ""
   ],
   [
@@ -106,10 +111,10 @@
    "14:30",
    "Georgetown",
    "UCLA",
-   -8.5,
-   153.5,
-   null,
-   null,
+   -7.5,
+   149.5,
+   270,
+   -340,
    "",
    {
     "venue": "Jenny Craig Pavilion, San Diego, CA",
@@ -124,8 +129,8 @@
    "Louisiana Tech",
    4.5,
    138.5,
-   -218,
-   180,
+   -192,
+   160,
    ""
   ],
   [
@@ -133,21 +138,37 @@
    "15:00",
    "Princeton",
    "UNC Wilmington",
-   -8.5,
-   152.5,
-   285,
-   -360,
+   -7.5,
+   151.5,
+   280,
+   -355,
    ""
+  ],
+  [
+   "2026-11-27",
+   "15:00",
+   "TCU",
+   "Baylor",
+   -4.5,
+   149.5,
+   164,
+   -198,
+   "",
+   {
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Players Era 16 \u2014 neutral site"
+   }
   ],
   [
    "2026-11-27",
    "15:00",
    "Bellarmine",
    "Butler",
-   -19.5,
-   153.5,
-   null,
-   null,
+   -18.5,
+   151.5,
+   1300,
+   -2800,
    ""
   ],
   [
@@ -157,8 +178,8 @@
    "Bucknell",
    9.5,
    148.5,
-   null,
-   null,
+   -470,
+   360,
    ""
   ],
   [
@@ -166,19 +187,35 @@
    "15:30",
    "Colgate",
    "Hofstra",
-   -5.5,
-   142.5,
-   null,
-   null,
+   -2.5,
+   137.5,
+   124,
+   -148,
    ""
+  ],
+  [
+   "2026-11-27",
+   "15:30",
+   "Oregon",
+   "Maryland",
+   -3.5,
+   149.5,
+   140,
+   -166,
+   "",
+   {
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Players Era 16 \u2014 neutral site"
+   }
   ],
   [
    "2026-11-27",
    "16:00",
    "Arkansas Pine Bluff",
    "Missouri",
-   -49.5,
-   156.5,
+   -48.5,
+   155.5,
    null,
    null,
    ""
@@ -189,8 +226,8 @@
    "Radford",
    "American",
    -7.5,
-   146.5,
-   null,
+   141.5,
+   260,
    null,
    ""
   ],
@@ -199,10 +236,10 @@
    "16:00",
    "UMBC",
    "George Washington",
-   -22.5,
-   153.5,
-   null,
-   null,
+   -21.5,
+   150.5,
+   1700,
+   -4500,
    ""
   ],
   [
@@ -210,8 +247,8 @@
    "16:30",
    "Cincinnati",
    "Boston College",
-   9.5,
-   141.5,
+   8.5,
+   140.5,
    -410,
    320,
    "",
@@ -226,10 +263,10 @@
    "16:30",
    "Niagara",
    "Lafayette",
-   -5.5,
-   142.5,
-   null,
-   null,
+   -4.5,
+   140.5,
+   185,
+   -225,
    ""
   ],
   [
@@ -238,9 +275,9 @@
    "Texas",
    "Saint Mary's",
    7.5,
-   158.5,
-   null,
-   null,
+   160.5,
+   -345,
+   275,
    "",
    {
     "venue": "Jenny Craig Pavilion, San Diego, CA",
@@ -253,10 +290,10 @@
    "17:00",
    "Marquette",
    "Texas A&M",
-   -2.5,
-   158.5,
-   114,
-   -135,
+   1.5,
+   160.5,
+   -125,
+   105,
    ""
   ],
   [
@@ -264,10 +301,10 @@
    "17:00",
    "Old Dominion",
    "Virginia Tech",
-   -18.5,
-   144.5,
-   1500,
-   -3600,
+   -17.5,
+   141.5,
+   1300,
+   -2800,
    ""
   ],
   [
@@ -275,10 +312,10 @@
    "17:00",
    "Villanova",
    "Kansas",
-   -12.5,
-   159.5,
-   600,
-   -900,
+   -10.5,
+   158.5,
+   500,
+   -700,
    ""
   ],
   [
@@ -287,20 +324,36 @@
    "Drake",
    "Boise State",
    -5.5,
-   156.5,
+   157.5,
    200,
    -245,
    ""
   ],
   [
    "2026-11-27",
+   "17:30",
+   "Michigan",
+   "Kansas State",
+   9.5,
+   164.5,
+   -440,
+   340,
+   "",
+   {
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Players Era 16 \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
    "18:00",
    "Towson",
    "Penn",
-   -4.5,
-   145.5,
-   170,
-   -205,
+   -3.5,
+   144.5,
+   142,
+   -170,
    ""
   ],
   [
@@ -308,10 +361,10 @@
    "18:00",
    "Western Kentucky",
    "Illinois",
-   -27.5,
-   177.5,
-   3500,
-   -20000,
+   -26.5,
+   175.5,
+   3000,
+   -10000,
    ""
   ],
   [
@@ -320,7 +373,7 @@
    "Bowling Green",
    "Indiana",
    -22.5,
-   152.5,
+   151.5,
    1800,
    -5000,
    ""
@@ -331,9 +384,9 @@
    "UCF",
    "Georgia",
    -5.5,
-   164.5,
-   180,
-   -218,
+   161.5,
+   190,
+   -230,
    "",
    {
     "venue": "State Farm Field House, Kissimmee, FL",
@@ -346,10 +399,10 @@
    "19:00",
    "Lehigh",
    "UC Santa Barbara",
-   -14.5,
-   145.5,
-   null,
-   null,
+   -13.5,
+   144.5,
+   800,
+   -1350,
    ""
   ],
   [
@@ -357,10 +410,10 @@
    "19:00",
    "West Virginia",
    "North Carolina",
-   2.5,
+   3.5,
    149.5,
-   -135,
-   114,
+   -155,
+   130,
    ""
   ],
   [
@@ -368,10 +421,10 @@
    "19:00",
    "Charleston Southern",
    "East Tennessee State",
-   -11.5,
-   145.5,
-   null,
-   null,
+   -9.5,
+   142.5,
+   425,
+   -575,
    ""
   ],
   [
@@ -381,8 +434,8 @@
    "Mississippi State",
    -6.5,
    156.5,
-   215,
-   -265,
+   225,
+   -278,
    ""
   ],
   [
@@ -391,7 +444,7 @@
    "Oakland",
    "Houston",
    -36.5,
-   146.5,
+   143.5,
    null,
    null,
    ""
@@ -401,10 +454,10 @@
    "20:00",
    "Missouri State",
    "Oral Roberts",
-   -3.5,
+   -4.5,
    142.5,
-   140,
-   -166,
+   164,
+   -198,
    ""
   ],
   [
@@ -412,10 +465,10 @@
    "20:00",
    "North Dakota State",
    "North Texas",
-   -6.5,
-   144.5,
-   210,
-   -258,
+   -5.5,
+   142.5,
+   215,
+   -265,
    ""
   ],
   [
@@ -425,8 +478,8 @@
    "Washington State",
    -11.5,
    148.5,
-   600,
-   -900,
+   550,
+   -800,
    ""
   ],
   [
@@ -436,8 +489,8 @@
    "Northwestern",
    -12.5,
    147.5,
-   600,
-   -900,
+   625,
+   -950,
    ""
   ],
   [
@@ -445,8 +498,67 @@
    "20:00",
    "Pacific",
    "UC Davis",
-   4.5,
+   6.5,
    138.5,
+   -298,
+   240,
+   "",
+   {
+    "venue": "Resorts World, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Las Vegas event \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
+   "20:30",
+   "Miami",
+   "Alabama",
+   2.5,
+   170.5,
+   -135,
+   114,
+   "",
+   {
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Players Era 16 \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
+   "21:00",
+   "Tennessee",
+   "Louisville",
+   -3.5,
+   148.5,
+   130,
+   -155,
+   "",
+   {
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Players Era 16 \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
+   "21:00",
+   "Wichita State",
+   "Kentucky",
+   -4.5,
+   157.5,
+   164,
+   -198,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "22:30",
+   "Jacksonville State",
+   "Nebraska Omaha",
+   4.5,
+   140.5,
    -218,
    180,
    "",
@@ -458,29 +570,34 @@
   ],
   [
    "2026-11-27",
-   "21:00",
-   "Wichita State",
-   "Kentucky",
-   -3.5,
-   157.5,
-   140,
-   -166,
-   ""
+   "23:00",
+   "Creighton",
+   "Gonzaga",
+   -5.5,
+   160.5,
+   205,
+   -250,
+   "",
+   {
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Players Era 16 \u2014 neutral site"
+   }
   ],
   [
    "2026-11-27",
-   "22:30",
-   "Jacksonville State",
-   "Nebraska Omaha",
-   5.5,
-   144.5,
-   -270,
-   null,
+   "23:30",
+   "San Diego State",
+   "Texas Tech",
+   -7.5,
+   143.5,
+   275,
+   -345,
    "",
    {
-    "venue": "Resorts World, Las Vegas, NV",
+    "venue": "T-Mobile Arena / Michelob ULTRA Arena, Las Vegas, NV",
     "hfa": 0,
-    "note": "Las Vegas event \u2014 neutral site"
+    "note": "Players Era 16 \u2014 neutral site"
    }
   ]
  ],
