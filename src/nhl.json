@@ -1,42 +1,424 @@
 {
- "label": "Thu Nov 26",
- "footer": "Beta. Lines from DraftKings via ESPN, Nov 26. Starting goalies from Daily Faceoff. Finished games drop off once they end.",
+ "label": "Fri Nov 27",
+ "dataDate": "2026-11-27",
+ "footer": "Beta. Lines from DraftKings via ESPN, Nov 27. Starting goalies from Daily Faceoff. Finished games drop off once they end.",
+ "teams": [
+  [
+   "CAR",
+   "Hurricanes",
+   25,
+   4.12,
+   2.2,
+   33.3,
+   22.0,
+   25.6,
+   82.1
+  ],
+  [
+   "COL",
+   "Avalanche",
+   24,
+   4.0,
+   2.79,
+   30.4,
+   27.4,
+   24.1,
+   81.9
+  ],
+  [
+   "EDM",
+   "Oilers",
+   27,
+   3.81,
+   2.93,
+   24.6,
+   26.9,
+   32.2,
+   77.3
+  ],
+  [
+   "ANA",
+   "Ducks",
+   26,
+   3.69,
+   3.65,
+   26.3,
+   25.7,
+   33.7,
+   75.8
+  ],
+  [
+   "NJ",
+   "Devils",
+   25,
+   3.68,
+   3.08,
+   32.6,
+   25.6,
+   19.8,
+   67.8
+  ],
+  [
+   "MIN",
+   "Wild",
+   27,
+   3.63,
+   2.26,
+   28.9,
+   25.9,
+   25.3,
+   78.7
+  ],
+  [
+   "WSH",
+   "Capitals",
+   22,
+   3.59,
+   3.91,
+   29.2,
+   27.0,
+   23.0,
+   75.0
+  ],
+  [
+   "TB",
+   "Lightning",
+   24,
+   3.54,
+   2.92,
+   29.1,
+   25.4,
+   21.8,
+   73.3
+  ],
+  [
+   "BOS",
+   "Bruins",
+   24,
+   3.5,
+   2.71,
+   27.2,
+   27.6,
+   20.0,
+   80.0
+  ],
+  [
+   "VGK",
+   "Golden Knights",
+   26,
+   3.38,
+   2.88,
+   29.5,
+   25.6,
+   27.5,
+   79.4
+  ],
+  [
+   "UTA",
+   "Mammoth",
+   26,
+   3.31,
+   3.31,
+   28.8,
+   25.0,
+   32.2,
+   72.7
+  ],
+  [
+   "STL",
+   "Blues",
+   25,
+   3.28,
+   3.16,
+   27.0,
+   29.8,
+   21.2,
+   83.6
+  ],
+  [
+   "FLA",
+   "Panthers",
+   25,
+   3.24,
+   2.96,
+   29.1,
+   25.4,
+   24.0,
+   85.4
+  ],
+  [
+   "OTT",
+   "Senators",
+   26,
+   3.15,
+   2.92,
+   26.5,
+   26.3,
+   12.5,
+   75.3
+  ],
+  [
+   "TOR",
+   "Maple Leafs",
+   26,
+   3.15,
+   3.46,
+   28.0,
+   28.8,
+   25.4,
+   82.3
+  ],
+  [
+   "WPG",
+   "Jets",
+   26,
+   3.15,
+   3.27,
+   26.5,
+   28.2,
+   22.7,
+   73.0
+  ],
+  [
+   "SEA",
+   "Kraken",
+   22,
+   3.14,
+   3.45,
+   25.5,
+   29.4,
+   22.1,
+   61.7
+  ],
+  [
+   "BUF",
+   "Sabres",
+   25,
+   3.12,
+   3.32,
+   27.0,
+   28.0,
+   16.3,
+   73.3
+  ],
+  [
+   "NYI",
+   "Islanders",
+   24,
+   3.08,
+   2.79,
+   26.0,
+   28.3,
+   16.4,
+   85.5
+  ],
+  [
+   "NSH",
+   "Predators",
+   24,
+   3.0,
+   2.79,
+   26.9,
+   29.4,
+   23.7,
+   89.2
+  ],
+  [
+   "MTL",
+   "Canadiens",
+   26,
+   2.92,
+   3.04,
+   27.4,
+   27.9,
+   13.5,
+   78.5
+  ],
+  [
+   "NYR",
+   "Rangers",
+   24,
+   2.92,
+   2.83,
+   26.2,
+   27.2,
+   20.3,
+   90.3
+  ],
+  [
+   "PIT",
+   "Penguins",
+   24,
+   2.83,
+   3.58,
+   27.7,
+   28.1,
+   20.3,
+   82.5
+  ],
+  [
+   "VAN",
+   "Canucks",
+   27,
+   2.74,
+   4.41,
+   22.8,
+   31.0,
+   21.4,
+   60.5
+  ],
+  [
+   "LA",
+   "Kings",
+   22,
+   2.68,
+   3.23,
+   27.2,
+   27.6,
+   21.7,
+   70.4
+  ],
+  [
+   "CHI",
+   "Blackhawks",
+   25,
+   2.68,
+   3.84,
+   23.6,
+   30.6,
+   22.5,
+   80.5
+  ],
+  [
+   "DAL",
+   "Stars",
+   24,
+   2.67,
+   2.38,
+   25.7,
+   24.4,
+   21.1,
+   89.2
+  ],
+  [
+   "DET",
+   "Red Wings",
+   24,
+   2.63,
+   2.92,
+   27.8,
+   26.3,
+   21.2,
+   71.6
+  ],
+  [
+   "PHI",
+   "Flyers",
+   27,
+   2.59,
+   3.48,
+   24.4,
+   27.8,
+   17.4,
+   77.1
+  ],
+  [
+   "CGY",
+   "Flames",
+   26,
+   2.58,
+   3.42,
+   27.7,
+   29.5,
+   25.8,
+   80.0
+  ],
+  [
+   "SJ",
+   "Sharks",
+   27,
+   2.52,
+   3.67,
+   27.2,
+   30.6,
+   20.8,
+   73.1
+  ],
+  [
+   "CBJ",
+   "Blue Jackets",
+   23,
+   2.43,
+   3.17,
+   27.3,
+   28.2,
+   18.2,
+   73.4
+  ]
+ ],
  "goalies": [
   [
    "Jesper Wallstedt",
    "MIN",
-   22,
-   22,
-   578,
-   0.924,
-   19.1
+   23,
+   23,
+   598,
+   0.92,
+   17.4
   ],
   [
    "Spencer Knight",
    "CHI",
-   19,
-   19,
-   569,
-   0.888,
-   -1.8
+   20,
+   20,
+   599,
+   0.891,
+   0.5
   ],
   [
    "Leevi Merilainen",
    "VAN",
-   18,
-   16,
-   521,
-   0.889,
-   -1.1
+   19,
+   17,
+   547,
+   0.885,
+   -3.2
   ],
   [
    "Jake Oettinger",
    "DAL",
+   19,
+   19,
+   441,
+   0.912,
+   9.2
+  ],
+  [
+   "Mackenzie Blackwood",
+   "COL",
+   18,
+   17,
+   466,
+   0.91,
+   8.9
+  ],
+  [
+   "Joel Hofer",
+   "STL",
    18,
    18,
-   416,
-   0.909,
-   7.4
+   525,
+   0.92,
+   15.4
+  ],
+  [
+   "Juuse Saros",
+   "NSH",
+   18,
+   17,
+   523,
+   0.918,
+   14.2
   ],
   [
    "Stuart Skinner",
@@ -45,7 +427,25 @@
    18,
    479,
    0.887,
-   -1.7
+   -1.6
+  ],
+  [
+   "Jeremy Swayman",
+   "BOS",
+   18,
+   18,
+   478,
+   0.902,
+   5.2
+  ],
+  [
+   "Andrei Vasilevskiy",
+   "TB",
+   18,
+   18,
+   447,
+   0.897,
+   2.9
   ],
   [
    "Yaroslav Askarov",
@@ -57,49 +457,31 @@
    -0.9
   ],
   [
-   "Mackenzie Blackwood",
-   "COL",
+   "Ilya Sorokin",
+   "NYI",
+   17,
+   17,
+   494,
+   0.917,
+   13.0
+  ],
+  [
+   "Karel Vejmelka",
+   "UTA",
    17,
    16,
-   438,
-   0.904,
-   5.8
+   393,
+   0.873,
+   -8.0
   ],
   [
-   "Joel Hofer",
-   "STL",
-   17,
-   17,
-   496,
-   0.919,
-   14.2
-  ],
-  [
-   "Juuse Saros",
-   "NSH",
-   17,
+   "Jacob Fowler",
+   "MTL",
    16,
-   502,
-   0.916,
-   12.8
-  ],
-  [
-   "Jeremy Swayman",
-   "BOS",
-   17,
-   17,
-   461,
-   0.905,
-   6.4
-  ],
-  [
-   "Andrei Vasilevskiy",
-   "TB",
-   17,
-   17,
-   418,
-   0.895,
-   1.7
+   16,
+   463,
+   0.911,
+   9.6
   ],
   [
    "Dylan Garand",
@@ -111,31 +493,13 @@
    7.3
   ],
   [
-   "Ilya Sorokin",
-   "NYI",
+   "Logan Thompson",
+   "WSH",
    16,
    16,
-   471,
-   0.917,
-   12.5
-  ],
-  [
-   "Karel Vejmelka",
-   "UTA",
-   16,
-   15,
-   368,
-   0.872,
-   -7.8
-  ],
-  [
-   "Jacob Fowler",
-   "MTL",
-   15,
-   15,
-   425,
-   0.918,
-   11.4
+   399,
+   0.877,
+   -5.4
   ],
   [
    "Pyotr Kochetkov",
@@ -147,13 +511,31 @@
    6.0
   ],
   [
-   "Logan Thompson",
-   "WSH",
+   "Ukko-Pekka Luukkonen",
+   "BUF",
+   15,
+   14,
+   399,
+   0.885,
+   -2.4
+  ],
+  [
+   "Arturs Silovs",
+   "PIT",
    15,
    15,
-   378,
+   396,
+   0.874,
+   -6.7
+  ],
+  [
+   "Dustin Wolf",
+   "CGY",
+   15,
+   14,
+   409,
    0.878,
-   -4.7
+   -5.3
   ],
   [
    "Sergei Bobrovsky",
@@ -162,7 +544,7 @@
    14,
    404,
    0.874,
-   -6.9
+   -6.8
   ],
   [
    "Lukas Dostal",
@@ -171,7 +553,7 @@
    13,
    329,
    0.857,
-   -11.1
+   -11.0
   ],
   [
    "John Gibson",
@@ -180,7 +562,7 @@
    14,
    319,
    0.862,
-   -9.2
+   -9.1
   ],
   [
    "Philipp Grubauer",
@@ -219,31 +601,40 @@
    -0.5
   ],
   [
-   "Ukko-Pekka Luukkonen",
-   "BUF",
+   "Jacob Markstrom",
+   "FLA",
    14,
-   13,
-   369,
-   0.878,
-   -4.7
+   14,
+   330,
+   0.894,
+   1.1
   ],
   [
-   "Arturs Silovs",
-   "PIT",
-   14,
-   14,
-   370,
-   0.878,
-   -4.6
-  ],
-  [
-   "Dustin Wolf",
-   "CGY",
+   "Cam Talbot",
+   "CBJ",
    14,
    13,
-   381,
-   0.877,
-   -5.4
+   378,
+   0.907,
+   6.3
+  ],
+  [
+   "Linus Ullmark",
+   "OTT",
+   14,
+   14,
+   336,
+   0.935,
+   14.7
+  ],
+  [
+   "Joseph Woll",
+   "PHI",
+   14,
+   14,
+   406,
+   0.887,
+   -1.6
   ],
   [
    "Adin Hill",
@@ -255,49 +646,22 @@
    2.4
   ],
   [
-   "Jacob Markstrom",
-   "FLA",
-   13,
-   13,
-   302,
-   0.894,
-   1.0
-  ],
-  [
-   "Cam Talbot",
-   "CBJ",
-   13,
-   12,
-   352,
-   0.906,
-   5.5
-  ],
-  [
-   "Linus Ullmark",
-   "OTT",
-   13,
-   13,
-   305,
-   0.941,
-   15.3
-  ],
-  [
    "Daniel Vladar",
    "PHI",
    13,
    13,
    340,
    0.876,
-   -5.9
+   -5.8
   ],
   [
-   "Joseph Woll",
-   "PHI",
-   13,
-   13,
-   372,
-   0.892,
-   0.6
+   "Joey Daccord",
+   "SEA",
+   12,
+   11,
+   294,
+   0.878,
+   -3.9
   ],
   [
    "Anthony Stolarz",
@@ -324,7 +688,7 @@
    11,
    319,
    0.909,
-   5.8
+   5.9
   ],
   [
    "Sebastian Cossa",
@@ -334,15 +698,6 @@
    251,
    0.88,
    -2.6
-  ],
-  [
-   "Joey Daccord",
-   "SEA",
-   11,
-   10,
-   276,
-   0.877,
-   -3.8
   ],
   [
    "Samuel Ersson",
@@ -360,7 +715,16 @@
    10,
    265,
    0.875,
-   -4.1
+   -4.0
+  ],
+  [
+   "Connor Hellebuyck",
+   "NJ",
+   11,
+   11,
+   268,
+   0.899,
+   2.3
   ],
   [
    "Tristan Jarry",
@@ -381,6 +745,15 @@
    -1.5
   ],
   [
+   "Daniil Tarasov",
+   "DET",
+   11,
+   9,
+   273,
+   0.93,
+   10.8
+  ],
+  [
    "Jakub Dobes",
    "MTL",
    10,
@@ -388,15 +761,6 @@
    258,
    0.868,
    -5.8
-  ],
-  [
-   "Connor Hellebuyck",
-   "NJ",
-   10,
-   10,
-   244,
-   0.898,
-   1.7
   ],
   [
    "Kevin Lankinen",
@@ -408,13 +772,31 @@
    -19.0
   ],
   [
-   "Daniil Tarasov",
-   "DET",
+   "Alex Nedeljkovic",
+   "SJ",
    10,
-   8,
-   247,
-   0.927,
-   9.0
+   10,
+   315,
+   0.889,
+   -0.6
+  ],
+  [
+   "Nico Daws",
+   "NJ",
+   4,
+   4,
+   86,
+   0.872,
+   -1.6
+  ],
+  [
+   "Nico Daws",
+   "WPG",
+   6,
+   4,
+   129,
+   0.907,
+   2.1
   ],
   [
    "Brandon Bussi",
@@ -451,33 +833,6 @@
    274,
    0.891,
    -0.1
-  ],
-  [
-   "Alex Nedeljkovic",
-   "SJ",
-   9,
-   9,
-   285,
-   0.902,
-   3.1
-  ],
-  [
-   "Nico Daws",
-   "NJ",
-   4,
-   4,
-   86,
-   0.872,
-   -1.6
-  ],
-  [
-   "Nico Daws",
-   "WPG",
-   5,
-   3,
-   106,
-   0.906,
-   1.6
   ],
   [
    "Colten Ellis",
@@ -543,6 +898,15 @@
    -1.5
   ],
   [
+   "Laurent Brossoit",
+   "ANA",
+   6,
+   6,
+   151,
+   0.887,
+   -0.5
+  ],
+  [
    "Casey DeSmith",
    "DAL",
    6,
@@ -559,15 +923,6 @@
    156,
    0.885,
    -1.0
-  ],
-  [
-   "Laurent Brossoit",
-   "ANA",
-   5,
-   5,
-   128,
-   0.867,
-   -3.0
   ],
   [
    "Igor Shesterkin",
@@ -606,6 +961,15 @@
    -4.5
   ],
   [
+   "Joonas Korpisalo",
+   "NYR",
+   4,
+   4,
+   113,
+   0.912,
+   2.4
+  ],
+  [
    "Alex Lyon",
    "BUF",
    4,
@@ -613,15 +977,6 @@
    118,
    0.89,
    -0.1
-  ],
-  [
-   "Joonas Korpisalo",
-   "NYR",
-   3,
-   3,
-   83,
-   0.94,
-   4.1
   ],
   [
    "Calvin Pickard",
@@ -694,93 +1049,325 @@
    18,
    0.833,
    -1.0
-  ],
-  [
-   "Matt Murray",
-   "NSH",
-   1,
-   1,
-   20,
-   0.9,
-   0.2
-  ],
-  [
-   "James Reimer",
-   "NYR",
-   1,
-   1,
-   8,
-   0.625,
-   -2.1
-  ],
-  [
-   "Arsenii Sergeev",
-   "CGY",
-   1,
-   1,
-   34,
-   0.853,
-   -1.3
   ]
  ],
- "games": [],
- "finals": {
-  "WPG|BOS": [
-   4,
-   2
+ "games": [
+  [
+   "2026-11-27",
+   "13:00",
+   "TOR",
+   "BOS",
+   -1.5,
+   6.5,
+   130,
+   -155,
+   "",
+   {
+    "plAway": -180,
+    "plHome": 150,
+    "over": -115,
+    "under": -105,
+    "gA": "Anthony Stolarz",
+    "gH": "Jeremy Swayman",
+    "gsA": "Confirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "NYR|BUF": [
-   1,
-   5
+  [
+   "2026-11-27",
+   "13:00",
+   "CGY",
+   "NJ",
+   -1.5,
+   6.5,
+   230,
+   -285,
+   "",
+   {
+    "plAway": -112,
+    "plHome": -108,
+    "over": 110,
+    "under": -130,
+    "gA": "Dustin Wolf",
+    "gH": "Connor Hellebuyck",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "CAR|TB": [
-   3,
-   1
+  [
+   "2026-11-27",
+   "13:00",
+   "UTA",
+   "NSH",
+   1.5,
+   6.5,
+   -118,
+   -102,
+   "",
+   {
+    "plAway": 210,
+    "plHome": -258,
+    "over": -108,
+    "under": -112,
+    "gA": "Karel Vejmelka",
+    "gH": "Juuse Saros",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "OTT|FLA": [
-   3,
-   5
+  [
+   "2026-11-27",
+   "14:00",
+   "DAL",
+   "STL",
+   1.5,
+   5.5,
+   -142,
+   120,
+   "",
+   {
+    "plAway": 180,
+    "plHome": -218,
+    "over": -122,
+    "under": 102,
+    "gA": "Jake Oettinger",
+    "gH": "Joel Hofer",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "STL|NYI": [
-   2,
-   3
+  [
+   "2026-11-27",
+   "15:00",
+   "OTT",
+   "TB",
+   -1.5,
+   5.5,
+   120,
+   -142,
+   "",
+   {
+    "plAway": -218,
+    "plHome": 180,
+    "over": -135,
+    "under": 114,
+    "gA": "Linus Ullmark",
+    "gH": "Andrei Vasilevskiy",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "CGY|PIT": [
-   6,
-   3
+  [
+   "2026-11-27",
+   "15:00",
+   "VAN",
+   "PHI",
+   -1.5,
+   6.5,
+   200,
+   -245,
+   "",
+   {
+    "plAway": -125,
+    "plHome": 105,
+    "over": 102,
+    "under": -122,
+    "gA": "Leevi Merilainen",
+    "gH": "Daniel Vladar",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "PHI|WSH": [
-   3,
-   7
+  [
+   "2026-11-27",
+   "15:00",
+   "FLA",
+   "WSH",
+   1.5,
+   6.5,
+   -115,
+   -105,
+   "",
+   {
+    "plAway": 205,
+    "plHome": -250,
+    "over": -115,
+    "under": -105,
+    "gA": "Jacob Markstrom",
+    "gH": "Logan Thompson",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "NJ|CBJ": [
-   3,
-   2
+  [
+   "2026-11-27",
+   "15:00",
+   "DET",
+   "CBJ",
+   -1.5,
+   5.5,
+   110,
+   -130,
+   "",
+   {
+    "plAway": -238,
+    "plHome": 195,
+    "over": -122,
+    "under": 102,
+    "gA": "John Gibson",
+    "gH": "Cam Talbot",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "VAN|DET": [
-   1,
-   5
+  [
+   "2026-11-27",
+   "16:00",
+   "COL",
+   "MIN",
+   -1.5,
+   6.5,
+   105,
+   -125,
+   "",
+   {
+    "plAway": -230,
+    "plHome": 190,
+    "over": 110,
+    "under": -130,
+    "gA": "Mackenzie Blackwood",
+    "gH": "Jesper Wallstedt",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "NSH|DAL": [
-   3,
-   1
+  [
+   "2026-11-27",
+   "16:00",
+   "LA",
+   "ANA",
+   1.5,
+   6.5,
+   -115,
+   -105,
+   "",
+   {
+    "plAway": 215,
+    "plHome": -265,
+    "over": -115,
+    "under": -105,
+    "gA": "Darcy Kuemper",
+    "gH": "Laurent Brossoit",
+    "gsA": "Unconfirmed",
+    "gsH": "Confirmed"
+   }
   ],
-  "UTA|MIN": [
-   4,
-   3
+  [
+   "2026-11-27",
+   "16:00",
+   "VGK",
+   "SJ",
+   1.5,
+   6.5,
+   -218,
+   180,
+   "",
+   {
+    "plAway": 120,
+    "plHome": -142,
+    "over": -115,
+    "under": -105,
+    "gA": "Adin Hill",
+    "gH": "Yaroslav Askarov",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "MTL|COL": [
-   0,
-   6
+  [
+   "2026-11-27",
+   "17:30",
+   "NYR",
+   "CHI",
+   1.5,
+   6.5,
+   -175,
+   145,
+   "",
+   {
+    "plAway": 145,
+    "plHome": -175,
+    "over": 105,
+    "under": -125,
+    "gA": "Dylan Garand",
+    "gH": "Spencer Knight",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "CHI|SEA": [
-   3,
-   1
+  [
+   "2026-11-27",
+   "19:30",
+   "WPG",
+   "NYI",
+   -1.5,
+   6.5,
+   114,
+   -135,
+   "",
+   {
+    "plAway": -225,
+    "plHome": 185,
+    "over": -105,
+    "under": -115,
+    "gA": "Stuart Skinner",
+    "gH": "Ilya Sorokin",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ],
-  "SJ|ANA": [
-   0,
-   7
+  [
+   "2026-11-27",
+   "20:00",
+   "PIT",
+   "BUF",
+   -1.5,
+   6.5,
+   130,
+   -155,
+   "",
+   {
+    "plAway": -198,
+    "plHome": 164,
+    "over": -115,
+    "under": -105,
+    "gA": "Arturs Silovs",
+    "gH": "Ukko-Pekka Luukkonen",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
+  ],
+  [
+   "2026-11-27",
+   "20:00",
+   "SEA",
+   "EDM",
+   -1.5,
+   6.5,
+   180,
+   -218,
+   "",
+   {
+    "plAway": -142,
+    "plHome": 120,
+    "over": -108,
+    "under": -112,
+    "gA": "Joey Daccord",
+    "gH": "Devon Levi",
+    "gsA": "Unconfirmed",
+    "gsH": "Unconfirmed"
+   }
   ]
- },
+ ],
+ "finals": {},
  "lockBefore": "16:00"
 }

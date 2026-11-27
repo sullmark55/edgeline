@@ -1,336 +1,486 @@
 {
- "label": "Thu Nov 26",
- "footer": "Lines from DraftKings via ESPN, Nov 26. Games without a posted line are left off. Finished games drop off once they end.",
+ "label": "Fri Nov 27",
+ "footer": "Lines from DraftKings via ESPN, Nov 27. Games without a posted line are left off. Finished games drop off once they end.",
  "games": [
   [
-   "2026-11-26",
+   "2026-11-27",
    "11:00",
-   "Georgia",
-   "Cincinnati",
-   -2.5,
-   155.5,
-   110,
-   -130,
-   "ESPN",
-   {
-    "venue": "State Farm Field House, Kissimmee, FL",
-    "hfa": 0,
-    "note": "ESPN Events Invitational — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "12:00",
-   "Army",
-   "UTSA",
-   -13.5,
-   149.5,
-   750,
-   -1200,
-   "ESPN+"
-  ],
-  [
-   "2026-11-26",
-   "12:00",
-   "Oklahoma",
-   "Purdue",
-   -4.5,
-   142.5,
-   180,
-   -218,
-   "FOX",
-   {
-    "venue": "Suncoast Credit Union Arena, Fort Myers, FL",
-    "hfa": 0,
-    "note": "Fort Myers Tip-Off — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "13:00",
-   "San Diego State",
-   "Maryland",
-   -4.5,
-   152.5,
-   185,
-   -225,
-   "ESPN",
-   {
-    "venue": "Las Vegas, NV",
-    "hfa": 0,
-    "note": "Players Era Festival — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "13:30",
-   "Boston College",
-   "UCF",
-   -2.5,
-   145.5,
-   120,
-   -142,
-   "ESPN2",
-   {
-    "venue": "State Farm Field House, Kissimmee, FL",
-    "hfa": 0,
-    "note": "ESPN Events Invitational — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "14:00",
-   "South Carolina",
-   "Arizona State",
-   -3.5,
-   139.5,
-   140,
-   -166,
-   "CBSSN",
-   {
-    "venue": "Acrisure Arena, Palm Desert, CA",
-    "hfa": 0,
-    "note": "Acrisure Series — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "14:30",
-   "Georgetown",
-   "Texas",
-   -8.5,
-   153.5,
-   320,
-   -410,
-   "FS1",
-   {
-    "venue": "Jenny Craig Pavilion, San Diego, CA",
-    "hfa": 0,
-    "note": "Rady Children's Invitational — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "15:30",
-   "Miami",
-   "Michigan",
-   2.5,
-   159.5,
-   -148,
-   124,
-   "ESPN2",
-   {
-    "venue": "Las Vegas, NV",
-    "hfa": 0,
-    "note": "Players Era Festival — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "15:30",
-   "Tennessee",
-   "Iowa State",
-   -2.5,
-   139.5,
-   130,
-   -155,
-   "ESPN",
-   {
-    "venue": "Las Vegas, NV",
-    "hfa": 0,
-    "note": "Players Era Festival — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "16:30",
-   "Arkansas",
-   "Michigan State",
-   -5.5,
-   149.5,
-   180,
-   -218,
-   "CBS",
-   {
-    "venue": "Little Caesars Arena, Detroit, MI",
-    "hfa": 0,
-    "note": "CBS Sports Thanksgiving Classic — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "16:30",
-   "Utah State",
-   "USC",
-   -3.5,
-   164.5,
-   130,
-   -155,
-   "CBSSN",
-   {
-    "venue": "Acrisure Arena, Palm Desert, CA",
-    "hfa": 0,
-    "note": "Acrisure Series — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "17:00",
-   "Saint Mary's",
-   "UCLA",
-   -7.5,
-   152.5,
-   270,
+   "Virginia",
+   "Xavier",
+   7.5,
+   156.5,
    -340,
-   "FS1",
-   {
-    "venue": "Jenny Craig Pavilion, San Diego, CA",
-    "hfa": 0,
-    "note": "Rady Children's Invitational — neutral site"
-   }
+   270,
+   ""
   ],
   [
-   "2026-11-26",
-   "18:00",
-   "TCU",
-   "Creighton",
+   "2026-11-27",
+   "12:00",
+   "Liberty",
+   "St. Thomas",
    1.5,
-   155.5,
-   -110,
-   -110,
-   "ESPN",
-   {
-    "venue": "Las Vegas, NV",
-    "hfa": 0,
-    "note": "Players Era Festival — neutral site"
-   }
+   146.5,
+   -118,
+   -102,
+   ""
   ],
   [
-   "2026-11-26",
-   "19:00",
-   "SMU",
-   "LSU",
-   -5.5,
-   160.5,
-   185,
-   -225,
-   "CBSSN",
-   {
-    "venue": "Acrisure Arena, Palm Desert, CA",
-    "hfa": 0,
-    "note": "Acrisure Series — neutral site"
-   }
+   "2026-11-27",
+   "13:00",
+   "Vermont",
+   "Merrimack",
+   3.5,
+   130.5,
+   null,
+   null,
+   ""
   ],
   [
-   "2026-11-26",
-   "19:00",
-   "DePaul",
-   "Pittsburgh",
+   "2026-11-27",
+   "13:00",
+   "Hampton",
+   "UMass Lowell",
+   -2.5,
+   142.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "13:30",
+   "Wake Forest",
+   "Memphis",
+   -2.5,
+   154.5,
+   114,
+   -135,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "14:00",
+   "South Alabama",
+   "Fresno State",
    -1.5,
-   138.5,
+   144.5,
    -112,
    -108,
-   "FS1",
-   {
-    "venue": "Suncoast Credit Union Arena, Fort Myers, FL",
-    "hfa": 0,
-    "note": "Fort Myers Tip-Off — neutral site"
-   }
+   ""
   ],
   [
-   "2026-11-26",
-   "20:00",
-   "Jacksonville State",
-   "UC Davis",
+   "2026-11-27",
+   "14:00",
+   "Southern",
+   "Vanderbilt",
+   -36.5,
+   151.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "14:00",
+   "Navy",
+   "Fairfield",
+   -4.5,
+   135.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "14:00",
+   "Maine",
+   "Le Moyne",
    1.5,
-   139.5,
-   -130,
-   110,
+   140.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "14:30",
+   "Georgetown",
+   "UCLA",
+   -8.5,
+   153.5,
+   null,
+   null,
    "",
    {
-    "venue": "Resorts World, Las Vegas, NV",
+    "venue": "Jenny Craig Pavilion, San Diego, CA",
     "hfa": 0,
-    "note": "Resorts World Classic — neutral site"
+    "note": "Wooden Legacy \u2014 neutral site"
    }
   ],
   [
-   "2026-11-26",
-   "21:00",
-   "Alabama",
-   "Kansas State",
-   15.5,
-   169.5,
-   -1000,
-   650,
-   "ESPNU",
-   {
-    "venue": "Las Vegas, NV",
-    "hfa": 0,
-    "note": "Players Era Festival — neutral site"
-   }
+   "2026-11-27",
+   "15:00",
+   "Texas State",
+   "Louisiana Tech",
+   4.5,
+   138.5,
+   -218,
+   180,
+   ""
   ],
   [
-   "2026-11-26",
-   "21:00",
-   "Louisville",
-   "St. John's",
-   -1.5,
-   161.5,
-   130,
-   -155,
-   "ESPN2",
-   {
-    "venue": "Las Vegas, NV",
-    "hfa": 0,
-    "note": "Players Era Festival — neutral site"
-   }
+   "2026-11-27",
+   "15:00",
+   "Princeton",
+   "UNC Wilmington",
+   -8.5,
+   152.5,
+   285,
+   -360,
+   ""
   ],
   [
-   "2026-11-26",
-   "22:30",
-   "Pacific",
-   "Nebraska Omaha",
-   7.5,
-   139.5,
-   -395,
-   310,
-   "",
-   {
-    "venue": "Resorts World, Las Vegas, NV",
-    "hfa": 0,
-    "note": "Resorts World Classic — neutral site"
-   }
+   "2026-11-27",
+   "15:00",
+   "Bellarmine",
+   "Butler",
+   -19.5,
+   153.5,
+   null,
+   null,
+   ""
   ],
   [
-   "2026-11-26",
-   "23:30",
-   "Baylor",
-   "Gonzaga",
-   -3.5,
-   156.5,
-   154,
-   -185,
-   "ESPN",
-   {
-    "venue": "Las Vegas, NV",
-    "hfa": 0,
-    "note": "Players Era Festival — neutral site"
-   }
-  ],
-  [
-   "2026-11-26",
-   "23:30",
-   "Texas Tech",
-   "Oregon",
-   10.5,
+   "2026-11-27",
+   "15:30",
+   "La Salle",
+   "Bucknell",
+   9.5,
    148.5,
-   -470,
-   360,
-   "ESPN2",
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "15:30",
+   "Colgate",
+   "Hofstra",
+   -5.5,
+   142.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "16:00",
+   "Arkansas Pine Bluff",
+   "Missouri",
+   -49.5,
+   156.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "16:00",
+   "Radford",
+   "American",
+   -7.5,
+   146.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "16:00",
+   "UMBC",
+   "George Washington",
+   -22.5,
+   153.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "16:30",
+   "Cincinnati",
+   "Boston College",
+   9.5,
+   141.5,
+   -410,
+   320,
+   "",
    {
-    "venue": "Las Vegas, NV",
+    "venue": "State Farm Field House, Kissimmee, FL",
     "hfa": 0,
-    "note": "Players Era Festival — neutral site"
+    "note": "ESPN Events Invitational \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
+   "16:30",
+   "Niagara",
+   "Lafayette",
+   -5.5,
+   142.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "17:00",
+   "Texas",
+   "Saint Mary's",
+   7.5,
+   158.5,
+   null,
+   null,
+   "",
+   {
+    "venue": "Jenny Craig Pavilion, San Diego, CA",
+    "hfa": 0,
+    "note": "Wooden Legacy \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
+   "17:00",
+   "Marquette",
+   "Texas A&M",
+   -2.5,
+   158.5,
+   114,
+   -135,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "17:00",
+   "Old Dominion",
+   "Virginia Tech",
+   -18.5,
+   144.5,
+   1500,
+   -3600,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "17:00",
+   "Villanova",
+   "Kansas",
+   -12.5,
+   159.5,
+   600,
+   -900,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "17:30",
+   "Drake",
+   "Boise State",
+   -5.5,
+   156.5,
+   200,
+   -245,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "18:00",
+   "Towson",
+   "Penn",
+   -4.5,
+   145.5,
+   170,
+   -205,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "18:00",
+   "Western Kentucky",
+   "Illinois",
+   -27.5,
+   177.5,
+   3500,
+   -20000,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "18:00",
+   "Bowling Green",
+   "Indiana",
+   -22.5,
+   152.5,
+   1800,
+   -5000,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "19:00",
+   "UCF",
+   "Georgia",
+   -5.5,
+   164.5,
+   180,
+   -218,
+   "",
+   {
+    "venue": "State Farm Field House, Kissimmee, FL",
+    "hfa": 0,
+    "note": "ESPN Events Invitational \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
+   "19:00",
+   "Lehigh",
+   "UC Santa Barbara",
+   -14.5,
+   145.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "19:00",
+   "West Virginia",
+   "North Carolina",
+   2.5,
+   149.5,
+   -135,
+   114,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "19:00",
+   "Charleston Southern",
+   "East Tennessee State",
+   -11.5,
+   145.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "19:30",
+   "Penn State",
+   "Mississippi State",
+   -6.5,
+   156.5,
+   215,
+   -265,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "19:30",
+   "Oakland",
+   "Houston",
+   -36.5,
+   146.5,
+   null,
+   null,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "20:00",
+   "Missouri State",
+   "Oral Roberts",
+   -3.5,
+   142.5,
+   140,
+   -166,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "20:00",
+   "North Dakota State",
+   "North Texas",
+   -6.5,
+   144.5,
+   210,
+   -258,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "20:00",
+   "Idaho",
+   "Washington State",
+   -11.5,
+   148.5,
+   600,
+   -900,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "20:00",
+   "Northeastern",
+   "Northwestern",
+   -12.5,
+   147.5,
+   600,
+   -900,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "20:00",
+   "Pacific",
+   "UC Davis",
+   4.5,
+   138.5,
+   -218,
+   180,
+   "",
+   {
+    "venue": "Resorts World, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Las Vegas event \u2014 neutral site"
+   }
+  ],
+  [
+   "2026-11-27",
+   "21:00",
+   "Wichita State",
+   "Kentucky",
+   -3.5,
+   157.5,
+   140,
+   -166,
+   ""
+  ],
+  [
+   "2026-11-27",
+   "22:30",
+   "Jacksonville State",
+   "Nebraska Omaha",
+   5.5,
+   144.5,
+   -270,
+   null,
+   "",
+   {
+    "venue": "Resorts World, Las Vegas, NV",
+    "hfa": 0,
+    "note": "Las Vegas event \u2014 neutral site"
    }
   ]
  ],
