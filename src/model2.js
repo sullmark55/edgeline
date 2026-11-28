@@ -409,7 +409,7 @@ const LEAGUES = {
     footer:"Lines from DraftKings via ESPN, Nov 28. Finished games drop off once they end.",
   },
   nhl: { key:"nhl", label:"NHL", beta:true, weekLabel:"Sat Nov 28", dataDate:"2026-11-28", xgDate:"2026-11-23", linesAt:"2026-11-28T13:48Z",
-    cfg:{regressGP:8, wShots:0.5, hfa:0.20, wModel:0.60, goaliePrior:600, maxGoals:12, tieBoost:1.35, wXG:0.75, otGoals:0.08},
+    cfg:{regressGP:8, wShots:0.5, hfa:0.20, wModel:0.65, goaliePrior:600, maxGoals:12, tieBoost:1.35, wXG:0.75, otGoals:0.08},
     footer:"Beta. Lines from DraftKings via ESPN, Nov 28. Starting goalies from Daily Faceoff. Finished games drop off once they end.",
   },
   cbb: { key:"cbb", label:"CBB", weekLabel:"Sat Nov 28", dataDate:"2026-11-28", linesAt:"2026-11-28T13:46Z",
